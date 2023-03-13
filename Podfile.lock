@@ -1,0 +1,36 @@
+PODS:
+  - Alamofire (5.6.4)
+  - IQKeyboardManagerSwift (6.5.10)
+  - Kingfisher (7.5.0)
+  - Loaf (0.7.0)
+  - Siren (5.7.1)
+  - ViewAnimator (3.1.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - IQKeyboardManagerSwift
+  - Kingfisher
+  - Loaf
+  - Siren
+  - ViewAnimator
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - IQKeyboardManagerSwift
+    - Kingfisher
+    - Loaf
+    - Siren
+    - ViewAnimator
+
+SPEC CHECKSUMS:
+  Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
+  IQKeyboardManagerSwift: 52962c76ab33532f15ad9f3ff4e5715eda5335bb
+  Kingfisher: b9c2a4a4af2990a768445c277359b27bde287d71
+  Loaf: d69937cd00649f3fa260beb8b7aef0a1feb861ef
+  Siren: 76ac728f4f2f4a3576c322272e94a0e37955664f
+  ViewAnimator: a9ceed80266e00fd435ec4fb99b2df64d580d0e4
+
+PODFILE CHECKSUM: e583c921a8ff84b3518ed1ce1092c841f98c6193
+
+COCOAPODS: 1.11.3
