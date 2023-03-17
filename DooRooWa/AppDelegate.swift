@@ -21,13 +21,17 @@ class AppDelegate: UIResponder {
     
     /// Initial settings when view loads
     func doInitialSettings() {
-
+        
         /* KeyBoard Display */
         IQKeyboardManager.shared.enable = true
-//        IQKeyboardManager.shared.toolbarTintColor = Constant.Colors.Main
-        //IQKeyboardManager.shared.toolbarDoneBarButtonItemImage = #imageLiteral(resourceName: "ic_close_buttonblack")
+        IQKeyboardManager.shared.toolbarTintColor = ColorsConst.AppBlue
+        IQKeyboardManager.shared.toolbarDoneBarButtonItemImage = #imageLiteral(resourceName: "svgClose")
         
-        /* Setting app initial screen */
+        /* Setting app initial screen */ // Setting from splash screen
+#if DEBUG
+        //        navigateToAuthenticationOrDashboardView()
+#else
+#endif
         //navigateToAuthenticationOrDashboardView()
         
         /* Check any new update for force update app */
@@ -37,40 +41,58 @@ class AppDelegate: UIResponder {
     /// Setting app initial screen on user type and user data saved in UserDefaults
     func navigateToAuthenticationOrDashboardView() {
         var aInitialViewController: UIViewController!
-        if let aUserString = UserDefaults().retriveCustomObject(UserDefaults.Keys.user) as? String, aUserString != "" {
-                aInitialViewController = AppStoryboard.splash.intialViewController()
+        if let _ = USERDEFAULTS.retriveCustomObject(.user) {
+            //         let userModel = try? JSONDecoder().decode(UserModel.self, from: data)
+            aInitialViewController = AppStoryboard.home.intialViewController()
         } else {
             aInitialViewController = AppStoryboard.auth.intialViewController()
         }
         //        self.window?.backgroundColor = UIColor.white
+        setRoot(vc: aInitialViewController)
+    }
+    
+    fileprivate func setRoot(vc: UIViewController, isShowAnimation: Bool = true) {
         if let window = self.window {
-            UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: {
-                self.window?.rootViewController = aInitialViewController
-            }, completion: nil)
+            if let snapshot = UIApplication.shared.windows.filter({$0.isKeyWindow}).first?.screenshot() {
+                vc.view.addSubview(snapshot)
+                window.makeKeyAndVisible()
+                UIView.transition(with: window, duration: isShowAnimation ? 0.3 : 0, options: [.curveEaseInOut, .transitionCrossDissolve], animations: {
+                    self.window?.rootViewController = vc
+                    snapshot.alpha = 0
+                }, completion: { isFinish in
+                    if isFinish {
+                        snapshot.removeFromSuperview()
+                    }
+                })
+            } else {
+                UIView.transition(with: window, duration: isShowAnimation ? 0.3 : 0, options: [.curveEaseInOut, .transitionCrossDissolve], animations: {
+                    window.rootViewController = vc
+                })
+            }
         }
     }
     
     /// Checking app new update and showing force app update alert
     func checkUpdate() {
-       let siren = Siren.shared
+        let siren = Siren.shared
         siren.presentationManager = PresentationManager(alertTintColor: ColorsConst.AppBlue,
-                                                       appName: AppConst.AppName,
-                                                       alertTitle: "Please, Update Now!",
-                                                       skipButtonTitle: "Click here to skip!",
-                                                       forceLanguageLocalization: .english)
-       
-       siren.rulesManager = RulesManager(globalRules: .critical)
-       siren.wail { results in
-          switch results {
-          case .success(let updateResults):
-             print("AlertAction ", updateResults.alertAction)
-             print("Localization ", updateResults.localization)
-             print("Model ", updateResults.model)
-             print("UpdateType ", updateResults.updateType)
-          case .failure(let error):
-             print("Error in Siren",error.localizedDescription)
-          }
-       }
+                                                        appName: AppConst.AppName,
+                                                        alertTitle: "Please, Update Now!",
+                                                        skipButtonTitle: "Click here to skip!",
+                                                        forceLanguageLocalization: .english)
+        
+        siren.rulesManager = RulesManager(globalRules: .critical)
+        siren.wail { results in
+            switch results {
+            case .success(let updateResults):
+                print("AlertAction ", updateResults.alertAction)
+                print("Localization ", updateResults.localization)
+                print("Model ", updateResults.model)
+                print("UpdateType ", updateResults.updateType)
+            case .failure(let error):
+                print("Error in Siren",error.localizedDescription)
+            }
+        }
     }
 }
 extension AppDelegate: UIApplicationDelegate {
@@ -105,5 +127,15 @@ extension AppDelegate: UIApplicationDelegate {
     
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+}
+extension UIView {
+    func screenshot() -> UIView {
+        let img = UIGraphicsImageRenderer(size: bounds.size).image { _ in
+            drawHierarchy(in: CGRect(origin: .zero, size: bounds.size), afterScreenUpdates: true)
+        }
+        let view = UIImageView(frame: CGRect(origin: .zero, size: bounds.size))
+        view.image = img
+        return view
     }
 }

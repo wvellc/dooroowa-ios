@@ -1,5 +1,5 @@
 //
-//  StoryboardHelper.swift
+//  StoryboardManager.swift
 //  DooRooWa
 //
 //  Created by Vision on 13/03/23.
@@ -11,7 +11,8 @@ enum AppStoryboard: String {
 
     case splash = "Splash"
     case auth = "Auth"
-    
+    case home = "Home"
+
     var instance: UIStoryboard {
       return UIStoryboard(name: self.rawValue, bundle: Bundle.main)
     }

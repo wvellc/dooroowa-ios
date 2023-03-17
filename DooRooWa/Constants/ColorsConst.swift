@@ -19,5 +19,7 @@ struct ColorsConst {
     static let Text                     = UIColor(named: "Text")
     static let AppTitleGray             = UIColor(named: "AppTitleGray")
     static let AppLightGray             = UIColor(named: "AppLightGray")
+    static let Border                   = UIColor(named: "Border")
 
+    
 }

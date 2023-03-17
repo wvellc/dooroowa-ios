@@ -30,13 +30,13 @@ extension UserDefaults {
    /// Saving custom object in UserDefaults
    func saveCustomObject(_ object: Any, key: Keys) {
       let encodedObject = try? NSKeyedArchiver.archivedData(withRootObject: object, requiringSecureCoding: true)
-      UserDefaults.standard.set(encodedObject, forKey: key.rawValue)
-      UserDefaults.standard.synchronize()
+       USERDEFAULTS.set(encodedObject, forKey: key.rawValue)
+       USERDEFAULTS.synchronize()
    }
    
    /// Retrive custom object from UserDefaults
    func retriveCustomObject(_ key: Keys) -> Any? {
-      if let encodedObject = UserDefaults.standard.object(forKey: key.rawValue) as? Data {
+      if let encodedObject = USERDEFAULTS.object(forKey: key.rawValue) as? Data {
          return try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(encodedObject) as Any
       } else {
          return nil

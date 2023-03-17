@@ -11,7 +11,8 @@ target 'DooRooWa' do
   pod 'IQKeyboardManagerSwift'
   pod 'Loaf'
   pod 'ViewAnimator'
-
+  pod 'Ripples'
+  
   # Utility
   pod 'Siren'
 
