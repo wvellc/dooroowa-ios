@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84A0845C29C87AC4003DDACA /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0845B29C87AC4003DDACA /* ForgotPasswordVC.swift */; };
+		84A0845F29C8894D003DDACA /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A0845E29C8894D003DDACA /* AlertView.xib */; };
+		84A0846129C88975003DDACA /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0846029C88975003DDACA /* AlertView.swift */; };
 		A20EA59529BF25BF00D1FC9F /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20EA59429BF25BF00D1FC9F /* SplashVC.swift */; };
 		A20EA59829BF25BF00D1FC9F /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A20EA59629BF25BF00D1FC9F /* Splash.storyboard */; };
 		A20EA59A29BF25C000D1FC9F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A20EA59929BF25C000D1FC9F /* Images.xcassets */; };
@@ -33,6 +36,9 @@
 
 /* Begin PBXFileReference section */
 		1776267DF104170FA526F524 /* Pods-DooRooWa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DooRooWa.release.xcconfig"; path = "Target Support Files/Pods-DooRooWa/Pods-DooRooWa.release.xcconfig"; sourceTree = "<group>"; };
+		84A0845B29C87AC4003DDACA /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
+		84A0845E29C8894D003DDACA /* AlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
+		84A0846029C88975003DDACA /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		A20EA58D29BF25BF00D1FC9F /* DooRooWa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DooRooWa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A20EA59429BF25BF00D1FC9F /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
 		A20EA59729BF25BF00D1FC9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Splash.storyboard; sourceTree = "<group>"; };
@@ -81,6 +87,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84A0845D29C88926003DDACA /* AlertView */ = {
+			isa = PBXGroup;
+			children = (
+				84A0845E29C8894D003DDACA /* AlertView.xib */,
+				84A0846029C88975003DDACA /* AlertView.swift */,
+			);
+			path = AlertView;
+			sourceTree = "<group>";
+		};
 		A20EA58429BF25BE00D1FC9F = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +203,7 @@
 			children = (
 				A2756C7429C18F1700479779 /* Models */,
 				A26DB0D229C0835300E52C70 /* SignInVC.swift */,
+				84A0845B29C87AC4003DDACA /* ForgotPasswordVC.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -203,6 +219,7 @@
 		A2756C7929C1928000479779 /* CustomControls */ = {
 			isa = PBXGroup;
 			children = (
+				84A0845D29C88926003DDACA /* AlertView */,
 				A26DB0D429C092A700E52C70 /* CustomTextField.swift */,
 			);
 			path = CustomControls;
@@ -295,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A20EA59D29BF25C000D1FC9F /* LaunchScreen.storyboard in Resources */,
+				84A0845F29C8894D003DDACA /* AlertView.xib in Resources */,
 				A20EA5C929BF41A800D1FC9F /* Localizable.strings in Resources */,
 				A20EA5A929BF2D9300D1FC9F /* Colors.xcassets in Resources */,
 				A20EA5BC29BF405B00D1FC9F /* Auth.storyboard in Resources */,
@@ -366,7 +384,9 @@
 				A2756C7D29C1959200479779 /* StringExtension.swift in Sources */,
 				A20EA5A629BF2D5700D1FC9F /* AppDelegate.swift in Sources */,
 				A2756C7629C18F2500479779 /* UserModel.swift in Sources */,
+				84A0846129C88975003DDACA /* AlertView.swift in Sources */,
 				A20EA59529BF25BF00D1FC9F /* SplashVC.swift in Sources */,
+				84A0845C29C87AC4003DDACA /* ForgotPasswordVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

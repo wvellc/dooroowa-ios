@@ -50,7 +50,8 @@ class SignInVC: UIViewController {
     }
     
     @IBAction func btnForgotPasswordPressed(_ sender: UIButton) {
-        
+       let aVC = ForgotPasswordVC.instance()
+       self.navigationController?.pushViewController(aVC, animated: true)
     }
     
     @IBAction func btnLoginPressed(_ sender: UIButton) {
@@ -74,11 +75,11 @@ class SignInVC: UIViewController {
     func doInitialSettings() {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         DispatchQueue.main.async() {
-            self.animateSignIn()
+            self.animateUI()
         }
     }
     
-    fileprivate func animateSignIn() {
+    fileprivate func animateUI() {
         animateLogo()
         stViewInfo.animate(animations: [AnimationType.from(direction: .bottom, offset: 200), AnimationType.zoom(scale: 0.8)], delay: 0.6, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.7)
         stViewFooterButtons.animate(animations: [AnimationType.from(direction: .bottom, offset: 200), AnimationType.zoom(scale: 0.8)], delay: 0.7, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.7)

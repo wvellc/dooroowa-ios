@@ -17,7 +17,8 @@ class SplashVC: UIViewController {
     @IBOutlet weak var imgViewLogo: UIImageView!
     
     //MARK: - Variables
-    private var arrImages = [#imageLiteral(resourceName: "imgLogoDoorClosed"), #imageLiteral(resourceName: "imgLogo")]
+   
+    private var arrImages = [#imageLiteral(resourceName: "svgDoorClosed"), #imageLiteral(resourceName: "svgDoorOpening1"), #imageLiteral(resourceName: "svgDoorOpening2"), #imageLiteral(resourceName: "svgDoorOpening3"), #imageLiteral(resourceName: "svgDoorOpen"), #imageLiteral(resourceName: "svgDoorOpeningExtended"),]
     
     //MARK: - View Life Cycle
     

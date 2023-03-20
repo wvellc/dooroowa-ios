@@ -33,7 +33,10 @@ class AppDelegate: UIResponder {
 #else
 #endif
         //navigateToAuthenticationOrDashboardView()
-        
+      
+       /* Navigation bar large title offset from left */
+       UINavigationBar.appearance().shadowImage = UIImage()
+       
         /* Check any new update for force update app */
         checkUpdate()
     }
