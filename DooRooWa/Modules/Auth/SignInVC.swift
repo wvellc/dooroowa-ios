@@ -34,6 +34,10 @@ class SignInVC: UIViewController {
         super.viewDidAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
+   
+   deinit {
+       print("Sign In screen released from memory")
+   }
     
     //MARK: - IBActions
     
@@ -51,28 +55,33 @@ class SignInVC: UIViewController {
     
     @IBAction func btnForgotPasswordPressed(_ sender: UIButton) {
        let aVC = ForgotPasswordVC.instance()
+       aVC.userModel = userModel
+       aVC.forgotEmailProtocol = self
        self.navigationController?.pushViewController(aVC, animated: true)
     }
     
     @IBAction func btnLoginPressed(_ sender: UIButton) {
-        userModel.name = "Jacob Hill"
-        userModel.id = 1
-        userModel.email = "jacobhill1122@gmail.com"
-        userModel.phone = "1234567890"
-        if let aData = JsonObjectManager().modelToJson(model: userModel) {
-            USERDEFAULTS.saveCustomObject(aData, key: .user)
-            AppConst.APPDELEGATE.navigateToAuthenticationOrDashboardView()
-        }
+//       if isValid() {
+          userModel.name = "Jacob Hill"
+          userModel.id = 1
+          userModel.email = "jacobhill1122@gmail.com"
+          userModel.phone = "1234567890"
+          if let aData = JsonObjectManager().modelToJson(model: userModel) {
+             USERDEFAULTS.saveCustomObject(aData, key: .user)
+             AppConst.APPDELEGATE.navigateToAuthenticationOrDashboardView()
+          }
+//       }
     }
     
     @IBAction func btnDontHaveAccountPressed(_ sender: UIButton) {
-        
+       let aVC = SignUpVC.instance()
+       self.navigationController?.pushViewController(aVC, animated: true)
     }
     
     //MARK: - Class Functions
     
     /// Initial settings when view loads
-    func doInitialSettings() {
+    fileprivate func doInitialSettings() {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         DispatchQueue.main.async() {
             self.animateUI()
@@ -83,7 +92,6 @@ class SignInVC: UIViewController {
         animateLogo()
         stViewInfo.animate(animations: [AnimationType.from(direction: .bottom, offset: 200), AnimationType.zoom(scale: 0.8)], delay: 0.6, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.7)
         stViewFooterButtons.animate(animations: [AnimationType.from(direction: .bottom, offset: 200), AnimationType.zoom(scale: 0.8)], delay: 0.7, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.7)
-
     }
     
     fileprivate func animateLogo() {
@@ -93,6 +101,18 @@ class SignInVC: UIViewController {
             self.imgViewLogo.center = cntr
         }
     }
+   
+   /// Checking validation and returns true/false
+   fileprivate func isValid() -> Bool {
+      if !Validator.isEmailAddress(userModel.email ?? "") {
+         txtEmail.becomeFirstResponder()
+         return false
+      } else if !Validator.isPassword(userModel.password ?? "") {
+         txtPassword.becomeFirstResponder()
+         return false
+      }
+      return true
+   }
     
     /*
      // MARK: - Navigation
@@ -103,4 +123,10 @@ class SignInVC: UIViewController {
      }
      */
     
+}
+extension SignInVC: ForgotEmailProtocol {
+   func updated(email: String?) {
+      userModel.email = email
+      txtEmail.text = email
+   }
 }

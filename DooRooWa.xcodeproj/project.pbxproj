@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		846F9A2929C9AF8200547E8B /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846F9A2829C9AF8100547E8B /* SignUpVC.swift */; };
 		84A0845C29C87AC4003DDACA /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0845B29C87AC4003DDACA /* ForgotPasswordVC.swift */; };
 		84A0845F29C8894D003DDACA /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A0845E29C8894D003DDACA /* AlertView.xib */; };
 		84A0846129C88975003DDACA /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0846029C88975003DDACA /* AlertView.swift */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		1776267DF104170FA526F524 /* Pods-DooRooWa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DooRooWa.release.xcconfig"; path = "Target Support Files/Pods-DooRooWa/Pods-DooRooWa.release.xcconfig"; sourceTree = "<group>"; };
+		846F9A2829C9AF8100547E8B /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		84A0845B29C87AC4003DDACA /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		84A0845E29C8894D003DDACA /* AlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
 		84A0846029C88975003DDACA /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				A2756C7429C18F1700479779 /* Models */,
 				A26DB0D229C0835300E52C70 /* SignInVC.swift */,
 				84A0845B29C87AC4003DDACA /* ForgotPasswordVC.swift */,
+				846F9A2829C9AF8100547E8B /* SignUpVC.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 				84A0846129C88975003DDACA /* AlertView.swift in Sources */,
 				A20EA59529BF25BF00D1FC9F /* SplashVC.swift in Sources */,
 				84A0845C29C87AC4003DDACA /* ForgotPasswordVC.swift in Sources */,
+				846F9A2929C9AF8200547E8B /* SignUpVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

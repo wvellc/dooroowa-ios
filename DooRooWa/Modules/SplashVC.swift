@@ -39,7 +39,7 @@ class SplashVC: UIViewController {
     //MARK: - Class Functions
     
     /// Initial settings when view loads
-    func doInitialSettings() {
+   fileprivate func doInitialSettings() {
         addObservers()
         imgViewLogo.animate(animations: [AnimationType.zoom(scale: 0.2)], usingSpringWithDamping: 0.8, initialSpringVelocity: 0.6)
         self.imgViewLogo.image = arrImages.first
