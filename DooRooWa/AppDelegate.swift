@@ -20,7 +20,7 @@ class AppDelegate: UIResponder {
     //MARK: - Class Functions
     
     /// Initial settings when view loads
-    func doInitialSettings() {
+    fileprivate func doInitialSettings() {
         
         /* KeyBoard Display */
         IQKeyboardManager.shared.enable = true
@@ -29,7 +29,7 @@ class AppDelegate: UIResponder {
         
         /* Setting app initial screen */ // Setting from splash screen
 #if DEBUG
-        //        navigateToAuthenticationOrDashboardView()
+//                navigateToAuthenticationOrDashboardView()
 #else
 #endif
         //navigateToAuthenticationOrDashboardView()
@@ -42,24 +42,24 @@ class AppDelegate: UIResponder {
     }
     
     /// Setting app initial screen on user type and user data saved in UserDefaults
-    func navigateToAuthenticationOrDashboardView() {
+    func navigateToAuthenticationOrDashboardView(_ isShowTransition: Bool = true) {
         var aInitialViewController: UIViewController!
-        if let _ = USERDEFAULTS.retriveCustomObject(.user) {
+        if let _ = UserDefaults.shared.retriveCustomObject(.user) {
             //         let userModel = try? JSONDecoder().decode(UserModel.self, from: data)
             aInitialViewController = AppStoryboard.home.intialViewController()
         } else {
             aInitialViewController = AppStoryboard.auth.intialViewController()
         }
         //        self.window?.backgroundColor = UIColor.white
-        setRoot(vc: aInitialViewController)
+        setRoot(vc: aInitialViewController, isShowTransition: isShowTransition)
     }
     
-    fileprivate func setRoot(vc: UIViewController, isShowAnimation: Bool = true) {
+    fileprivate func setRoot(vc: UIViewController, isShowTransition: Bool = true) {
         if let window = self.window {
             if let snapshot = UIApplication.shared.windows.filter({$0.isKeyWindow}).first?.screenshot() {
                 vc.view.addSubview(snapshot)
                 window.makeKeyAndVisible()
-                UIView.transition(with: window, duration: isShowAnimation ? 0.3 : 0, options: [.curveEaseInOut, .transitionCrossDissolve], animations: {
+                UIView.transition(with: window, duration: isShowTransition ? 0.3 : 0, options: [.curveEaseInOut, .transitionCrossDissolve], animations: {
                     self.window?.rootViewController = vc
                     snapshot.alpha = 0
                 }, completion: { isFinish in
@@ -68,7 +68,7 @@ class AppDelegate: UIResponder {
                     }
                 })
             } else {
-                UIView.transition(with: window, duration: isShowAnimation ? 0.3 : 0, options: [.curveEaseInOut, .transitionCrossDissolve], animations: {
+                UIView.transition(with: window, duration: isShowTransition ? 0.3 : 0, options: [.curveEaseInOut, .transitionCrossDissolve], animations: {
                     window.rootViewController = vc
                 })
             }
@@ -76,7 +76,7 @@ class AppDelegate: UIResponder {
     }
     
     /// Checking app new update and showing force app update alert
-    func checkUpdate() {
+    fileprivate func checkUpdate() {
         let siren = Siren.shared
         siren.presentationManager = PresentationManager(alertTintColor: ColorsConst.AppBlue,
                                                         appName: AppConst.AppName,
@@ -133,7 +133,7 @@ extension AppDelegate: UIApplicationDelegate {
     }
 }
 extension UIView {
-    func screenshot() -> UIView {
+    fileprivate func screenshot() -> UIView {
         let img = UIGraphicsImageRenderer(size: bounds.size).image { _ in
             drawHierarchy(in: CGRect(origin: .zero, size: bounds.size), afterScreenUpdates: true)
         }

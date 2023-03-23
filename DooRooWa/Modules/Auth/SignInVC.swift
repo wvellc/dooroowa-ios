@@ -67,8 +67,8 @@ class SignInVC: UIViewController {
           userModel.email = "jacobhill1122@gmail.com"
           userModel.phone = "1234567890"
           if let aData = JsonObjectManager().modelToJson(model: userModel) {
-             USERDEFAULTS.saveCustomObject(aData, key: .user)
-             AppConst.APPDELEGATE.navigateToAuthenticationOrDashboardView()
+              UserDefaults.shared.saveCustomObject(aData, key: .user)
+             AppConst.APPDELEGATE.navigateToAuthenticationOrDashboardView(false)
           }
 //       }
     }

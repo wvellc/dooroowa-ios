@@ -49,11 +49,100 @@
                     </view>
                     <navigationItem key="navigationItem" title="Welcome Jacob!" largeTitleDisplayMode="always" id="1eL-vN-Hha">
                         <barButtonItem key="backBarButtonItem" title=" " id="tmw-Z7-WWj"/>
+                        <barButtonItem key="leftBarButtonItem" image="svgMenu" id="Cg7-qO-B9U">
+                            <connections>
+                                <action selector="btnMenuPressed:" destination="Y6W-OH-hqX" id="Bpp-wA-OlE"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="svgNotification" id="0GH-tD-4PD">
+                            <connections>
+                                <action selector="btnNotificationsPressed:" destination="Y6W-OH-hqX" id="vmb-DO-O0h"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-114" y="-27"/>
+        </scene>
+        <!--IntroVC-->
+        <scene sceneID="PsA-gt-4xy">
+            <objects>
+                <viewController storyboardIdentifier="IntroVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="AW4-l6-mZ3" customClass="IntroVC" customModule="DooRooWa" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QxK-rN-hBd">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fe3-Cs-mni">
+                                <rect key="frame" x="28" y="742" width="337" height="56"/>
+                                <color key="backgroundColor" name="AppLightYellow"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="gxv-XM-OOC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="11" maxY="0.0"/>
+                                <state key="normal" title="Watch video" image="svgPlay">
+                                    <color key="titleColor" name="AppTitleGray"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="btnLogoutPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="RmD-o0-er0"/>
+                                    <action selector="btnWatchVideoPressed:" destination="AW4-l6-mZ3" eventType="touchUpInside" id="AKh-Ej-FII"/>
+                                </connections>
+                            </button>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X8r-ih-EWS">
+                                <rect key="frame" x="22" y="125" width="349" height="595"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8B-Ta-v4v">
+                                <rect key="frame" x="317" y="69" width="54" height="26"/>
+                                <color key="backgroundColor" name="AppWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="26" id="4Y7-3E-XiI"/>
+                                    <constraint firstAttribute="width" constant="54" id="cn2-Dt-6ay"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Skip"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="13"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="btnSkipPressed:" destination="AW4-l6-mZ3" eventType="touchUpInside" id="EUq-Xj-RCJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ad3-6U-al1"/>
+                        <color key="backgroundColor" name="AppBlack50"/>
+                        <constraints>
+                            <constraint firstItem="Ad3-6U-al1" firstAttribute="trailing" secondItem="fe3-Cs-mni" secondAttribute="trailing" constant="28" id="EiL-9K-D7x"/>
+                            <constraint firstItem="X8r-ih-EWS" firstAttribute="leading" secondItem="Ad3-6U-al1" secondAttribute="leading" constant="22" id="KEl-z4-WXQ"/>
+                            <constraint firstItem="f8B-Ta-v4v" firstAttribute="top" secondItem="Ad3-6U-al1" secondAttribute="top" constant="10" id="KZr-7o-EOE"/>
+                            <constraint firstItem="Ad3-6U-al1" firstAttribute="trailing" secondItem="X8r-ih-EWS" secondAttribute="trailing" constant="22" id="ZLN-qa-4y4"/>
+                            <constraint firstItem="X8r-ih-EWS" firstAttribute="top" secondItem="f8B-Ta-v4v" secondAttribute="bottom" constant="30" id="eow-Ib-zCT"/>
+                            <constraint firstItem="fe3-Cs-mni" firstAttribute="leading" secondItem="Ad3-6U-al1" secondAttribute="leading" constant="28" id="iav-u4-05h"/>
+                            <constraint firstItem="Ad3-6U-al1" firstAttribute="trailing" secondItem="f8B-Ta-v4v" secondAttribute="trailing" constant="22" id="msd-Ne-LFe"/>
+                            <constraint firstItem="fe3-Cs-mni" firstAttribute="top" secondItem="X8r-ih-EWS" secondAttribute="bottom" constant="22" id="w55-hz-xqY"/>
+                            <constraint firstItem="Ad3-6U-al1" firstAttribute="bottom" secondItem="fe3-Cs-mni" secondAttribute="bottom" constant="20" id="xNI-Ox-tZs"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="viewVideo" destination="X8r-ih-EWS" id="cbC-PP-o6r"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4om-nF-M8e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="794.6564885496183" y="-27.464788732394368"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cvg-w0-ekE">
@@ -84,8 +173,18 @@
             <point key="canvasLocation" x="-1153" y="-27"/>
         </scene>
     </scenes>
+    <color key="tintColor" name="AppBlue"/>
     <resources>
         <image name="svgBack" width="20" height="20"/>
+        <image name="svgMenu" width="20" height="20"/>
+        <image name="svgNotification" width="20" height="20"/>
+        <image name="svgPlay" width="31" height="31"/>
+        <namedColor name="AppBlack50">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.69999998807907104" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="AppBlue">
+            <color red="0.0" green="0.45490196347236633" blue="0.63529413938522339" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="AppLightYellow">
             <color red="1" green="0.98039215803146362" blue="0.87450981140136719" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

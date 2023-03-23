@@ -9,10 +9,10 @@ import UIKit
 
 enum AppStoryboard: String {
 
-    case splash = "Splash"
+    case common = "Common"
     case auth = "Auth"
     case home = "Home"
-
+    
     var instance: UIStoryboard {
       return UIStoryboard(name: self.rawValue, bundle: Bundle.main)
     }

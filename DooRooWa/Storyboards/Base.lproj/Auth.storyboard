@@ -917,6 +917,7 @@ Sign In To DoorooWa</string>
                         <outlet property="txtName" destination="wEg-Y2-eWg" id="WQC-tC-toE"/>
                         <outlet property="txtPassword" destination="DQw-P4-zGs" id="KEw-hD-o4F"/>
                         <outlet property="txtPhone" destination="nXm-b6-UoA" id="Lhp-X8-Y8C"/>
+                        <outlet property="viewTermsAndConditions" destination="mCZ-HO-mYr" id="Qvt-4z-3V0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vBm-Zq-vM6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -947,6 +948,7 @@ Sign In To DoorooWa</string>
             <size key="intrinsicContentSize" width="61.666666666666664" height="23"/>
         </designable>
     </designables>
+    <color key="tintColor" name="AppBlue"/>
     <resources>
         <image name="imgLogo" width="210" height="173"/>
         <image name="svgBack" width="20" height="20"/>

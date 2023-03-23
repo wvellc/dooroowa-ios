@@ -12,7 +12,8 @@ target 'DooRooWa' do
   pod 'Loaf'
   pod 'ViewAnimator'
   pod 'Ripples'
-  
+  pod 'SwipeCellKit'
+
   # Utility
   pod 'Siren'
 

@@ -21,18 +21,41 @@ class HomeVC: UIViewController {
         doInitialSettings()
     }
     
+    deinit {
+        print("Home screen released from memory")
+    }
+    
     //MARK: - IBActions
     
+    @IBAction func btnMenuPressed(_ sender: UIBarButtonItem) {
+        
+    }
+
+    @IBAction func btnNotificationsPressed(_ sender: UIBarButtonItem) {
+        let aVC = NotificationsVC.instance()
+        self.navigationController?.pushViewController(aVC, animated: true)
+    }
+    
     @IBAction func btnLogoutPressed(_ sender: UIButton) {
-        USERDEFAULTS.clearAllUserDefaultData()
+        UserDefaults.shared.clearAllUserDefaultData()
         AppConst.APPDELEGATE.navigateToAuthenticationOrDashboardView()
     }
     
     //MARK: - Class Functions
     
     /// Initial settings when view loads
-    func doInitialSettings() {
-        
+    fileprivate func doInitialSettings() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            if UserDefaults.shared.isAppFirstLaunch() {
+                let aVC = IntroVC.instance()
+                aVC.modalTransitionStyle = .crossDissolve
+                aVC.modalPresentationStyle = .overCurrentContext
+                aVC.introTutorialProtocol = self
+                self.present(aVC, animated: true)
+            } else {
+                self.tutorialSkipped()
+            }
+        }
     }
     
     /*
@@ -44,4 +67,9 @@ class HomeVC: UIViewController {
      }
      */
     
+}
+extension HomeVC: IntroTutorialProtocol {
+    func tutorialSkipped() {
+        
+    }
 }

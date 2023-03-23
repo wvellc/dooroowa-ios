@@ -38,7 +38,7 @@ class Validator {
     static func isValidNumber(_ value: String) -> Bool{
         let PHONE_REGEX = "^((\\+)|(00))[0-9]{10,15}$"//"^\\d{10,15}$"
         let phoneTest = NSPredicate(format: "SELF MATCHES %@", PHONE_REGEX)
-        let result =  phoneTest.evaluate(with: self)
+        let result =  phoneTest.evaluate(with: value)
         return result
     }
     
