@@ -28,7 +28,7 @@ class HomeVC: UIViewController {
     //MARK: - IBActions
     
     @IBAction func btnMenuPressed(_ sender: UIBarButtonItem) {
-        
+        sideMenuController?.showLeftView()
     }
 
     @IBAction func btnNotificationsPressed(_ sender: UIBarButtonItem) {

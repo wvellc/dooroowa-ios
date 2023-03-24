@@ -29,14 +29,50 @@ class AppDelegate: UIResponder {
         
         /* Setting app initial screen */ // Setting from splash screen
 #if DEBUG
-//                navigateToAuthenticationOrDashboardView()
+//        navigateToAuthenticationOrDashboardView()
 #else
 #endif
         //navigateToAuthenticationOrDashboardView()
-      
-       /* Navigation bar large title offset from left */
-       UINavigationBar.appearance().shadowImage = UIImage()
+        
+        /* Navigation Appearance */
        
+        /* Navigation bar large title offset from left */
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().prefersLargeTitles = true
+        UINavigationBar.appearance().tintColor = ColorsConst.AppBlue
+
+        
+        /// Attributed center align small title
+        let attributedSmallProperties  = [
+            NSAttributedString.Key.foregroundColor : (ColorsConst.Text ?? UIColor.black),
+            NSAttributedString.Key.font : UIFont.init(name: AppFonts.ChalkboardSERegular, size: 18) ?? UIFont.systemFont(ofSize: 18)
+        ]
+        
+        /// Attributed left align large title
+        let attributedLargeProperties  = [
+            NSAttributedString.Key.foregroundColor : (ColorsConst.Text ?? UIColor.black),
+            NSAttributedString.Key.font : UIFont.init(name: AppFonts.ChalkboardSERegular, size: 24) ?? UIFont.systemFont(ofSize: 24)
+        ]
+        
+        if #available(iOS 13.0, *) {
+            let appearanceBG = UINavigationBarAppearance()
+            appearanceBG.configureWithOpaqueBackground()
+            appearanceBG.backgroundColor = ColorsConst.AppWhite
+            appearanceBG.titleTextAttributes = attributedSmallProperties
+            appearanceBG.largeTitleTextAttributes = attributedLargeProperties
+            appearanceBG.shadowColor = .clear
+            appearanceBG.backgroundColor = ColorsConst.AppWhite //App Bg Color
+            appearanceBG.setBackIndicatorImage(#imageLiteral(resourceName: "svgBack"), transitionMaskImage: #imageLiteral(resourceName: "svgBack"))
+            UINavigationBar.appearance().standardAppearance = appearanceBG
+            UINavigationBar.appearance().scrollEdgeAppearance = appearanceBG
+        } else {
+            UINavigationBar.appearance().backIndicatorImage = #imageLiteral(resourceName: "svgBack")
+            UINavigationBar.appearance().backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "svgBack")
+            UINavigationBar.appearance().titleTextAttributes = attributedSmallProperties
+            UINavigationBar.appearance().largeTitleTextAttributes = attributedLargeProperties
+            UINavigationBar.appearance().backgroundColor = .clear
+        }
+        
         /* Check any new update for force update app */
         checkUpdate()
     }

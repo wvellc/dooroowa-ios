@@ -2,6 +2,7 @@ PODS:
   - Alamofire (5.6.4)
   - IQKeyboardManagerSwift (6.5.10)
   - Kingfisher (7.5.0)
+  - LGSideMenuController (3.1.2)
   - Loaf (0.7.0)
   - Ripples (0.1.0)
   - Siren (5.7.1)
@@ -12,6 +13,7 @@ DEPENDENCIES:
   - Alamofire
   - IQKeyboardManagerSwift
   - Kingfisher
+  - LGSideMenuController
   - Loaf
   - Ripples
   - Siren
@@ -23,6 +25,7 @@ SPEC REPOS:
     - Alamofire
     - IQKeyboardManagerSwift
     - Kingfisher
+    - LGSideMenuController
     - Loaf
     - Ripples
     - Siren
@@ -33,12 +36,13 @@ SPEC CHECKSUMS:
   Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
   IQKeyboardManagerSwift: 52962c76ab33532f15ad9f3ff4e5715eda5335bb
   Kingfisher: b9c2a4a4af2990a768445c277359b27bde287d71
+  LGSideMenuController: 0c7b155b0dbdf14bf8b88d5ac363c5fe1584bb23
   Loaf: d69937cd00649f3fa260beb8b7aef0a1feb861ef
   Ripples: 8f0078d81c55235351e77903cf540405c497f3f9
   Siren: 76ac728f4f2f4a3576c322272e94a0e37955664f
   SwipeCellKit: 3972254a826da74609926daf59b08d6c72e619ea
   ViewAnimator: a9ceed80266e00fd435ec4fb99b2df64d580d0e4
 
-PODFILE CHECKSUM: 684c18bd97e79b9630883539a78bd3e2bccfa622
+PODFILE CHECKSUM: 3bae77c85d9c12ef1617eb22c9534048f800d89b
 
 COCOAPODS: 1.12.0
