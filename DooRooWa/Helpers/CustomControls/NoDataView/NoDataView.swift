@@ -16,7 +16,6 @@ class NoDataView: UIView {
     @IBOutlet weak var imgViewNoData: UIImageView!
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblMessage: UILabel!
-    @IBOutlet weak var viewBackground: UIView!
     @IBOutlet weak var constImgViewHeight: NSLayoutConstraint!
     
     //MARK: - Variables

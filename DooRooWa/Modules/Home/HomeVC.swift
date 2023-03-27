@@ -9,6 +9,10 @@ import UIKit
 
 class HomeVC: UIViewController {
     
+    static func instance() -> HomeVC {
+       return HomeVC.instatiateFromStoryBoard(appStoryboard: AppStoryboard.home)
+    }
+    
     //MARK: - IBOutlets
     
     //MARK: - Variables
@@ -34,11 +38,6 @@ class HomeVC: UIViewController {
     @IBAction func btnNotificationsPressed(_ sender: UIBarButtonItem) {
         let aVC = NotificationsVC.instance()
         self.navigationController?.pushViewController(aVC, animated: true)
-    }
-    
-    @IBAction func btnLogoutPressed(_ sender: UIButton) {
-        UserDefaults.shared.clearAllUserDefaultData()
-        AppConst.APPDELEGATE.navigateToAuthenticationOrDashboardView()
     }
     
     //MARK: - Class Functions

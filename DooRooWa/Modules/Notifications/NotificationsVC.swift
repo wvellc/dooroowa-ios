@@ -105,6 +105,11 @@ class NotificationsVC: UIViewController {
         
     fileprivate func manageNoDataView() {
         manageClearAllUI()
+        if arrNotificaions.count > 0 {
+            NoDataView.hideNoDataView(parent: self)
+        } else {
+            NoDataView.showNoData(noDataImage: #imageLiteral(resourceName: "svgNoNotifications"), title: "No Data Found", message: nil, parent: self, handler: nil)
+        }
     }
     
     fileprivate func manageClearAllUI() {
@@ -147,7 +152,7 @@ extension NotificationsVC: UITableViewDelegate, UITableViewDataSource, SwipeTabl
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let aCell = tableView.dequeueReusableCell(withIdentifier: "NotificationCell", for: indexPath) as! NotificationCell
+        guard let aCell = tableView.dequeueReusableCell(withIdentifier: "NotificationCell", for: indexPath) as? NotificationCell else { return UITableViewCell() }
         aCell.delegate = self
         aCell.configureData(indx: indexPath, model: arrNotificaions[indexPath.row])
         return aCell

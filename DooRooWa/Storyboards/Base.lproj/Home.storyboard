@@ -17,35 +17,8 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKY-t9-ZYP">
-                                <rect key="frame" x="20" y="742" width="353" height="56"/>
-                                <color key="backgroundColor" name="AppLightYellow"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="Z7S-Fv-wrY"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="20"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Logout">
-                                    <color key="titleColor" name="AppTitleGray"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="btnLogoutPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="VIx-RZ-p78"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="AppWhite"/>
-                        <constraints>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="dKY-t9-ZYP" secondAttribute="bottom" constant="20" id="AyN-v8-t0X"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="dKY-t9-ZYP" secondAttribute="trailing" constant="20" id="Hez-A2-6mR"/>
-                            <constraint firstItem="dKY-t9-ZYP" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="pRS-xs-AMx"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Welcome Jacob!" largeTitleDisplayMode="always" id="1eL-vN-Hha">
                         <barButtonItem key="backBarButtonItem" title=" " id="tmw-Z7-WWj"/>
@@ -90,7 +63,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="btnLogoutPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="RmD-o0-er0"/>
                                     <action selector="btnWatchVideoPressed:" destination="AW4-l6-mZ3" eventType="touchUpInside" id="AKh-Ej-FII"/>
                                 </connections>
                             </button>
@@ -170,13 +142,50 @@
                     <view key="view" contentMode="scaleToFill" id="XgP-fj-pYY">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wiA-8T-SvS">
+                                <rect key="frame" x="0.0" y="59" width="393" height="793"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="CfB-dh-pes">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="230"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgLogo" translatesAutoresizingMaskIntoConstraints="NO" id="nVs-0b-jNv">
+                                            <rect key="frame" x="111.66666666666667" y="45" width="169.66666666666663" height="140"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="nVs-0b-jNv" secondAttribute="height" multiplier="210:173" id="4Nu-ld-Rnr"/>
+                                                <constraint firstAttribute="height" constant="140" id="Ytr-ZV-uWe"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstItem="nVs-0b-jNv" firstAttribute="centerX" secondItem="CfB-dh-pes" secondAttribute="centerX" id="41h-bm-RGq"/>
+                                        <constraint firstItem="nVs-0b-jNv" firstAttribute="centerY" secondItem="CfB-dh-pes" secondAttribute="centerY" id="qGX-Ga-CTz"/>
+                                    </constraints>
+                                </view>
+                                <connections>
+                                    <outlet property="dataSource" destination="Fry-Ch-0t6" id="0rg-xj-4ua"/>
+                                    <outlet property="delegate" destination="Fry-Ch-0t6" id="fjf-Ky-EcM"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="RvZ-L3-eaV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="wiA-8T-SvS" firstAttribute="top" secondItem="RvZ-L3-eaV" secondAttribute="top" id="PUz-zv-jhr"/>
+                            <constraint firstItem="RvZ-L3-eaV" firstAttribute="trailing" secondItem="wiA-8T-SvS" secondAttribute="trailing" id="Ras-j4-z1a"/>
+                            <constraint firstAttribute="bottom" secondItem="wiA-8T-SvS" secondAttribute="bottom" id="Wo5-Oy-loV"/>
+                            <constraint firstItem="wiA-8T-SvS" firstAttribute="leading" secondItem="RvZ-L3-eaV" secondAttribute="leading" id="gna-vd-ZeD"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tblSideMenu" destination="wiA-8T-SvS" id="yiE-QA-lO7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Hc-CT-wKb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2083" y="-27"/>
+            <point key="canvasLocation" x="-2083.2061068702287" y="-27.464788732394368"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cvg-w0-ekE">
@@ -209,6 +218,7 @@
     </scenes>
     <color key="tintColor" name="AppBlue"/>
     <resources>
+        <image name="imgLogo" width="210" height="173"/>
         <image name="svgBack" width="20" height="20"/>
         <image name="svgMenu" width="20" height="20"/>
         <image name="svgNotification" width="20" height="20"/>
