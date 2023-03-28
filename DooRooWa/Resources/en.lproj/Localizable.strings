@@ -5,3 +5,71 @@
   Created by Vision on 13/03/23.
   
 */
+
+//Common Texts
+"email_id_placeholder" = "E-mail Id";
+"password" = "Password";
+"no_data_found" = "No Data Found";
+
+//Alerts
+"password_reset_successfully" = "Password Reset Successfully";
+"password_has_been_sent_to_your_email" = "Password has been sent to your email";
+"ok" = "OK";
+"confrimation_message_clear_all_notifications" = "Are you sure you want to clear all notifications?";
+"clear_all" = "Clear All";
+"confrimation_message_delete_notification" = "Are you sure you want to delete?";
+"delete" = "Delete";
+"confrimation_message_logout" = "Are you sure you want to logout?";
+"logout" = "Logout";
+"cancel" = "Cancel";
+"confrimation_message_delete_account" = "Are you sure you want to delete your account?";
+
+//Side Menu
+"home" = "Home";
+"notifications" = "Notifications";
+"episodes" = "Episodes";
+"tools" = "Tools";
+"tests" = "Tests";
+"profile" = "Profile";
+"settings" = "Settings";
+
+//Auth
+"forgot_password_button" = "Forgot Password?";
+"login" = "Login";
+"dont_have_account" = "Don’t have account? Register";
+"forgot_password" = "Forgot Password";
+"enter_email_you_used_to_sign_in" = "Please Enter The Email You Used To \nLogin To DooRooWa";
+"reset_password" = "Reset Password";
+"back_to_login" = "Back to Login";
+"name" = "Name";
+"phone_number" = "Phone Number";
+"i_agree_to" = "I agree to ";
+"terms_and_conditions" = "Terms and Conditions";
+"register" = "Register";
+"already_have_an_account" = "Already have an account? Login";
+
+//Home
+"welcome" = "Welcome ";
+"week" = "Week";
+"start_your_first_week" = "Start your first week";
+"weekly_progress" = "Weekly progress";
+"skip" = "Skip";
+"watch_video" = "Watch video";
+
+//"Notifications"
+
+
+//"Episodes"
+
+
+//"Tools"
+
+
+//"Tests"
+
+
+//"Profile"
+
+
+//"Settings"
+

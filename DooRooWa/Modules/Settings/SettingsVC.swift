@@ -32,19 +32,23 @@ class SettingsVC: UIViewController {
     //MARK: - IBActions
     
     @IBAction func btnMenuPressed(_ sender: UIBarButtonItem) {
-        sideMenuController?.hideLeftView()
+        sideMenuController?.showLeftView()
     }
     
     @IBAction func btnLogoutPressed(_ sender: UIButton) {
-        UserDefaults.shared.clearAllUserDefaultData()
-        AppConst.APPDELEGATE.navigateToAuthenticationOrDashboardView()
+        AlertView.show(title: "confrimation_message_logout".localized, message: "", yesButtonTitle: "logout".localized, alertType: .yesNoButton, parent: self) { isDelete in
+            if isDelete {
+                UserDefaults.shared.clearAllUserDefaultData()
+                AppConst.APPDELEGATE.navigateToAuthenticationOrDashboardView()
+            }
+        }
     }
     
     //MARK: - Class Functions
     
     /// Initial settings when view loads
     fileprivate func doInitialSettings() {
-        
+        title = "settings".localized
     }
     
     /*

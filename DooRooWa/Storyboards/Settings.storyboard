@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QyO-aC-JLO">
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QyO-aC-JLO" customClass="LocalizableButton" customModule="DooRooWa" customModuleProvider="target">
                                 <rect key="frame" x="20" y="742" width="353" height="56"/>
                                 <color key="backgroundColor" name="AppLightYellow"/>
                                 <constraints>
@@ -33,6 +33,7 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizableKey" value="logout"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="btnLogoutPressed:" destination="tTX-BV-0pw" eventType="touchUpInside" id="bg3-Fu-RR5"/>

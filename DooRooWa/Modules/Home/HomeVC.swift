@@ -25,6 +25,17 @@ class HomeVC: UIViewController {
         doInitialSettings()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let data = UserDefaults.shared.retriveCustomObject(.user) as? Data,
+           let user = try? JSONDecoder().decode(UserModel.self, from: data),
+           let name = user.name?.components(separatedBy: " ").first {
+            title = "welcome".localized + "\(name)!"
+        } else {
+            title = "welcome".localized
+        }
+    }
+    
     deinit {
         print("Home screen released from memory")
     }

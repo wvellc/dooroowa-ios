@@ -185,41 +185,26 @@ extension String{
    //MARK: - Attributed String
    
    // Returns attributed string with options
-   static func setAttributedText(normalText:String, attributeText:String, isUnderLine: Bool = false, color: UIColor, attributedColor: UIColor?, normalFontSize:CGFloat, attributredFontSize:CGFloat, attributredFont:String = AppFonts.ChalkboardSERegular) -> NSAttributedString {
-      let commentString = NSMutableAttributedString(string: normalText + (" \(attributeText)"))
-      commentString.addAttribute(NSAttributedString.Key.foregroundColor, value:  color, range: NSRange.init(location: 0, length: normalText.count))
-      
-      if isUnderLine {
-         commentString.addAttribute(NSAttributedString.Key.underlineStyle , value: NSUnderlineStyle.single.rawValue, range: NSRange.init(location: normalText.count + 1, length: attributeText.count ))
-      }
-      if attributedColor != nil {
-         commentString.addAttribute(NSAttributedString.Key.foregroundColor, value: attributedColor! , range: NSRange.init(location: normalText.count, length: attributeText.count + 1))
-      } else {
-         commentString.addAttribute(NSAttributedString.Key.foregroundColor, value: color , range: NSRange.init(location: 0, length: attributeText.count + 1))
-      }
-      commentString.addAttribute(NSAttributedString.Key.font, value: UIFont(name: attributredFont, size: attributredFontSize)! , range: NSRange.init(location: normalText.count, length: attributeText.count + 1))
-      commentString.addAttribute(NSAttributedString.Key.font, value: UIFont(name: AppFonts.ChalkboardSERegular, size: normalFontSize)! , range: NSRange.init(location: 0, length: normalText.count))
-      return commentString
-   }
-   
-   static func setAttributedText(fullText:String, attributeTexts:[String], isUnderLine: Bool = false, color: UIColor, attributedColor: UIColor?, normalFontSize:CGFloat, attributredFontSize:CGFloat, attributredFont:String = AppFonts.ChalkboardSERegular) -> NSAttributedString {
-      let commentString = NSMutableAttributedString(string: fullText)
-      commentString.addAttribute(NSAttributedString.Key.foregroundColor, value:  color, range: NSRange.init(location: 0, length: fullText.count))
-      for strAtt in attributeTexts {
-         let range = (fullText as NSString).range(of: strAtt)
-         if isUnderLine {
-            commentString.addAttribute(NSAttributedString.Key.underlineStyle , value: NSUnderlineStyle.single.rawValue, range: range)
-         }
-         if attributedColor != nil {
-            commentString.addAttribute(NSAttributedString.Key.foregroundColor, value: attributedColor! , range: range)
-         } else {
-            commentString.addAttribute(NSAttributedString.Key.foregroundColor, value: color , range: range)
-         }
-         commentString.addAttribute(NSAttributedString.Key.font, value: UIFont(name: attributredFont, size: attributredFontSize)! , range: range)
-         commentString.addAttribute(NSAttributedString.Key.font, value: UIFont(name: AppFonts.ChalkboardSERegular, size: normalFontSize)! , range: range)
-      }
-      return commentString
-   }
+    func getAttributedText(attributeTexts:[String], isUnderLine: Bool = false, color: UIColor?, attributedColor: UIColor?, normalFontSize:CGFloat, attributredFontSize:CGFloat, attributredFont:String = AppFonts.ChalkboardSERegular) -> NSAttributedString {
+        let commentString = NSMutableAttributedString(string: self)
+        if let color = color {
+            commentString.addAttribute(NSAttributedString.Key.foregroundColor, value:  color, range: NSRange.init(location: 0, length: self.count))
+        }
+        for strAtt in attributeTexts {
+            let range = (self as NSString).range(of: strAtt)
+            if isUnderLine {
+                commentString.addAttribute(NSAttributedString.Key.underlineStyle , value: NSUnderlineStyle.single.rawValue, range: range)
+            }
+            if let attributedColor = attributedColor {
+                commentString.addAttribute(NSAttributedString.Key.foregroundColor, value: attributedColor, range: range)
+            } else if let color = color {
+                commentString.addAttribute(NSAttributedString.Key.foregroundColor, value: color , range: range)
+            }
+            commentString.addAttribute(NSAttributedString.Key.font, value: UIFont(name: attributredFont, size: attributredFontSize)! , range: range)
+            commentString.addAttribute(NSAttributedString.Key.font, value: UIFont(name: AppFonts.ChalkboardSERegular, size: normalFontSize)! , range: range)
+        }
+        return commentString
+    }
 }
 
 extension UITapGestureRecognizer {

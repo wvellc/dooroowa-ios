@@ -75,6 +75,13 @@ class AppDelegate: UIResponder {
         
         /* Check any new update for force update app */
         checkUpdate()
+        
+        #if DEBUG
+        //Current Device Language Code
+        print("Current Device Language Code - >>>> ", Locale.current.languageCode ?? "Empty")
+        #else
+        #endif
+        
     }
     
     /// Setting app initial screen on user type and user data saved in UserDefaults

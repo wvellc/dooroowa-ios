@@ -22,7 +22,7 @@ class InfoVC: UIViewController {
     
     private var webViewInfo : WKWebView!
     var objStrURL = "https://wvelabs.com/solutions/"
-    var objTitle = "Terms and Conditions"
+    var objTitle = "terms_and_conditions".localized
     
     //MARK: - Override Methods
     

@@ -46,7 +46,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fe3-Cs-mni">
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fe3-Cs-mni" customClass="LocalizableButton" customModule="DooRooWa" customModuleProvider="target">
                                 <rect key="frame" x="28" y="742" width="337" height="56"/>
                                 <color key="backgroundColor" name="AppLightYellow"/>
                                 <constraints>
@@ -61,6 +61,7 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizableKey" value="watch_video"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="btnWatchVideoPressed:" destination="AW4-l6-mZ3" eventType="touchUpInside" id="AKh-Ej-FII"/>
@@ -75,19 +76,20 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8B-Ta-v4v">
-                                <rect key="frame" x="317" y="69" width="54" height="26"/>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8B-Ta-v4v" customClass="LocalizableButton" customModule="DooRooWa" customModuleProvider="target">
+                                <rect key="frame" x="315" y="69" width="56" height="26"/>
                                 <color key="backgroundColor" name="AppWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="26" id="4Y7-3E-XiI"/>
-                                    <constraint firstAttribute="width" constant="54" id="cn2-Dt-6ay"/>
                                 </constraints>
+                                <inset key="contentEdgeInsets" minX="13" minY="0.0" maxX="13" maxY="0.0"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Skip"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <integer key="value" value="13"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizableKey" value="skip"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="btnSkipPressed:" destination="AW4-l6-mZ3" eventType="touchUpInside" id="EUq-Xj-RCJ"/>

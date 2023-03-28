@@ -41,7 +41,7 @@ class NotificationsVC: UIViewController {
     
     @IBAction func btnClearAllPressed(_ sender: UIBarButtonItem) {
         if arrNotificaions.count > 0 {
-            AlertView.show(title: "Are you sure you want to claer all notifications?", message: "", yesButtonTitle: "Clear All", alertType: .yesNoButton, parent: self) { isDelete in
+            AlertView.show(title: "confrimation_message_clear_all_notifications".localized, message: "", yesButtonTitle: "clear_all".localized, alertType: .yesNoButton, parent: self) { isDelete in
                 if isDelete {
                     NotificationModel.clearAllNotifications { result in
                         switch result {
@@ -62,6 +62,7 @@ class NotificationsVC: UIViewController {
     
     /// Initial settings when view loads
     fileprivate func doInitialSettings() {
+        title = "notifications".localized
         registerCell()
         manageClearAllUI()
         showScrollAnimation = false
@@ -108,7 +109,7 @@ class NotificationsVC: UIViewController {
         if arrNotificaions.count > 0 {
             NoDataView.hideNoDataView(parent: self)
         } else {
-            NoDataView.showNoData(noDataImage: #imageLiteral(resourceName: "svgNoNotifications"), title: "No Data Found", message: nil, parent: self, handler: nil)
+            NoDataView.showNoData(noDataImage: #imageLiteral(resourceName: "svgNoNotifications"), title: "no_data_found".localized, message: nil, parent: self, handler: nil)
         }
     }
     
@@ -165,7 +166,7 @@ extension NotificationsVC: UITableViewDelegate, UITableViewDataSource, SwipeTabl
        guard orientation == .right else { return nil }
        let delete = SwipeAction(style: .default, title: nil) { action, indexPath in
           //Action
-           AlertView.show(title: "Are you sure you want to delete?", message: "", yesButtonTitle: "Delete", alertType: .yesNoButton, parent: self) { isDelete in
+           AlertView.show(title: "confrimation_message_delete_notification".localized, message: "", yesButtonTitle: "delete".localized, alertType: .yesNoButton, parent: self) { isDelete in
                if isDelete {
                    self.arrNotificaions[indexPath.row].deleteNotification { result in
                        switch result {

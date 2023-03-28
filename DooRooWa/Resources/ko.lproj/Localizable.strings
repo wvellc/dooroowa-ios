@@ -5,3 +5,70 @@
   Created by Vision on 13/03/23.
   
 */
+
+//Common Texts
+"email_id_placeholder" = "이메일 아이디";
+"password" = "비밀번호";
+"no_data_found" = "데이터가 없습니다";
+
+//Alerts
+"password_reset_successfully" = "비밀번호 재설정 성공";
+"password_has_been_sent_to_your_email" = "비밀번호가 귀하의 이메일로 전송되었습니다";
+"ok" = "좋아요";
+"confrimation_message_clear_all_notifications" = "모든 알림을 지우시겠습니까?";
+"clear_all" = "모두 지우기";
+"confrimation_message_delete_notification" = "삭제 하시겠습니까?";
+"delete" = "삭제";
+"confrimation_message_logout" = "로그아웃하시겠습니까?";
+"logout" = "로그 아웃";
+"cancel" = "취소";
+"confrimation_message_delete_account" = "계정을 삭제하시겠습니까?";
+
+//Side Menu
+"home" = "홈";
+"notifications" = "알림";
+"episodes" = "에피소드";
+"tools" = "툴";
+"tests" = "테스트";
+"profile" = "프로필";
+"settings" = "설정";
+
+//Auth
+"forgot_password_button" = "비밀번호를 셨나요?";
+"login" = "로그인";
+"dont_have_account" = "계정이 없습니까? 레지스터";
+"forgot_password" = "비밀번호를 잊으 셨나요";
+"enter_email_you_used_to_sign_in" = "사용하던 이메일을 입력하세요 \nDoorooWa 에 로그인할";
+"reset_password" = "암호를 재설정";
+"back_to_login" = "돌아가기 으로 로그인";
+"name" = "이름";
+"phone_number" = "전화 번호";
+"i_agree_to" = "나는 동의한다 ";
+"terms_and_conditions" = "약관 및 조건";
+"register" = "레지스터";
+"already_have_an_account" = "이미 계정이 있습니까? 로그인";
+
+//Home
+"welcome" = "환영하다 ";
+"week" = "일주";
+"start_your_first_week" = "첫 주를 시작하세요";
+"weekly_progress" = "주간 진행 상황";
+"skip" = "건너뛰다";
+"watch_video" = "동영상 보기";
+
+//"Notifications"
+
+
+//"Episodes"
+
+
+//"Tools"
+
+
+//"Tests"
+
+
+//"Profile"
+
+
+//"Settings"

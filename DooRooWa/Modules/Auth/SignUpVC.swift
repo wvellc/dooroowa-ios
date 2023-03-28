@@ -25,7 +25,8 @@ class SignUpVC: UIViewController {
     @IBOutlet weak var viewTermsAndConditions: UIView!
     @IBOutlet weak var btnIAgree: UIButton!
     @IBOutlet weak var stViewFooterButtons: UIStackView!
-    
+    @IBOutlet weak var btnAlreadyHaveAnAccount: UIButton!
+
     //MARK: - Variables
     
     private var userModel = UserModel()
@@ -100,6 +101,7 @@ class SignUpVC: UIViewController {
     /// Initial settings when view loads
     fileprivate func doInitialSettings() {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        btnAlreadyHaveAnAccount.setAttributedTitle("already_have_an_account".localized.getAttributedText(attributeTexts: ["login".localized], color: ColorsConst.AppLightGray, attributedColor: ColorsConst.AppTitleGray, normalFontSize: 13, attributredFontSize: 13), for: .normal)
         DispatchQueue.main.async() {
             self.animateUI()
         }

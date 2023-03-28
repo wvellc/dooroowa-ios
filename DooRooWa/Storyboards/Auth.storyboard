@@ -54,13 +54,16 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="AFz-bi-qwV">
                                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="56.666666666666664"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mail Id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="is5-Qa-cU3">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mail Id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="is5-Qa-cU3" customClass="LocalizableLabel" customModule="DooRooWa" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="335" height="18.666666666666668"/>
                                                                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="13"/>
                                                                                 <color key="textColor" name="AppTitleGray"/>
                                                                                 <nil key="highlightedColor"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizableKey" value="email_id_placeholder"/>
+                                                                                </userDefinedRuntimeAttributes>
                                                                             </label>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="abc@xyz.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fU8-9C-KKa" customClass="CustomTextField" customModule="DooRooWa" customModuleProvider="target">
+                                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="abc@xyz.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fU8-9C-KKa">
                                                                                 <rect key="frame" x="0.0" y="18.666666666666686" width="335" height="38"/>
                                                                                 <color key="tintColor" name="AppBlue"/>
                                                                                 <constraints>
@@ -90,11 +93,14 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="c5h-Xx-98D">
                                                                         <rect key="frame" x="0.0" y="86.666666666666686" width="335" height="56.666666666666657"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXx-47-knr">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXx-47-knr" customClass="LocalizableLabel" customModule="DooRooWa" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="335" height="18.666666666666668"/>
                                                                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="13"/>
                                                                                 <color key="textColor" name="AppTitleGray"/>
                                                                                 <nil key="highlightedColor"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizableKey" value="password"/>
+                                                                                </userDefinedRuntimeAttributes>
                                                                             </label>
                                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="• • • • • •" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BzM-WQ-KW0" customClass="CustomTextField" customModule="DooRooWa" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="18.666666666666629" width="335" height="38"/>
@@ -129,7 +135,7 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cO4-1X-yPT">
                                                                 <rect key="frame" x="0.0" y="143.33333333333337" width="335" height="44"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6mH-i3-5n6">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6mH-i3-5n6" customClass="LocalizableButton" customModule="DooRooWa" customModuleProvider="target">
                                                                         <rect key="frame" x="234" y="0.0" width="101" height="44"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="44" id="4m2-iG-C0m"/>
@@ -139,6 +145,9 @@
                                                                         <state key="normal" title="Forgot Password?">
                                                                             <color key="titleColor" name="AppTitleGray"/>
                                                                         </state>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizableKey" value="forgot_password_button"/>
+                                                                        </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <action selector="btnForgotPasswordPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Y9C-qe-bhQ"/>
                                                                         </connections>
@@ -157,7 +166,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="k48-DO-yYz">
                                                         <rect key="frame" x="20" y="592.33333333333337" width="335" height="120"/>
                                                         <subviews>
-                                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oTE-bW-m5O">
+                                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oTE-bW-m5O" customClass="LocalizableButton" customModule="DooRooWa" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="335" height="56"/>
                                                                 <color key="backgroundColor" name="AppLightYellow"/>
                                                                 <constraints>
@@ -172,6 +181,7 @@
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                         <integer key="value" value="10"/>
                                                                     </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizableKey" value="login"/>
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <action selector="btnLoginPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Ce0-ka-Ldv"/>
@@ -278,6 +288,7 @@
                     </navigationItem>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="btnDontHaveAnAccount" destination="gJk-4O-HTv" id="um3-AC-VIs"/>
                         <outlet property="imgViewLogo" destination="2Xi-Nu-60z" id="AvR-wo-U1P"/>
                         <outlet property="stViewFooterButtons" destination="k48-DO-yYz" id="RVy-HZ-8wa"/>
                         <outlet property="stViewInfo" destination="Q8j-GB-w1j" id="5C7-8Y-ykz"/>
@@ -334,13 +345,16 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mn1-3n-dzR" customClass="IQPreviousNextView" customModule="IQKeyboardManagerSwift">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="731"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fli-Ni-tOx">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fli-Ni-tOx" customClass="LocalizableLabel" customModule="DooRooWa" customModuleProvider="target">
                                                         <rect key="frame" x="20" y="0.0" width="335" height="37"/>
                                                         <string key="text">Please Enter The Email You Use To
 Sign In To DoorooWa</string>
                                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="13"/>
                                                         <color key="textColor" name="AppTitleGray"/>
                                                         <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizableKey" value="enter_email_you_used_to_sign_in"/>
+                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hu9-0X-BWf">
                                                         <rect key="frame" x="0.0" y="37" width="375" height="320.66666666666669"/>
@@ -366,11 +380,14 @@ Sign In To DoorooWa</string>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="d8q-JV-U0l">
                                                                 <rect key="frame" x="0.0" y="0.0" width="335" height="56.666666666666664"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mail Id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g62-Ro-sr4">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mail Id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g62-Ro-sr4" customClass="LocalizableLabel" customModule="DooRooWa" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="18.666666666666668"/>
                                                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="13"/>
                                                                         <color key="textColor" name="AppTitleGray"/>
                                                                         <nil key="highlightedColor"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizableKey" value="email_id_placeholder"/>
+                                                                        </userDefinedRuntimeAttributes>
                                                                     </label>
                                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="abc@xyz.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sRv-hI-fw7" customClass="CustomTextField" customModule="DooRooWa" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="18.666666666666629" width="335" height="38"/>
@@ -402,7 +419,7 @@ Sign In To DoorooWa</string>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2sk-xE-UpN">
                                                                 <rect key="frame" x="0.0" y="86.666666666666629" width="335" height="56"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wTW-Ze-wmA">
+                                                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wTW-Ze-wmA" customClass="LocalizableButton" customModule="DooRooWa" customModuleProvider="target">
                                                                         <rect key="frame" x="8" y="0.0" width="319" height="56"/>
                                                                         <color key="backgroundColor" name="AppLightYellow"/>
                                                                         <constraints>
@@ -417,6 +434,7 @@ Sign In To DoorooWa</string>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                                 <integer key="value" value="10"/>
                                                                             </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizableKey" value="reset_password"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <action selector="btnResetPasswordPressed:" destination="Vcw-jA-O4h" eventType="touchUpInside" id="gCo-hG-k2b"/>
@@ -540,6 +558,7 @@ Sign In To DoorooWa</string>
                     </navigationItem>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="btnBackToLogin" destination="P5T-Tn-tHf" id="2Tr-Fb-ZE8"/>
                         <outlet property="imgViewLogo" destination="eYl-nt-BPm" id="4GY-ua-l7O"/>
                         <outlet property="lblDescription" destination="fli-Ni-tOx" id="2hM-w1-p75"/>
                         <outlet property="stViewFooterButtons" destination="N5Y-gu-Zg0" id="CXj-Tw-nUf"/>
@@ -596,11 +615,14 @@ Sign In To DoorooWa</string>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Eh9-V1-Oic">
                                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="56.666666666666664"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HTS-Ma-hXI">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HTS-Ma-hXI" customClass="LocalizableLabel" customModule="DooRooWa" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="335" height="18.666666666666668"/>
                                                                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="13"/>
                                                                                 <color key="textColor" name="AppTitleGray"/>
                                                                                 <nil key="highlightedColor"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizableKey" value="name"/>
+                                                                                </userDefinedRuntimeAttributes>
                                                                             </label>
                                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="John Doe" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wEg-Y2-eWg" customClass="CustomTextField" customModule="DooRooWa" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="18.666666666666657" width="335" height="38"/>
@@ -632,11 +654,14 @@ Sign In To DoorooWa</string>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="j4F-hl-Jjy">
                                                                         <rect key="frame" x="0.0" y="86.666666666666657" width="335" height="56.666666666666657"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mail Id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKe-qc-6Zy">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mail Id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKe-qc-6Zy" customClass="LocalizableLabel" customModule="DooRooWa" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="335" height="18.666666666666668"/>
                                                                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="13"/>
                                                                                 <color key="textColor" name="AppTitleGray"/>
                                                                                 <nil key="highlightedColor"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizableKey" value="email_id_placeholder"/>
+                                                                                </userDefinedRuntimeAttributes>
                                                                             </label>
                                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="abc@xyz.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iga-Im-cYi" customClass="CustomTextField" customModule="DooRooWa" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="18.666666666666686" width="335" height="38"/>
@@ -668,11 +693,14 @@ Sign In To DoorooWa</string>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="dSo-ys-cpb">
                                                                         <rect key="frame" x="0.0" y="173.33333333333334" width="335" height="56.666666666666657"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZO5-k3-342">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZO5-k3-342" customClass="LocalizableLabel" customModule="DooRooWa" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="335" height="18.666666666666668"/>
                                                                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="13"/>
                                                                                 <color key="textColor" name="AppTitleGray"/>
                                                                                 <nil key="highlightedColor"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizableKey" value="phone_number"/>
+                                                                                </userDefinedRuntimeAttributes>
                                                                             </label>
                                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="+1234567890" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nXm-b6-UoA" customClass="CustomTextField" customModule="DooRooWa" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="18.666666666666629" width="335" height="38"/>
@@ -704,11 +732,14 @@ Sign In To DoorooWa</string>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="b2e-RS-4ON">
                                                                         <rect key="frame" x="0.0" y="260" width="335" height="56.666666666666686"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YlG-pO-J7f">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YlG-pO-J7f" customClass="LocalizableLabel" customModule="DooRooWa" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="335" height="18.666666666666668"/>
                                                                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="13"/>
                                                                                 <color key="textColor" name="AppTitleGray"/>
                                                                                 <nil key="highlightedColor"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizableKey" value="password"/>
+                                                                                </userDefinedRuntimeAttributes>
                                                                             </label>
                                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="• • • • • •" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DQw-P4-zGs" customClass="CustomTextField" customModule="DooRooWa" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="18.666666666666686" width="335" height="38"/>
@@ -743,7 +774,7 @@ Sign In To DoorooWa</string>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mCZ-HO-mYr">
                                                                 <rect key="frame" x="0.0" y="316.66666666666663" width="335" height="44"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hic-k0-kTE">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hic-k0-kTE" customClass="LocalizableButton" customModule="DooRooWa" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="86" height="44"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="44" id="qF0-2o-4gS"/>
@@ -753,11 +784,14 @@ Sign In To DoorooWa</string>
                                                                         <state key="normal" title="I agree to " image="svgUncheck">
                                                                             <color key="titleColor" name="Dark70"/>
                                                                         </state>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizableKey" value="i_agree_to"/>
+                                                                        </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <action selector="btnIAgreeTermsAndConditionsPressed:" destination="kgH-LP-JCb" eventType="touchUpInside" id="OHK-Sc-Sm1"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fri-yc-0mA">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fri-yc-0mA" customClass="LocalizableButton" customModule="DooRooWa" customModuleProvider="target">
                                                                         <rect key="frame" x="86" y="0.0" width="128" height="44"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="44" id="sPQ-I1-FOo"/>
@@ -767,6 +801,9 @@ Sign In To DoorooWa</string>
                                                                         <state key="normal" title=" Terms and Conditions">
                                                                             <color key="titleColor" name="AppBlue"/>
                                                                         </state>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizableKey" value="terms_and_conditions"/>
+                                                                        </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <action selector="btnTermsAndConditionsPressed:" destination="kgH-LP-JCb" eventType="touchUpInside" id="8Ir-0N-73h"/>
                                                                         </connections>
@@ -788,7 +825,7 @@ Sign In To DoorooWa</string>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="9lM-2g-2Xt">
                                                         <rect key="frame" x="20" y="591" width="335" height="120"/>
                                                         <subviews>
-                                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fX3-tH-DuM">
+                                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fX3-tH-DuM" customClass="LocalizableButton" customModule="DooRooWa" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="335" height="56"/>
                                                                 <color key="backgroundColor" name="AppLightYellow"/>
                                                                 <constraints>
@@ -803,6 +840,7 @@ Sign In To DoorooWa</string>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                         <integer key="value" value="10"/>
                                                                     </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizableKey" value="register"/>
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <action selector="btnRegisterPressed:" destination="kgH-LP-JCb" eventType="touchUpInside" id="P6Y-EK-sQA"/>
@@ -909,6 +947,7 @@ Sign In To DoorooWa</string>
                     </navigationItem>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="btnAlreadyHaveAnAccount" destination="6g7-Gs-LpI" id="6vP-9g-1Z4"/>
                         <outlet property="btnIAgree" destination="Hic-k0-kTE" id="lkW-fy-RB1"/>
                         <outlet property="imgViewLogo" destination="cMS-ex-Hmc" id="o07-yb-k77"/>
                         <outlet property="stViewFooterButtons" destination="9lM-2g-2Xt" id="aRo-mh-lL6"/>

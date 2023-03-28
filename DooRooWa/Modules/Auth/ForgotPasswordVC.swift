@@ -25,7 +25,9 @@ class ForgotPasswordVC: UIViewController {
    @IBOutlet weak var txtEmail: CustomTextField!
    @IBOutlet weak var stViewInfo: UIStackView!
    @IBOutlet weak var stViewFooterButtons: UIStackView!
-   
+   @IBOutlet weak var btnBackToLogin: UIButton!
+
+    
    //MARK: - Variables
    
    var userModel = UserModel()
@@ -67,7 +69,7 @@ class ForgotPasswordVC: UIViewController {
    @IBAction func btnResetPasswordPressed(_ sender: UIButton) {
       if isValid() {
          forgotEmailProtocol?.updated(email: userModel.email)
-         AlertView.show(title: "Password Reset Successfully", message: "Password has been sent to your email", yesButtonTitle: "OK", alertType: .okButton , parent: self) { isOk in
+          AlertView.show(title: "password_reset_successfully".localized, message: "password_has_been_sent_to_your_email".localized, yesButtonTitle: "ok".localized, alertType: .okButton , parent: self) { isOk in
             if isOk {
                self.navigationController?.popViewController(animated: true)
             }
@@ -86,6 +88,8 @@ class ForgotPasswordVC: UIViewController {
       if let email = userModel.email {
          txtEmail.text = email
       }
+      title = "forgot_password".localized
+      btnBackToLogin.setAttributedTitle("back_to_login".localized.getAttributedText(attributeTexts: ["login".localized], color: ColorsConst.AppLightGray, attributedColor: ColorsConst.AppTitleGray, normalFontSize: 13, attributredFontSize: 13), for: .normal)
       DispatchQueue.main.async() {
          self.animateUI()
       }

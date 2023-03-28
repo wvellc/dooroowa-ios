@@ -17,6 +17,7 @@ class SignInVC: UIViewController {
     @IBOutlet weak var txtPassword: CustomTextField!
     @IBOutlet weak var stViewInfo: UIStackView!
     @IBOutlet weak var stViewFooterButtons: UIStackView!
+    @IBOutlet weak var btnDontHaveAnAccount: UIButton!
     
     //MARK: - Variables
     
@@ -83,6 +84,7 @@ class SignInVC: UIViewController {
     /// Initial settings when view loads
     fileprivate func doInitialSettings() {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        btnDontHaveAnAccount.setAttributedTitle("dont_have_account".localized.getAttributedText(attributeTexts: ["register".localized], color: ColorsConst.AppLightGray, attributedColor: ColorsConst.AppTitleGray, normalFontSize: 13, attributredFontSize: 13), for: .normal)
         DispatchQueue.main.async() {
             self.animateUI()
         }

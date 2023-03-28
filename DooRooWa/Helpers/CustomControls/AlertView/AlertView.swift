@@ -159,7 +159,7 @@ class AlertView: UIView {
                     title:String?,
                     message: String?,
                     yesButtonTitle: String,
-                    strCancelButtonTitle: String = "Cancel",
+                    strCancelButtonTitle: String = "cancel".localized,
                     alertType:AlertView.AlertActionType,
                     isShowCloseButton:Bool = true,
                     allowTapToDissmiss:Bool = true,

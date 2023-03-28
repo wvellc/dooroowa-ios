@@ -42,7 +42,7 @@ class MenuCell: UITableViewCell {
     }
     
     func configureData(indx: IndexPath, title: String, selected: String) {
-        lblTitle.text = title
+        lblTitle.text = title.localized
         viewBg.isHidden = selected != title
     }
     

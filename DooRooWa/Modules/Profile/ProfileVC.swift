@@ -32,14 +32,14 @@ class ProfileVC: UIViewController {
     //MARK: - IBActions
     
     @IBAction func btnMenuPressed(_ sender: UIBarButtonItem) {
-        sideMenuController?.hideLeftView()
+        sideMenuController?.showLeftView()
     }
     
     //MARK: - Class Functions
     
     /// Initial settings when view loads
     fileprivate func doInitialSettings() {
-        
+        title = "profile".localized
     }
     
     /*

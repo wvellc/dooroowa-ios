@@ -17,7 +17,7 @@ class SideMenuVC: UIViewController {
     //MARK: - Variables
 
     var arrMenu = [String]()
-    var selectedScreen = "Home"
+    var selectedScreen = "home"
     
     //MARK: - View Life Cycle
     
@@ -38,7 +38,7 @@ class SideMenuVC: UIViewController {
     
     /// Initial settings when view loads
     fileprivate func doInitialSettings() {
-        arrMenu = ["Home", "Episodes", "Tools", "Tests", "Profile", "Settings"]
+        arrMenu = ["home", "episodes", "tools", "tests", "profile", "settings"]
         registerCell()
     }
     
@@ -77,22 +77,22 @@ extension SideMenuVC: UITableViewDelegate, UITableViewDataSource {
         tableView.reloadData()
         var aNextVC: UIViewController?
         switch selectedScreen {
-        case "Home":
+        case "home":
             aNextVC = HomeVC.instance()
             break
-        case "Episodes":
+        case "episodes":
             aNextVC = EpisodesVC.instance()
             break
-        case "Tools":
+        case "tools":
             aNextVC = ToolsVC.instance()
             break
-        case "Tests":
+        case "tests":
             aNextVC = TestsVC.instance()
             break
-        case "Profile":
+        case "profile":
             aNextVC = ProfileVC.instance()
             break
-        case "Settings":
+        case "settings":
             aNextVC = SettingsVC.instance()
             break
         default:
