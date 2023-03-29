@@ -7,6 +7,7 @@
 
 import UIKit
 import LGSideMenuController
+import ViewAnimator
 
 class SideMenuVC: UIViewController {
 

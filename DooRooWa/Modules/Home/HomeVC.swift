@@ -6,6 +6,11 @@
 //
 
 import UIKit
+import Ripples
+import ViewAnimator
+import SPPerspective
+import AVFoundation
+import AVKit
 
 class HomeVC: UIViewController {
     
@@ -15,8 +20,23 @@ class HomeVC: UIViewController {
     
     //MARK: - IBOutlets
     
+    @IBOutlet weak var stViewMain: UIStackView!
+    @IBOutlet weak var lblWeek: UILabel!
+    @IBOutlet weak var imgViewStartWeekLayers: UIImageView!
+    @IBOutlet weak var viewStartWeekBubble: UIView!
+    @IBOutlet weak var imgViewStartWeekMovingLayers: UIImageView!
+    @IBOutlet weak var imgViewStartWeekRipples: UIImageView!
+    
+    @IBOutlet weak var imgViewGate: UIImageView!
+    @IBOutlet weak var imgViewDooRooWa: UIImageView!
+    
+    @IBOutlet weak var imgViewWeeklyProgress: UIImageView!
+
+    
     //MARK: - Variables
     
+    private var arrImages = [#imageLiteral(resourceName: "svgGate1"), #imageLiteral(resourceName: "svgGate2"), #imageLiteral(resourceName: "svgGate3"), #imageLiteral(resourceName: "svgGate4"),]
+
     //MARK: - View Life Cycle
     
     override func viewDidLoad() {
@@ -34,9 +54,11 @@ class HomeVC: UIViewController {
         } else {
             title = "welcome".localized
         }
+        restartStartWeekAnimation()
     }
     
     deinit {
+        removeObservers()
         print("Home screen released from memory")
     }
     
@@ -51,10 +73,43 @@ class HomeVC: UIViewController {
         self.navigationController?.pushViewController(aVC, animated: true)
     }
     
+    @IBAction func btnStartWeekPressed(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func btnDooRooWaPressed(_ sender: UIButton) {
+        sender.isUserInteractionEnabled = false
+        imgViewGate.animate(animations: [AnimationType.zoom(scale: 0.9)], initialAlpha: 1)
+        imgViewGate.image = arrImages.first
+        imgViewGate.animationImages = arrImages
+        imgViewGate.animationDuration = 1.0
+        imgViewGate.animationRepeatCount = 1
+        imgViewGate.startAnimating()
+        imgViewGate.image = arrImages.last
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            let videoUrl = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+            if let videoURL = URL(string: videoUrl) {
+                let playerViewController = AVPlayerViewController()
+                let player = AVPlayer(url: videoURL)
+                playerViewController.player = player
+                self.present(playerViewController, animated: true) {
+                    playerViewController.videoGravity = .resizeAspectFill
+                    playerViewController.player?.play()
+                    self.imgViewGate.image = self.arrImages.first
+                    sender.isUserInteractionEnabled = true
+                }
+            }
+        }
+    }
+    
     //MARK: - Class Functions
     
     /// Initial settings when view loads
     fileprivate func doInitialSettings() {
+        lblWeek.text = "week".localized + "1"
+        stViewMain.isHidden = true
+        addObservers()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             if UserDefaults.shared.isAppFirstLaunch() {
                 let aVC = IntroVC.instance()
@@ -65,6 +120,54 @@ class HomeVC: UIViewController {
             } else {
                 self.tutorialSkipped()
             }
+        }
+    }
+    
+    fileprivate func animateUI() {
+        stViewMain.animate(animations: [AnimationType.from(direction: .bottom, offset: 200), AnimationType.zoom(scale: 0.8)], delay: 0.4, duration: 1, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.7)
+        animateStartWeekUI()
+        
+        let animationConfig = SPPerspectiveConfig.iOS14WidgetAnimatable
+        animationConfig.animationDuration = 15
+        animationConfig.shadowConfig = .none
+        imgViewWeeklyProgress.applyPerspective(animationConfig)
+    }
+    
+    fileprivate func animateStartWeekUI() {
+        imgViewStartWeekLayers.transform = .identity
+        viewStartWeekBubble.transform = .identity
+        imgViewStartWeekRipples.transform = .identity
+        
+        imgViewStartWeekMovingLayers.transform = CGAffineTransform(translationX: -(AppConst.ScreenWidth - 40), y: -220)
+        UIView.animate(withDuration: 15, delay: 0, options: [.autoreverse, .repeat, .curveEaseInOut], animations: {
+            self.imgViewStartWeekMovingLayers.transform = .identity
+            self.imgViewStartWeekLayers.transform = CGAffineTransform(translationX: (AppConst.ScreenWidth - 40), y: 220)
+            self.viewStartWeekBubble.transform = CGAffineTransform(scaleX: 3, y: 3)
+        })
+        
+        UIView.animate(withDuration: 4, delay: 0, options: [.autoreverse, .repeat, .curveEaseInOut], animations: {
+            self.imgViewStartWeekRipples.transform = CGAffineTransform(scaleX: 1.8, y: 1.8)
+        })
+    }
+    
+    /// Adding observers
+    fileprivate func addObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(appMovedToForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+    }
+    
+    /// Removing all observers
+    fileprivate func removeObservers() {
+        NotificationCenter.default.removeObserver(self, name: UIApplication.willEnterForegroundNotification, object: nil)
+    }
+    
+    /// App moved to foreground
+    @objc fileprivate func appMovedToForeground() {
+        restartStartWeekAnimation()
+    }
+    
+    fileprivate func restartStartWeekAnimation() {
+        if !stViewMain.isHidden {
+            animateStartWeekUI()
         }
     }
     
@@ -80,6 +183,7 @@ class HomeVC: UIViewController {
 }
 extension HomeVC: IntroTutorialProtocol {
     func tutorialSkipped() {
-        
+        stViewMain.isHidden = false
+        animateUI()
     }
 }

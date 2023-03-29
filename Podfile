@@ -14,7 +14,8 @@ target 'DooRooWa' do
   pod 'Ripples'
   pod 'SwipeCellKit'
   pod 'LGSideMenuController'
-  
+  pod 'SPPerspective'
+
   # Utility
   pod 'Siren'
 

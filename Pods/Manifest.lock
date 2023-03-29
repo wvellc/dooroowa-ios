@@ -6,6 +6,7 @@ PODS:
   - Loaf (0.7.0)
   - Ripples (0.1.0)
   - Siren (5.7.1)
+  - SPPerspective (1.4.1)
   - SwipeCellKit (2.7.1)
   - ViewAnimator (3.1.0)
 
@@ -17,6 +18,7 @@ DEPENDENCIES:
   - Loaf
   - Ripples
   - Siren
+  - SPPerspective
   - SwipeCellKit
   - ViewAnimator
 
@@ -29,6 +31,7 @@ SPEC REPOS:
     - Loaf
     - Ripples
     - Siren
+    - SPPerspective
     - SwipeCellKit
     - ViewAnimator
 
@@ -40,9 +43,10 @@ SPEC CHECKSUMS:
   Loaf: d69937cd00649f3fa260beb8b7aef0a1feb861ef
   Ripples: 8f0078d81c55235351e77903cf540405c497f3f9
   Siren: 76ac728f4f2f4a3576c322272e94a0e37955664f
+  SPPerspective: 3057f163f2a255ceb35a8f95c7d09fb343597ab1
   SwipeCellKit: 3972254a826da74609926daf59b08d6c72e619ea
   ViewAnimator: a9ceed80266e00fd435ec4fb99b2df64d580d0e4
 
-PODFILE CHECKSUM: 3bae77c85d9c12ef1617eb22c9534048f800d89b
+PODFILE CHECKSUM: 0e508e125e05776fea4500d6add1a698fabb31a4
 
 COCOAPODS: 1.12.0

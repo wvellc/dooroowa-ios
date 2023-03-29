@@ -97,7 +97,7 @@ class SplashVC: UIViewController {
     }
     
     /// App moved to foreground
-    @objc func appMovedToForeground() {
+    @objc fileprivate func appMovedToForeground() {
         animateSplash()
     }
 

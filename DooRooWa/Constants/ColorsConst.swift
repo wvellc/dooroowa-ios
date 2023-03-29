@@ -9,6 +9,7 @@ import UIKit
 
 struct ColorsConst {
     static let AppBlue                  = UIColor(named: "AppBlue")
+    static let AppLightBlue             = UIColor(named: "AppLightBlue")
     static let AppBlue10                = UIColor(named: "AppBlue10")
     static let AppYellow                = UIColor(named: "AppYellow")
     static let AppLightYellow           = UIColor(named: "AppLightYellow")

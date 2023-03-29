@@ -83,7 +83,7 @@ class NotificationsVC: UIViewController {
     fileprivate func reloadTable() {
         showScrollAnimation = false
         tblNotifications.reloadData()
-        DispatchQueue.main.asyncAfter(deadline: .now()) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             self.showScrollAnimation = true
         }
     }

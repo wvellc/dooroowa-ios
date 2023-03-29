@@ -1,0 +1,6 @@
+framework module SPPerspective {
+  umbrella header "SPPerspective-umbrella.h"
+
+  export *
+  module * { export * }
+}
