@@ -17,8 +17,20 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7LH-Hu-jWv">
+                                <rect key="frame" x="0.0" y="155" width="393" height="697"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="7LH-Hu-jWv" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="57V-8s-qe4"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="7LH-Hu-jWv" secondAttribute="trailing" id="732-zW-BLf"/>
+                            <constraint firstItem="7LH-Hu-jWv" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="HwE-iJ-NBD"/>
+                            <constraint firstAttribute="bottom" secondItem="7LH-Hu-jWv" secondAttribute="bottom" id="KAg-j5-QYp"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Episodes" largeTitleDisplayMode="always" id="dFE-DI-SSW">
                         <barButtonItem key="backBarButtonItem" title=" " id="ZZh-ar-qVX"/>
@@ -28,10 +40,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tblEpisodes" destination="7LH-Hu-jWv" id="xCv-E1-FPw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="-34"/>
+            <point key="canvasLocation" x="130.53435114503816" y="-34.507042253521128"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TFX-Lf-1eW">

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8112D24029D55BA900ACABB0 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8112D23F29D55BA900ACABB0 /* TableViewDataSource.swift */; };
+		8112D24529D5605C00ACABB0 /* WeekCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8112D24329D5605C00ACABB0 /* WeekCell.swift */; };
+		8112D24629D5605C00ACABB0 /* WeekCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8112D24429D5605C00ACABB0 /* WeekCell.xib */; };
+		8112D24929D5822F00ACABB0 /* WeekModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8112D24829D5822F00ACABB0 /* WeekModel.swift */; };
+		8112D24B29D59D3000ACABB0 /* TableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8112D24A29D59D3000ACABB0 /* TableViewDelegate.swift */; };
 		811D53CB29D17562009BDCCD /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811D53C929D17562009BDCCD /* MenuCell.swift */; };
 		811D53CC29D17562009BDCCD /* MenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 811D53CA29D17562009BDCCD /* MenuCell.xib */; };
 		81733D3E29CDB249005B0462 /* SideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81733D3D29CDB249005B0462 /* SideMenuVC.swift */; };
@@ -61,6 +66,11 @@
 
 /* Begin PBXFileReference section */
 		1776267DF104170FA526F524 /* Pods-DooRooWa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DooRooWa.release.xcconfig"; path = "Target Support Files/Pods-DooRooWa/Pods-DooRooWa.release.xcconfig"; sourceTree = "<group>"; };
+		8112D23F29D55BA900ACABB0 /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
+		8112D24329D5605C00ACABB0 /* WeekCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekCell.swift; sourceTree = "<group>"; };
+		8112D24429D5605C00ACABB0 /* WeekCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeekCell.xib; sourceTree = "<group>"; };
+		8112D24829D5822F00ACABB0 /* WeekModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekModel.swift; sourceTree = "<group>"; };
+		8112D24A29D59D3000ACABB0 /* TableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDelegate.swift; sourceTree = "<group>"; };
 		811D53C929D17562009BDCCD /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		811D53CA29D17562009BDCCD /* MenuCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCell.xib; sourceTree = "<group>"; };
 		81733D3D29CDB249005B0462 /* SideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuVC.swift; sourceTree = "<group>"; };
@@ -129,6 +139,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8112D24129D5602000ACABB0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8112D24229D5603100ACABB0 /* WeekCell */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8112D24229D5603100ACABB0 /* WeekCell */ = {
+			isa = PBXGroup;
+			children = (
+				8112D24329D5605C00ACABB0 /* WeekCell.swift */,
+				8112D24429D5605C00ACABB0 /* WeekCell.xib */,
+			);
+			path = WeekCell;
+			sourceTree = "<group>";
+		};
+		8112D24729D5821900ACABB0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8112D24829D5822F00ACABB0 /* WeekModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		811D53C729D1754D009BDCCD /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +238,8 @@
 		81EE8DFB29D17CF000C2AD7A /* Episodes */ = {
 			isa = PBXGroup;
 			children = (
+				8112D24729D5821900ACABB0 /* Models */,
+				8112D24129D5602000ACABB0 /* Views */,
 				81EE8DFC29D17D0000C2AD7A /* EpisodesVC.swift */,
 			);
 			path = Episodes;
@@ -392,6 +429,8 @@
 				81B3536529CC667E00D3ECBC /* NoDataView */,
 				84A0845D29C88926003DDACA /* AlertView */,
 				A26DB0D429C092A700E52C70 /* CustomTextField.swift */,
+				8112D24A29D59D3000ACABB0 /* TableViewDelegate.swift */,
+				8112D23F29D55BA900ACABB0 /* TableViewDataSource.swift */,
 			);
 			path = CustomControls;
 			sourceTree = "<group>";
@@ -493,6 +532,7 @@
 				A235FD6629D32EB500773375 /* Auth.storyboard in Resources */,
 				A20EA5C929BF41A800D1FC9F /* Localizable.strings in Resources */,
 				A235FD6529D32EB500773375 /* Settings.storyboard in Resources */,
+				8112D24629D5605C00ACABB0 /* WeekCell.xib in Resources */,
 				A20EA5A929BF2D9300D1FC9F /* Colors.xcassets in Resources */,
 				811D53CC29D17562009BDCCD /* MenuCell.xib in Resources */,
 				A235FD6129D32EB500773375 /* Episodes.storyboard in Resources */,
@@ -551,7 +591,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A20EA5CE29BF45A300D1FC9F /* StoryboardManager.swift in Sources */,
+				8112D24B29D59D3000ACABB0 /* TableViewDelegate.swift in Sources */,
 				81A02E6F29CB1EF8002D187E /* InfoVC.swift in Sources */,
+				8112D24029D55BA900ACABB0 /* TableViewDataSource.swift in Sources */,
 				811D53CB29D17562009BDCCD /* MenuCell.swift in Sources */,
 				81B3536329CC4B5400D3ECBC /* NotificationCell.swift in Sources */,
 				A2756C8429C1A61000479779 /* HomeVC.swift in Sources */,
@@ -566,7 +608,9 @@
 				A2756C7F29C1960D00479779 /* DateExtension.swift in Sources */,
 				A2756C7B29C1931600479779 /* Validator.swift in Sources */,
 				A26DB0D529C092A700E52C70 /* CustomTextField.swift in Sources */,
+				8112D24529D5605C00ACABB0 /* WeekCell.swift in Sources */,
 				81B3536729CC669000D3ECBC /* NoDataView.swift in Sources */,
+				8112D24929D5822F00ACABB0 /* WeekModel.swift in Sources */,
 				A26DB0D329C0835300E52C70 /* SignInVC.swift in Sources */,
 				81733D4329CDB76B005B0462 /* LGSideMenuVC.swift in Sources */,
 				A2756C7D29C1959200479779 /* StringExtension.swift in Sources */,
