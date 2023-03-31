@@ -24,24 +24,6 @@ extension UIViewController {
         view.layer.add(animation, forKey: "position")
     }
     
-    ///Animate cells from bottom
-    func animateCells(tbl:UITableView, offset:CGFloat = 100, isVertical: Bool = true) {
-       DispatchQueue.main.async {
-          let animations = [AnimationType.vector(isVertical ? CGVector(dx: 0, dy: offset) :  CGVector(dx: offset, dy: 0))]
-          UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) {
-             tbl.alpha = 1
-          }
-          UIView.animate(views: tbl.visibleCells, animations: animations, duration: 0.6)
-       }
-    }
-     
-    func animateCells(collView:UICollectionView, offset:CGFloat = 100, isVertical: Bool = true) {
-       DispatchQueue.main.async {
-          let animations = [AnimationType.vector(isVertical ? CGVector(dx: 0, dy: offset) :  CGVector(dx: offset, dy: 0))]
-          UIView.animate(views: collView.visibleCells, animations: animations, duration: 0.6)
-       }
-    }
-    
     //MARK: - Utilities
     /// Haptic feedback
     func hapticAlert(style: UIImpactFeedbackGenerator.FeedbackStyle = .medium) {

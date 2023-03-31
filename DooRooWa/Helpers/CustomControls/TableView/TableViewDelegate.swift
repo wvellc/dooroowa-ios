@@ -17,9 +17,9 @@ class TableViewDelegate: NSObject, UITableViewDelegate {
     var tblDidSelectRowAt: didSelectRowAt?
     var tblHeightForRowAt: heightForRowAt?
     var tblWillDisplayCellRowAt: willDisplayRowAt?
+    var showScrollAnimation = false
 
     private var directionTopBottom = true
-    private var showScrollAnimation = true
     
     //MARK: - UITableViewDelegate
     
@@ -40,7 +40,7 @@ class TableViewDelegate: NSObject, UITableViewDelegate {
            if let tblWillDisplayCellRowAt {
                tblWillDisplayCellRowAt(cell, indexPath)
            } else {
-               if let lyr = cell.contentView.subviews.first?.layer {
+               if let lyr = cell.contentView.subviews.first?.layer, showScrollAnimation {
                    lyr.transform = CATransform3DMakeScale(0.5,0.5,1)
                    UIView.animate(withDuration: 0.3, animations: {
                        lyr.transform = CATransform3DMakeScale(1.07,1.07,1)

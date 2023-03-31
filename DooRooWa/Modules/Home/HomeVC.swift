@@ -65,7 +65,9 @@ class HomeVC: UIViewController {
     //MARK: - IBActions
     
     @IBAction func btnMenuPressed(_ sender: UIBarButtonItem) {
-        sideMenuController?.showLeftView()
+        if !imgViewGate.isAnimating {
+            sideMenuController?.showLeftView()
+        }
     }
 
     @IBAction func btnNotificationsPressed(_ sender: UIBarButtonItem) {
@@ -79,6 +81,7 @@ class HomeVC: UIViewController {
     
     @IBAction func btnDooRooWaPressed(_ sender: UIButton) {
         sender.isUserInteractionEnabled = false
+        sideMenuController?.isLeftViewSwipeGestureEnabled = false
         imgViewGate.animate(animations: [AnimationType.zoom(scale: 0.9)], initialAlpha: 1)
         imgViewGate.image = arrImages.first
         imgViewGate.animationImages = arrImages
@@ -98,6 +101,7 @@ class HomeVC: UIViewController {
                     playerViewController.player?.play()
                     self.imgViewGate.image = self.arrImages.first
                     sender.isUserInteractionEnabled = true
+                    self.sideMenuController?.isLeftViewSwipeGestureEnabled = true
                 }
             }
         }
@@ -110,7 +114,7 @@ class HomeVC: UIViewController {
         lblWeek.text = "week".localized + "1"
         stViewMain.isHidden = true
         addObservers()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             if UserDefaults.shared.isAppFirstLaunch() {
                 let aVC = IntroVC.instance()
                 aVC.modalTransitionStyle = .crossDissolve

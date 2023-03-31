@@ -98,10 +98,6 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="Ecn-9M-YcN" id="v3d-Sq-6Ny"/>
-                                    <outlet property="delegate" destination="Ecn-9M-YcN" id="gaz-Xp-mqA"/>
-                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YnF-m5-eIu"/>

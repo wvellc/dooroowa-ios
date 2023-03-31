@@ -14,8 +14,9 @@ class TableViewDataSource<Cell : UITableViewCell, Items>: NSObject, UITableViewD
     //MARK: - Variables
     
     private var cellIdentifier : String?
-    private var arrItems:[Items]?
     private var cellConfigureHandler: ConfigureCellHandler
+    
+    var arrItems:[Items]?
 
 
     //MARK: - View Life Cycle
@@ -23,7 +24,7 @@ class TableViewDataSource<Cell : UITableViewCell, Items>: NSObject, UITableViewD
     /// Initial settings when view loads
     init(identifier : String, items : [Items], configureCell : @escaping ConfigureCellHandler) {
         cellIdentifier = identifier
-        arrItems =  items
+        arrItems = items
         cellConfigureHandler = configureCell
     }
     

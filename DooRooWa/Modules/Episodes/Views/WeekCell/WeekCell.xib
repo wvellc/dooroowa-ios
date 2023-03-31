@@ -27,11 +27,38 @@
                                 <color key="textColor" name="AppBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mJ6-et-2cN">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mJ6-et-2cN">
                                 <rect key="frame" x="0.0" y="35" width="280" height="180"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="svgEpisodeBg" translatesAutoresizingMaskIntoConstraints="NO" id="Ib2-lt-No8">
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="180"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="svgWeek1" translatesAutoresizingMaskIntoConstraints="NO" id="oNx-Cz-Vw2">
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="180"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4gQ-9G-8LG">
+                                        <rect key="frame" x="0.0" y="100" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="4gQ-9G-8LG" secondAttribute="height" multiplier="1:1" id="3px-y5-l17"/>
+                                            <constraint firstAttribute="height" constant="80" id="qAA-Oa-G9A"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="svgPlayBlue"/>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" name="AppLightBlue"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="4gQ-9G-8LG" secondAttribute="bottom" id="1id-ku-qL3"/>
+                                    <constraint firstAttribute="bottom" secondItem="oNx-Cz-Vw2" secondAttribute="bottom" id="3BC-OL-pSC"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ib2-lt-No8" secondAttribute="bottom" id="6je-Gg-wu3"/>
+                                    <constraint firstItem="oNx-Cz-Vw2" firstAttribute="top" secondItem="mJ6-et-2cN" secondAttribute="top" id="8D0-7R-hJi"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ib2-lt-No8" secondAttribute="trailing" id="F9l-Ll-3tB"/>
+                                    <constraint firstItem="4gQ-9G-8LG" firstAttribute="leading" secondItem="mJ6-et-2cN" secondAttribute="leading" id="YeM-6w-naW"/>
+                                    <constraint firstAttribute="trailing" secondItem="oNx-Cz-Vw2" secondAttribute="trailing" id="ZXc-8r-Zm8"/>
+                                    <constraint firstItem="Ib2-lt-No8" firstAttribute="top" secondItem="mJ6-et-2cN" secondAttribute="top" id="al6-HP-knF"/>
                                     <constraint firstAttribute="height" constant="180" id="e77-d5-kod"/>
+                                    <constraint firstItem="oNx-Cz-Vw2" firstAttribute="leading" secondItem="mJ6-et-2cN" secondAttribute="leading" id="owD-Vo-wS8"/>
+                                    <constraint firstItem="Ib2-lt-No8" firstAttribute="leading" secondItem="mJ6-et-2cN" secondAttribute="leading" id="qbV-aV-rBF"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -52,10 +79,20 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="btnPlay" destination="4gQ-9G-8LG" id="yiT-II-RIs"/>
+                <outlet property="imgViewBg" destination="Ib2-lt-No8" id="0r9-On-dxW"/>
+                <outlet property="imgViewWeek" destination="oNx-Cz-Vw2" id="CJI-fs-aZ9"/>
+                <outlet property="lblWeekTitle" destination="9ln-yh-KDs" id="zGc-aS-OLI"/>
+                <outlet property="viewWeek" destination="mJ6-et-2cN" id="3LN-qX-1NK"/>
+            </connections>
             <point key="canvasLocation" x="129.7709923664122" y="55.985915492957751"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="svgEpisodeBg" width="335" height="181"/>
+        <image name="svgPlayBlue" width="41" height="40"/>
+        <image name="svgWeek1" width="250" height="181"/>
         <namedColor name="AppBlue">
             <color red="0.0" green="0.45490196347236633" blue="0.63529413938522339" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

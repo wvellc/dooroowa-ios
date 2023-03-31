@@ -421,10 +421,6 @@
                                         <constraint firstItem="nVs-0b-jNv" firstAttribute="centerY" secondItem="CfB-dh-pes" secondAttribute="centerY" id="qGX-Ga-CTz"/>
                                     </constraints>
                                 </view>
-                                <connections>
-                                    <outlet property="dataSource" destination="Fry-Ch-0t6" id="0rg-xj-4ua"/>
-                                    <outlet property="delegate" destination="Fry-Ch-0t6" id="fjf-Ky-EcM"/>
-                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="RvZ-L3-eaV"/>

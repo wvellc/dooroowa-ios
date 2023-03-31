@@ -17,8 +17,12 @@ class SideMenuVC: UIViewController {
     
     //MARK: - Variables
 
-    var arrMenu = [String]()
-    var selectedScreen = "home"
+    private var tblDataSource: TableViewDataSource<MenuCell,String>?
+    private var tblDelegate: TableViewDelegate?
+    
+    private var arrMenu = [String]()
+    private var selectedScreen = "home"
+    private var sideMenuVM = SideMenuVM()
     
     //MARK: - View Life Cycle
     
@@ -39,8 +43,17 @@ class SideMenuVC: UIViewController {
     
     /// Initial settings when view loads
     fileprivate func doInitialSettings() {
-        arrMenu = ["home", "episodes", "tools", "tests", "profile", "settings"]
         registerCell()
+        bindViewModel()
+        configureTableView()
+    }
+    
+    fileprivate func bindViewModel() {
+        sideMenuVM.arrMenu.bind { [weak self] (menu) in
+            self?.arrMenu = menu
+            self?.tblDataSource?.arrItems = self?.arrMenu
+            self?.tblSideMenu.reloadData()
+        }
     }
     
     /// Register table view cells
@@ -53,31 +66,34 @@ class SideMenuVC: UIViewController {
         tblSideMenu.reloadData()
     }
     
-    /*
-     // MARK: - Navigation
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-}
-extension SideMenuVC: UITableViewDelegate, UITableViewDataSource {
-    //MARK: - UITableViewDelegate
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+    fileprivate func configureTableView() {
+        //Table View DataSource
+        self.tblDataSource = TableViewDataSource(identifier: "MenuCell", items: arrMenu, configureCell: { [weak self] (cell, item, indexPath) in
+            guard let self else { return }
+            cell.configureData(indx: indexPath, title: self.arrMenu[indexPath.row], selected: self.selectedScreen)
+        })
+
+        //Table View Delegate
+        self.tblDelegate = TableViewDelegate()
+        
+        ///Table view selection action
+        self.tblDelegate?.tblDidSelectRowAt = { [weak self] (indexPath) in
+            self?.didTapRowAt(indexPath)
+        }
+        
+        //Reloading table view with animation after assigning delegate and data source
+        DispatchQueue.main.async {
+            self.tblSideMenu.delegate = self.tblDelegate
+            self.tblSideMenu.dataSource = self.tblDataSource
+            self.tblSideMenu.reloadData()
+        }
     }
     
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedScreen = arrMenu[indexPath.row]
-        tableView.reloadData()
+    fileprivate func didTapRowAt(_ indexPath: IndexPath) {
+        self.selectedScreen = self.arrMenu[indexPath.row]
+        self.tblSideMenu.reloadData()
         var aNextVC: UIViewController?
-        switch selectedScreen {
+        switch self.selectedScreen {
         case "home":
             aNextVC = HomeVC.instance()
             break
@@ -107,15 +123,12 @@ extension SideMenuVC: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    //MARK: - UITableViewDataSource
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrMenu.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let aCell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath) as? MenuCell else { return UITableViewCell() }
-        aCell.configureData(indx: indexPath, title: arrMenu[indexPath.row], selected: selectedScreen)
-        return aCell
-    }
+    /*
+     // MARK: - Navigation
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
 }

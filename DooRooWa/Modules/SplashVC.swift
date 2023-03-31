@@ -69,17 +69,16 @@ class SplashVC: UIViewController {
             ripple.start()
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
                 self.viewRays.alpha = 0.95
-                UIView.animate(withDuration: 0.7, delay: 0, options: [.curveLinear, .allowUserInteraction, .beginFromCurrentState]) {
+                UIView.animate(withDuration: 0.4, delay: 0, options: [.curveLinear, .allowUserInteraction, .beginFromCurrentState]) {
                     self.viewRays.alpha = 1
                 }
                 UIView.animate(withDuration: 1.5, delay: 0, options: [.curveLinear, .allowUserInteraction, .beginFromCurrentState]) {
                     self.viewRays.isHidden = false
                     self.viewRays.layer.cornerRadius = 40
                     self.viewRays.transform = CGAffineTransform(scaleX: 120, y: 120)
-                } completion: { isCompleted in
-                    if isCompleted {
-                        AppConst.APPDELEGATE.navigateToAuthenticationOrDashboardView()
-                    }
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                    AppConst.APPDELEGATE.navigateToAuthenticationOrDashboardView()
                 }
             }
             

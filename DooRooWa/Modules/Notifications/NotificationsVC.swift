@@ -21,10 +21,12 @@ class NotificationsVC: UIViewController {
 
     //MARK: - Variables
     
-    private var arrNotificaions = [NotificationModel]()
-    private var directionTopBottom = true
-    private var showScrollAnimation = true
-    
+    private var tblDataSource: TableViewDataSource<NotificationCell,NotificationModel>?
+    private var tblDelegate: TableViewDelegate?
+
+    private var arrNotifications = [NotificationModel]()
+    private var notificationsVM = NotificationsVM()
+
     //MARK: - View Life Cycle
     
     override func viewDidLoad() {
@@ -40,18 +42,14 @@ class NotificationsVC: UIViewController {
     //MARK: - IBActions
     
     @IBAction func btnClearAllPressed(_ sender: UIBarButtonItem) {
-        if arrNotificaions.count > 0 {
+        if arrNotifications.count > 0 {
             AlertView.show(title: "confrimation_message_clear_all_notifications".localized, message: "", yesButtonTitle: "clear_all".localized, alertType: .yesNoButton, parent: self) { isDelete in
                 if isDelete {
-                    NotificationModel.clearAllNotifications { result in
-                        switch result {
-                        case .success(_):
-                            self.arrNotificaions.removeAll()
-                            self.tblNotifications.reloadData()
-                        case .failure(let failure):
-                            print(failure)
-                        }
-                        self.manageNoDataView()
+                    self.notificationsVM.clearAllNotifications { [weak self] (notifications) in
+                        self?.arrNotifications = notifications
+                        self?.tblDataSource?.arrItems = self?.arrNotifications
+                        self?.tblNotifications.reloadData()
+                        self?.manageNoDataView()
                     }
                 }
             }
@@ -65,7 +63,7 @@ class NotificationsVC: UIViewController {
         title = "notifications".localized
         registerCell()
         manageClearAllUI()
-        showScrollAnimation = false
+        configureTableView()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
             self.fetchNotifications()
         }
@@ -79,34 +77,37 @@ class NotificationsVC: UIViewController {
         /* Reload table view */
         tblNotifications.reloadData()
     }
-    
-    fileprivate func reloadTable() {
-        showScrollAnimation = false
-        tblNotifications.reloadData()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-            self.showScrollAnimation = true
+
+    fileprivate func configureTableView() {
+        //Table View DataSource
+        self.tblDataSource = TableViewDataSource(identifier: "NotificationCell", items: arrNotifications, configureCell: { [weak self] (cell, item, indexPath) in
+            cell.delegate = self
+            cell.configureData(indx: indexPath, model: item)
+        })
+
+        //Table View Delegate
+        self.tblDelegate = TableViewDelegate()
+        
+        //Reloading table view with animation after assigning delegate and data source
+        DispatchQueue.main.async {
+            self.tblNotifications.delegate = self.tblDelegate
+            self.tblNotifications.dataSource = self.tblDataSource
+            self.tblNotifications.reloadDataWithAnimation(delegate: self.tblDelegate)
         }
     }
     
     fileprivate func fetchNotifications() {
-        NotificationModel.fetchNotifications { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .success(let notifications):
-                self.arrNotificaions = notifications ?? []
-//                self.tblNotifications.reloadData()
-                self.animateCells(tbl: self.tblNotifications)
-                self.reloadTable()
-            case .failure(let failure):
-                print(failure)
-            }
-            self.manageNoDataView()
+        notificationsVM.fetchNotifications {  [weak self] (notifications) in
+            self?.arrNotifications = notifications
+            self?.tblDataSource?.arrItems = self?.arrNotifications
+            self?.tblNotifications.reloadData(delegate: self?.tblDelegate)
+            self?.manageNoDataView()
         }
     }
         
     fileprivate func manageNoDataView() {
         manageClearAllUI()
-        if arrNotificaions.count > 0 {
+        if arrNotifications.count > 0 {
             NoDataView.hideNoDataView(parent: self)
         } else {
             NoDataView.showNoData(noDataImage: #imageLiteral(resourceName: "svgNoNotifications"), title: "no_data_found".localized, message: nil, parent: self, handler: nil)
@@ -114,7 +115,7 @@ class NotificationsVC: UIViewController {
     }
     
     fileprivate func manageClearAllUI() {
-        if arrNotificaions.count > 0 {
+        if arrNotifications.count > 0 {
             barBtnClearAll.image = #imageLiteral(resourceName: "svgClearAll")
         } else {
             barBtnClearAll.image = nil
@@ -131,35 +132,8 @@ class NotificationsVC: UIViewController {
      */
 
 }
-extension NotificationsVC: UITableViewDelegate, UITableViewDataSource, SwipeTableViewCellDelegate {
-    //MARK: - UITableViewDelegate
+extension NotificationsVC: SwipeTableViewCellDelegate {
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-    
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
-    
-    //MARK: - UITableViewDataSource
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrNotificaions.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let aCell = tableView.dequeueReusableCell(withIdentifier: "NotificationCell", for: indexPath) as? NotificationCell else { return UITableViewCell() }
-        aCell.delegate = self
-        aCell.configureData(indx: indexPath, model: arrNotificaions[indexPath.row])
-        return aCell
-    }
-    
-   
     //MARK: - SwipeTableViewCellDelegate Methods
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
        
@@ -168,15 +142,11 @@ extension NotificationsVC: UITableViewDelegate, UITableViewDataSource, SwipeTabl
           //Action
            AlertView.show(title: "confrimation_message_delete_notification".localized, message: "", yesButtonTitle: "delete".localized, alertType: .yesNoButton, parent: self) { isDelete in
                if isDelete {
-                   self.arrNotificaions[indexPath.row].deleteNotification { result in
-                       switch result {
-                       case .success(_):
-                           self.arrNotificaions.remove(at: indexPath.row)
-                           self.tblNotifications.deleteRows(at: [indexPath], with: .fade)
-                       case .failure(let failure):
-                           print(failure)
-                       }
-                       self.manageNoDataView()
+                   self.notificationsVM.delete(notification: self.arrNotifications[indexPath.row], at: indexPath.row) { [weak self] (notification) in
+                       self?.arrNotifications.remove(at: indexPath.row)
+                       self?.tblDataSource?.arrItems = self?.arrNotifications
+                       self?.tblNotifications.deleteRows(at: [indexPath], with: .fade)
+                       self?.manageNoDataView()
                    }
                }
            }
@@ -187,31 +157,4 @@ extension NotificationsVC: UITableViewDelegate, UITableViewDataSource, SwipeTabl
        delete.backgroundColor = .white
        return [delete]
     }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-       let cell = cell as! NotificationCell
-       if showScrollAnimation && directionTopBottom {
-          cell.viewBg.layer.transform = CATransform3DMakeScale(0.5,0.5,1)
-          UIView.animate(withDuration: 0.3, animations: {
-             cell.viewBg.layer.transform = CATransform3DMakeScale(1.05,1.05,1)
-          },completion: { finished in
-             UIView.animate(withDuration: 0.1, animations: {
-                cell.viewBg.layer.transform = CATransform3DMakeScale(1,1,1)
-             })
-          })
-       }
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-       let translation = scrollView.panGestureRecognizer.translation(in: scrollView.superview)
-       if translation.y > 0 {
-          directionTopBottom = false
-          // swipes from top to bottom of screen -> down
-       } else {
-          directionTopBottom = true
-          // swipes from bottom to top of screen -> up
-       }
-    }
-    
 }
-

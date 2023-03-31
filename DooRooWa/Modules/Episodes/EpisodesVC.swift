@@ -21,7 +21,9 @@ class EpisodesVC: UIViewController {
     
     private var tblDataSource: TableViewDataSource<WeekCell,WeekModel>?
     private var tblDelegate: TableViewDelegate?
-
+    private var episodesVM  = EpisodesVM()
+    private var arrWeeks = [WeekModel]()
+    
     //MARK: - View Life Cycle
     
     override func viewDidLoad() {
@@ -47,10 +49,9 @@ class EpisodesVC: UIViewController {
     fileprivate func doInitialSettings() {
         title = "episodes".localized
         registerCell()
-        configureTableViewDelegates()
-        updateDataSource()
+        bindViewModel()
+        configureTableView()
     }
-    
     
     /// Register table view cells
     fileprivate func registerCell() {
@@ -62,41 +63,34 @@ class EpisodesVC: UIViewController {
         tblEpisodes.reloadData()
     }
     
-    fileprivate func configureTableViewDelegates() {
-        self.tblDelegate = TableViewDelegate()
-        self.tblEpisodes.delegate = self.tblDelegate
-        self.tblDelegate?.tblDidSelectRowAt = { [weak self] (indexPath) in
-            guard let self else { return }
-            print(indexPath)
+    fileprivate func bindViewModel() {
+        episodesVM.arrWeeks.bind { [weak self] (weeks) in
+            self?.arrWeeks = weeks
+            self?.tblDataSource?.arrItems = self?.arrWeeks
+            self?.tblEpisodes.reloadData(delegate: self?.tblDelegate)
         }
-        
-//        self.tblDelegate?.tblWillDisplayCellRowAt = { (cell, indexPath) in
-//            if let cell = cell as? WeekCell {
-////                cell.layer.transform = CATransform3DMakeScale(0.5,0.5,1)
-////                UIView.animate(withDuration: 0.3, animations: {
-////                    cell.layer.transform = CATransform3DMakeScale(1.05,1.05,1)
-////                },completion: { finished in
-////                    UIView.animate(withDuration: 0.1, animations: {
-////                        cell.layer.transform = CATransform3DMakeScale(1,1,1)
-////                    })
-////                })
-//            }
-//        }
     }
-    
-    fileprivate func updateDataSource() {
-        var arrWeeks = [WeekModel]()
-        for indx in 1...10 {
-            let week = WeekModel(id: indx, week: "Week \(indx)")
-            arrWeeks.append(week)
-        }
+
+    fileprivate func configureTableView() {
+        //Table View DataSource
         self.tblDataSource = TableViewDataSource(identifier: "WeekCell", items: arrWeeks, configureCell: { (cell, item, indexPath) in
             cell.configureData(indx: indexPath, model: item)
         })
+
+        //Table View Delegate
+        self.tblDelegate = TableViewDelegate()
         
+        ///Table view selection action
+        self.tblDelegate?.tblDidSelectRowAt = { [weak self] (indexPath) in
+            guard let self else { return }
+            print(indexPath, self)
+        }
+        
+        //Reloading table view with animation after assigning delegate and data source
         DispatchQueue.main.async {
+            self.tblEpisodes.delegate = self.tblDelegate
             self.tblEpisodes.dataSource = self.tblDataSource
-            self.tblEpisodes.reloadData()
+            self.tblEpisodes.reloadDataWithAnimation(delegate: self.tblDelegate)
         }
     }
     

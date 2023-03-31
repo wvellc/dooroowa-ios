@@ -61,6 +61,12 @@
 		A2756C7D29C1959200479779 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2756C7C29C1959200479779 /* StringExtension.swift */; };
 		A2756C7F29C1960D00479779 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2756C7E29C1960D00479779 /* DateExtension.swift */; };
 		A2756C8429C1A61000479779 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2756C8329C1A61000479779 /* HomeVC.swift */; };
+		A2E3EF8629D6B6E000E81F76 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E3EF8529D6B6E000E81F76 /* UITableViewExtension.swift */; };
+		A2E3EF8829D6B79400E81F76 /* UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E3EF8729D6B79400E81F76 /* UICollectionViewExtension.swift */; };
+		A2E3EF8E29D6D79C00E81F76 /* EpisodesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E3EF8D29D6D79C00E81F76 /* EpisodesVM.swift */; };
+		A2E3EF9229D6F36E00E81F76 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E3EF9129D6F36E00E81F76 /* Observable.swift */; };
+		A2E3EF9529D705A300E81F76 /* NotificationsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E3EF9429D705A300E81F76 /* NotificationsVM.swift */; };
+		A2E3EF9829D7238900E81F76 /* SideMenuVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E3EF9729D7238900E81F76 /* SideMenuVM.swift */; };
 		B11EB544BC4DEA85D4A0E339 /* Pods_DooRooWa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD05A9E2B59A1F344E987090 /* Pods_DooRooWa.framework */; };
 /* End PBXBuildFile section */
 
@@ -123,6 +129,12 @@
 		A2756C7C29C1959200479779 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		A2756C7E29C1960D00479779 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		A2756C8329C1A61000479779 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		A2E3EF8529D6B6E000E81F76 /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
+		A2E3EF8729D6B79400E81F76 /* UICollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtension.swift; sourceTree = "<group>"; };
+		A2E3EF8D29D6D79C00E81F76 /* EpisodesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesVM.swift; sourceTree = "<group>"; };
+		A2E3EF9129D6F36E00E81F76 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		A2E3EF9429D705A300E81F76 /* NotificationsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsVM.swift; sourceTree = "<group>"; };
+		A2E3EF9729D7238900E81F76 /* SideMenuVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuVM.swift; sourceTree = "<group>"; };
 		CD05A9E2B59A1F344E987090 /* Pods_DooRooWa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DooRooWa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F78A416532EAFA634A69F858 /* Pods-DooRooWa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DooRooWa.debug.xcconfig"; path = "Target Support Files/Pods-DooRooWa/Pods-DooRooWa.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -184,6 +196,7 @@
 		81733D3F29CDB2C0005B0462 /* SideMenu */ = {
 			isa = PBXGroup;
 			children = (
+				A2E3EF9629D7237400E81F76 /* ViewModels */,
 				811D53C729D1754D009BDCCD /* Views */,
 				81733D3D29CDB249005B0462 /* SideMenuVC.swift */,
 				81733D4229CDB76B005B0462 /* LGSideMenuVC.swift */,
@@ -194,6 +207,7 @@
 		81B3535929CC40C100D3ECBC /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
+				A2E3EF9329D7058900E81F76 /* ViewModels */,
 				81B3535F29CC4B3300D3ECBC /* Views */,
 				81B3535C29CC458500D3ECBC /* Models */,
 				81B3535A29CC40D500D3ECBC /* NotificationsVC.swift */,
@@ -238,6 +252,7 @@
 		81EE8DFB29D17CF000C2AD7A /* Episodes */ = {
 			isa = PBXGroup;
 			children = (
+				A2E3EF8A29D6D74600E81F76 /* ViewModels */,
 				8112D24729D5821900ACABB0 /* Models */,
 				8112D24129D5602000ACABB0 /* Views */,
 				81EE8DFC29D17D0000C2AD7A /* EpisodesVC.swift */,
@@ -345,6 +360,8 @@
 				A2756C7C29C1959200479779 /* StringExtension.swift */,
 				A20EA5B829BF398900D1FC9F /* UserDefaultExtension.swift */,
 				81A02E6A29CB1861002D187E /* UIViewControllerExtension.swift */,
+				A2E3EF8529D6B6E000E81F76 /* UITableViewExtension.swift */,
+				A2E3EF8729D6B79400E81F76 /* UICollectionViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -357,6 +374,7 @@
 				A20EA5CD29BF45A300D1FC9F /* StoryboardManager.swift */,
 				A2756C7A29C1931600479779 /* Validator.swift */,
 				A2592AEB29D2E06F004F0BB0 /* LocalizableManager.swift */,
+				A2E3EF9129D6F36E00E81F76 /* Observable.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -426,11 +444,10 @@
 		A2756C7929C1928000479779 /* CustomControls */ = {
 			isa = PBXGroup;
 			children = (
+				A2E3EF8929D6C62600E81F76 /* TableView */,
 				81B3536529CC667E00D3ECBC /* NoDataView */,
 				84A0845D29C88926003DDACA /* AlertView */,
 				A26DB0D429C092A700E52C70 /* CustomTextField.swift */,
-				8112D24A29D59D3000ACABB0 /* TableViewDelegate.swift */,
-				8112D23F29D55BA900ACABB0 /* TableViewDataSource.swift */,
 			);
 			path = CustomControls;
 			sourceTree = "<group>";
@@ -441,6 +458,39 @@
 				A2756C8329C1A61000479779 /* HomeVC.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		A2E3EF8929D6C62600E81F76 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				8112D24A29D59D3000ACABB0 /* TableViewDelegate.swift */,
+				8112D23F29D55BA900ACABB0 /* TableViewDataSource.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		A2E3EF8A29D6D74600E81F76 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A2E3EF8D29D6D79C00E81F76 /* EpisodesVM.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A2E3EF9329D7058900E81F76 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A2E3EF9429D705A300E81F76 /* NotificationsVM.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A2E3EF9629D7237400E81F76 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A2E3EF9729D7238900E81F76 /* SideMenuVM.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		CEDE7A5CC59025F924746C01 /* Frameworks */ = {
@@ -601,18 +651,23 @@
 				A20EA5B929BF398900D1FC9F /* UserDefaultExtension.swift in Sources */,
 				A2592AEC29D2E06F004F0BB0 /* LocalizableManager.swift in Sources */,
 				81EE8E0B29D17F6500C2AD7A /* ToolsVC.swift in Sources */,
+				A2E3EF9229D6F36E00E81F76 /* Observable.swift in Sources */,
 				81A02E7129CB3369002D187E /* IntroVC.swift in Sources */,
 				A2756C7829C191C900479779 /* JsonObjectManager.swift in Sources */,
 				A20EA5B529BF325200D1FC9F /* AppConst.swift in Sources */,
 				A20EA5B729BF32DD00D1FC9F /* ColorsConst.swift in Sources */,
 				A2756C7F29C1960D00479779 /* DateExtension.swift in Sources */,
+				A2E3EF9829D7238900E81F76 /* SideMenuVM.swift in Sources */,
+				A2E3EF8829D6B79400E81F76 /* UICollectionViewExtension.swift in Sources */,
 				A2756C7B29C1931600479779 /* Validator.swift in Sources */,
+				A2E3EF8E29D6D79C00E81F76 /* EpisodesVM.swift in Sources */,
 				A26DB0D529C092A700E52C70 /* CustomTextField.swift in Sources */,
 				8112D24529D5605C00ACABB0 /* WeekCell.swift in Sources */,
 				81B3536729CC669000D3ECBC /* NoDataView.swift in Sources */,
 				8112D24929D5822F00ACABB0 /* WeekModel.swift in Sources */,
 				A26DB0D329C0835300E52C70 /* SignInVC.swift in Sources */,
 				81733D4329CDB76B005B0462 /* LGSideMenuVC.swift in Sources */,
+				A2E3EF8629D6B6E000E81F76 /* UITableViewExtension.swift in Sources */,
 				A2756C7D29C1959200479779 /* StringExtension.swift in Sources */,
 				A20EA5A629BF2D5700D1FC9F /* AppDelegate.swift in Sources */,
 				A2756C7629C18F2500479779 /* UserModel.swift in Sources */,
@@ -621,6 +676,7 @@
 				81EE8E0D29D17F8F00C2AD7A /* TestsVC.swift in Sources */,
 				A20EA59529BF25BF00D1FC9F /* SplashVC.swift in Sources */,
 				84A0845C29C87AC4003DDACA /* ForgotPasswordVC.swift in Sources */,
+				A2E3EF9529D705A300E81F76 /* NotificationsVM.swift in Sources */,
 				81EE8E0F29D17F9F00C2AD7A /* ProfileVC.swift in Sources */,
 				81B3535B29CC40D500D3ECBC /* NotificationsVC.swift in Sources */,
 				81EE8DFD29D17D0000C2AD7A /* EpisodesVC.swift in Sources */,

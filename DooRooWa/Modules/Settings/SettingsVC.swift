@@ -38,8 +38,10 @@ class SettingsVC: UIViewController {
     @IBAction func btnLogoutPressed(_ sender: UIButton) {
         AlertView.show(title: "confrimation_message_logout".localized, message: "", yesButtonTitle: "logout".localized, alertType: .yesNoButton, parent: self) { isDelete in
             if isDelete {
-                UserDefaults.shared.clearAllUserDefaultData()
-                AppConst.APPDELEGATE.navigateToAuthenticationOrDashboardView()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+                    UserDefaults.shared.clearAllUserDefaultData()
+                    AppConst.APPDELEGATE.navigateToAuthenticationOrDashboardView()
+                }
             }
         }
     }
