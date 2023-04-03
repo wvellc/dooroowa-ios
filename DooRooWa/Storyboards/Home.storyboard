@@ -448,8 +448,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" backIndicatorImage="svgBack" largeTitles="YES" backIndicatorTransitionMaskImage="svgBack" id="aBt-yd-MMm">
                         <rect key="frame" x="0.0" y="59" width="393" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" name="AppWhite"/>
-                        <color key="barTintColor" name="AppWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="18"/>
                             <color key="textColor" name="Text"/>

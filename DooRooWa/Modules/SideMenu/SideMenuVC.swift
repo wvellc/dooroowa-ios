@@ -59,7 +59,7 @@ class SideMenuVC: UIViewController {
     /// Register table view cells
     fileprivate func registerCell() {
         /* Registering Xib (view/cell) to table view */
-        tblSideMenu.register(UINib(nibName:"MenuCell" , bundle: nil), forCellReuseIdentifier: "MenuCell")
+        tblSideMenu.register(UINib(nibName:"MenuCell", bundle: nil), forCellReuseIdentifier: "MenuCell")
         /* Assigning empty view to footer view */
         tblSideMenu.tableFooterView = UIView()
         /* Reload table view */
@@ -98,7 +98,7 @@ class SideMenuVC: UIViewController {
             aNextVC = HomeVC.instance()
             break
         case "episodes":
-            aNextVC = EpisodesVC.instance()
+            aNextVC = WeeksVC.instance()
             break
         case "tools":
             aNextVC = ToolsVC.instance()

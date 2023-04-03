@@ -8,18 +8,21 @@
 import Foundation
 
 protocol EpisodesProtocol {
-    var arrWeeks: Observable<[WeekModel]> { get set }
+    var objWeek: Observable<WeekModel?> { get set }
+    var arrEpisodes: Observable<[EpisodeModel]> { get set }
 }
-
 final class EpisodesVM: NSObject, EpisodesProtocol {
-
+    
     //MARK: - Variables
     
-    var arrWeeks: Observable<[WeekModel]> = Observable([])
+    var objWeek: Observable<WeekModel?>
+    var arrEpisodes: Observable<[EpisodeModel]> = Observable([])
     
-    override init() {
-        super.init()
+    init(week: WeekModel?) {
+        objWeek = Observable(week)
+
         /* Initial setup when view load */
+        super.init()
         doInitialSettings()
     }
     
@@ -31,15 +34,19 @@ final class EpisodesVM: NSObject, EpisodesProtocol {
     
     /// Initial settings when view loads
     fileprivate func doInitialSettings() {
-        fetchWeeks()
+        fetchEpisodes()
     }
     
-    func fetchWeeks() {
-        var arrTempWeeks = [WeekModel]()
-        for indx in 1...10 {
-            let week = WeekModel(id: indx, week: "Week \(indx)")
+    func fetchEpisodes() {
+        var arrTempWeeks = [EpisodeModel]()
+        for indx in 1...3 {
+            var week = EpisodeModel(id: indx, title: "Eliminate Stress", description: "Sed sit amet velit fermentum, dictum eros non, efficitur mauris. Cras ut tempor orci.", type: "Video", week: "\(objWeek.value?.week ?? "Week 1")")
+            arrTempWeeks.append(week)
+            week = EpisodeModel(id: indx, title: "Detox The Mind", description: "Sed ipsum ipsum, ullamcorper tincidunt ligula et, dapibus tristique dui.", type: "Audio", week: "\(objWeek.value?.week ?? "Week 1")")
+            arrTempWeeks.append(week)
+            week = EpisodeModel(id: indx, title: "Guided Imagery", description: "Sed sit amet velit fermentum, dictum eros non, efficitur mauris. Cras ut tempor orci.", type: "Tool", week: "\(objWeek.value?.week ?? "Week 1")")
             arrTempWeeks.append(week)
         }
-        arrWeeks = Observable(arrTempWeeks)
+        arrEpisodes = Observable(arrTempWeeks)
     }
 }

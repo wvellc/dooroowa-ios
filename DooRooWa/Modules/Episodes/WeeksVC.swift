@@ -1,30 +1,28 @@
 //
-//  EpisodesVC.swift
+//  WeeksVC.swift
 //  DooRooWa
 //
-//  Created by Wve iOS Developer on 4/3/23.
+//  Created by Wve iOS Developer on 3/27/23.
 //
 
 import UIKit
 
-class EpisodesVC: UIViewController {
+class WeeksVC: UIViewController {
 
-    static func instance() -> EpisodesVC {
-       return EpisodesVC.instatiateFromStoryBoard(appStoryboard: AppStoryboard.episodes)
+    static func instance() -> WeeksVC {
+       return WeeksVC.instatiateFromStoryBoard(appStoryboard: AppStoryboard.episodes)
     }
     
     //MARK: - IBOutlets
     
     @IBOutlet weak var tblEpisodes: UITableView!
-    @IBOutlet weak var lblHeaderTitle: UILabel!
     
     //MARK: - Variables
     
-    var episodesVM: EpisodesVM?
-    
-    private var tblDataSource: TableViewDataSource<EpisodeCell,EpisodeModel>?
+    private var tblDataSource: TableViewDataSource<WeekCell,WeekModel>?
     private var tblDelegate: TableViewDelegate?
-    private var arrEpisodes = [EpisodeModel]()
+    private var weeksVM  = WeeksVM()
+    private var arrWeeks = [WeekModel]()
     
     //MARK: - View Life Cycle
     
@@ -35,11 +33,15 @@ class EpisodesVC: UIViewController {
     }
     
     deinit {
-        print("Episodes screen released from memory")
+        print("Weeks screen released from memory")
     }
     
     //MARK: - IBActions
     
+    
+    @IBAction func btnMenuPressed(_ sender: UIBarButtonItem) {
+        sideMenuController?.showLeftView()
+    }
     
     //MARK: - Class Functions
     
@@ -54,7 +56,7 @@ class EpisodesVC: UIViewController {
     /// Register table view cells
     fileprivate func registerCell() {
         /* Registering Xib (view/cell) to table view */
-        tblEpisodes.register(UINib(nibName:"EpisodeCell", bundle: nil), forCellReuseIdentifier: "EpisodeCell")
+        tblEpisodes.register(UINib(nibName:"WeekCell", bundle: nil), forCellReuseIdentifier: "WeekCell")
         /* Assigning empty view to footer view */
         tblEpisodes.tableFooterView = UIView()
         /* Reload table view */
@@ -62,20 +64,16 @@ class EpisodesVC: UIViewController {
     }
     
     fileprivate func bindViewModel() {
-        episodesVM?.objWeek.bind({ [weak self] (week) in
-            self?.lblHeaderTitle.text = week?.week ?? ""
-        })
-        
-        episodesVM?.arrEpisodes.bind { [weak self] (episodes) in
-            self?.arrEpisodes = episodes
-            self?.tblDataSource?.arrItems = self?.arrEpisodes
+        weeksVM.arrWeeks.bind { [weak self] (weeks) in
+            self?.arrWeeks = weeks
+            self?.tblDataSource?.arrItems = self?.arrWeeks
             self?.tblEpisodes.reloadData(delegate: self?.tblDelegate)
         }
     }
 
     fileprivate func configureTableView() {
         //Table View DataSource
-        self.tblDataSource = TableViewDataSource(identifier: "EpisodeCell", items: arrEpisodes, configureCell: { (cell, item, indexPath) in
+        self.tblDataSource = TableViewDataSource(identifier: "WeekCell", items: arrWeeks, configureCell: { (cell, item, indexPath) in
             cell.configureData(indx: indexPath, model: item)
         })
 
@@ -84,9 +82,9 @@ class EpisodesVC: UIViewController {
         
         ///Table view selection action
         self.tblDelegate?.tblDidSelectRowAt = { [weak self] (indexPath) in
-            let aEpisode = self?.arrEpisodes[indexPath.row]
-            let aVC = EpisodeDetailsVC.instance()
-            aVC.episodeDetailsVM = EpisodeDetailsVM(week: self?.episodesVM?.objWeek.value, episode: aEpisode)
+            let aWeek = self?.arrWeeks[indexPath.row]
+            let aVC = EpisodesVC.instance()
+            aVC.episodesVM = EpisodesVM(week: aWeek)
             self?.navigationController?.pushViewController(aVC, animated: true)
         }
         
@@ -106,4 +104,5 @@ class EpisodesVC: UIViewController {
      // Pass the selected object to the new view controller.
      }
      */
+
 }

@@ -32,15 +32,28 @@ class AppDelegate: UIResponder {
 //        navigateToAuthenticationOrDashboardView()
 #else
 #endif
+        setupNavigationAppearance()
+
+        /* Check any new update for force update app */
+        checkUpdate()
+        
+        #if DEBUG
+        //Current Device Language Code
+        print("Current Device Language Code - >>>> ", Locale.current.languageCode ?? "Empty")
+        #else
+        #endif
+        
+    }
+    
+    func setupNavigationAppearance(backgroundColor: UIColor? = ColorsConst.AppWhite) {
         //navigateToAuthenticationOrDashboardView()
         
         /* Navigation Appearance */
-       
+        
         /* Navigation bar large title offset from left */
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().prefersLargeTitles = true
-        UINavigationBar.appearance().tintColor = ColorsConst.AppBlue
-
+        UINavigationBar.appearance().tintColor = backgroundColor
         
         /// Attributed center align small title
         let attributedSmallProperties  = [
@@ -54,34 +67,19 @@ class AppDelegate: UIResponder {
             NSAttributedString.Key.font : UIFont.init(name: AppFonts.ChalkboardSERegular, size: 24) ?? UIFont.systemFont(ofSize: 24)
         ]
         
-        if #available(iOS 13.0, *) {
-            let appearanceBG = UINavigationBarAppearance()
-            appearanceBG.configureWithOpaqueBackground()
-            appearanceBG.backgroundColor = ColorsConst.AppWhite
-            appearanceBG.titleTextAttributes = attributedSmallProperties
-            appearanceBG.largeTitleTextAttributes = attributedLargeProperties
-            appearanceBG.shadowColor = .clear
-            appearanceBG.backgroundColor = ColorsConst.AppWhite //App Bg Color
-            appearanceBG.setBackIndicatorImage(#imageLiteral(resourceName: "svgBack"), transitionMaskImage: #imageLiteral(resourceName: "svgBack"))
-            UINavigationBar.appearance().standardAppearance = appearanceBG
-            UINavigationBar.appearance().scrollEdgeAppearance = appearanceBG
-        } else {
-            UINavigationBar.appearance().backIndicatorImage = #imageLiteral(resourceName: "svgBack")
-            UINavigationBar.appearance().backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "svgBack")
-            UINavigationBar.appearance().titleTextAttributes = attributedSmallProperties
-            UINavigationBar.appearance().largeTitleTextAttributes = attributedLargeProperties
-            UINavigationBar.appearance().backgroundColor = .clear
+        let appearanceBG = UINavigationBarAppearance()
+        appearanceBG.configureWithTransparentBackground()
+        appearanceBG.titleTextAttributes = attributedSmallProperties
+        appearanceBG.largeTitleTextAttributes = attributedLargeProperties
+        appearanceBG.shadowColor = .clear
+        appearanceBG.backgroundColor = backgroundColor //App Bg Color
+        appearanceBG.setBackIndicatorImage(#imageLiteral(resourceName: "svgBack"), transitionMaskImage: #imageLiteral(resourceName: "svgBack"))
+        UINavigationBar.appearance().standardAppearance = appearanceBG
+        UINavigationBar.appearance().scrollEdgeAppearance = appearanceBG
+        UINavigationBar.appearance().compactAppearance = appearanceBG
+        if #available(iOS 15.0, *) {
+            UINavigationBar.appearance().compactScrollEdgeAppearance = appearanceBG
         }
-        
-        /* Check any new update for force update app */
-        checkUpdate()
-        
-        #if DEBUG
-        //Current Device Language Code
-        print("Current Device Language Code - >>>> ", Locale.current.languageCode ?? "Empty")
-        #else
-        #endif
-        
     }
     
     /// Setting app initial screen on user type and user data saved in UserDefaults

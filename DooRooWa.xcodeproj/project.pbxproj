@@ -25,7 +25,14 @@
 		81B3536429CC4B5400D3ECBC /* NotificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81B3536229CC4B5400D3ECBC /* NotificationCell.xib */; };
 		81B3536729CC669000D3ECBC /* NoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B3536629CC669000D3ECBC /* NoDataView.swift */; };
 		81B3536929CC669800D3ECBC /* NoDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81B3536829CC669800D3ECBC /* NoDataView.xib */; };
-		81EE8DFD29D17D0000C2AD7A /* EpisodesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EE8DFC29D17D0000C2AD7A /* EpisodesVC.swift */; };
+		81BCAE5E29DA99AD006AD513 /* EpisodesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BCAE5D29DA99AD006AD513 /* EpisodesVC.swift */; };
+		81BCAE6029DA99E4006AD513 /* WeeksVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BCAE5F29DA99E4006AD513 /* WeeksVM.swift */; };
+		81BCAE6229DA9A83006AD513 /* EpisodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BCAE6129DA9A83006AD513 /* EpisodeModel.swift */; };
+		81EDF5B429DAAD9A008E852A /* EpisodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EDF5B229DAAD9A008E852A /* EpisodeCell.swift */; };
+		81EDF5B529DAAD9A008E852A /* EpisodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81EDF5B329DAAD9A008E852A /* EpisodeCell.xib */; };
+		81EDF5B729DAEF90008E852A /* EpisodeDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EDF5B629DAEF90008E852A /* EpisodeDetailsVC.swift */; };
+		81EDF5B929DAF034008E852A /* EpisodeDetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EDF5B829DAF034008E852A /* EpisodeDetailsVM.swift */; };
+		81EE8DFD29D17D0000C2AD7A /* WeeksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EE8DFC29D17D0000C2AD7A /* WeeksVC.swift */; };
 		81EE8E0B29D17F6500C2AD7A /* ToolsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EE8E0A29D17F6500C2AD7A /* ToolsVC.swift */; };
 		81EE8E0D29D17F8F00C2AD7A /* TestsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EE8E0C29D17F8F00C2AD7A /* TestsVC.swift */; };
 		81EE8E0F29D17F9F00C2AD7A /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EE8E0E29D17F9F00C2AD7A /* ProfileVC.swift */; };
@@ -90,7 +97,14 @@
 		81B3536229CC4B5400D3ECBC /* NotificationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationCell.xib; sourceTree = "<group>"; };
 		81B3536629CC669000D3ECBC /* NoDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDataView.swift; sourceTree = "<group>"; };
 		81B3536829CC669800D3ECBC /* NoDataView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoDataView.xib; sourceTree = "<group>"; };
-		81EE8DFC29D17D0000C2AD7A /* EpisodesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesVC.swift; sourceTree = "<group>"; };
+		81BCAE5D29DA99AD006AD513 /* EpisodesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesVC.swift; sourceTree = "<group>"; };
+		81BCAE5F29DA99E4006AD513 /* WeeksVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeksVM.swift; sourceTree = "<group>"; };
+		81BCAE6129DA9A83006AD513 /* EpisodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeModel.swift; sourceTree = "<group>"; };
+		81EDF5B229DAAD9A008E852A /* EpisodeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodeCell.swift; sourceTree = "<group>"; };
+		81EDF5B329DAAD9A008E852A /* EpisodeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EpisodeCell.xib; sourceTree = "<group>"; };
+		81EDF5B629DAEF90008E852A /* EpisodeDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailsVC.swift; sourceTree = "<group>"; };
+		81EDF5B829DAF034008E852A /* EpisodeDetailsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailsVM.swift; sourceTree = "<group>"; };
+		81EE8DFC29D17D0000C2AD7A /* WeeksVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeksVC.swift; sourceTree = "<group>"; };
 		81EE8E0A29D17F6500C2AD7A /* ToolsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsVC.swift; sourceTree = "<group>"; };
 		81EE8E0C29D17F8F00C2AD7A /* TestsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsVC.swift; sourceTree = "<group>"; };
 		81EE8E0E29D17F9F00C2AD7A /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
@@ -155,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				8112D24229D5603100ACABB0 /* WeekCell */,
+				81EDF5B129DAAD9A008E852A /* EpisodeCell */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -172,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				8112D24829D5822F00ACABB0 /* WeekModel.swift */,
+				81BCAE6129DA9A83006AD513 /* EpisodeModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -249,13 +265,24 @@
 			path = NoDataView;
 			sourceTree = "<group>";
 		};
+		81EDF5B129DAAD9A008E852A /* EpisodeCell */ = {
+			isa = PBXGroup;
+			children = (
+				81EDF5B229DAAD9A008E852A /* EpisodeCell.swift */,
+				81EDF5B329DAAD9A008E852A /* EpisodeCell.xib */,
+			);
+			path = EpisodeCell;
+			sourceTree = "<group>";
+		};
 		81EE8DFB29D17CF000C2AD7A /* Episodes */ = {
 			isa = PBXGroup;
 			children = (
 				A2E3EF8A29D6D74600E81F76 /* ViewModels */,
 				8112D24729D5821900ACABB0 /* Models */,
 				8112D24129D5602000ACABB0 /* Views */,
-				81EE8DFC29D17D0000C2AD7A /* EpisodesVC.swift */,
+				81EE8DFC29D17D0000C2AD7A /* WeeksVC.swift */,
+				81BCAE5D29DA99AD006AD513 /* EpisodesVC.swift */,
+				81EDF5B629DAEF90008E852A /* EpisodeDetailsVC.swift */,
 			);
 			path = Episodes;
 			sourceTree = "<group>";
@@ -472,7 +499,9 @@
 		A2E3EF8A29D6D74600E81F76 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				81BCAE5F29DA99E4006AD513 /* WeeksVM.swift */,
 				A2E3EF8D29D6D79C00E81F76 /* EpisodesVM.swift */,
+				81EDF5B829DAF034008E852A /* EpisodeDetailsVM.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -576,6 +605,7 @@
 				A235FD6429D32EB500773375 /* Tools.storyboard in Resources */,
 				A235FD6029D32EB500773375 /* Profile.storyboard in Resources */,
 				A235FD6229D32EB500773375 /* Home.storyboard in Resources */,
+				81EDF5B529DAAD9A008E852A /* EpisodeCell.xib in Resources */,
 				A235FD5E29D32EB500773375 /* Common.storyboard in Resources */,
 				A235FD6329D32EB500773375 /* Tests.storyboard in Resources */,
 				81B3536429CC4B5400D3ECBC /* NotificationCell.xib in Resources */,
@@ -645,10 +675,12 @@
 				81A02E6F29CB1EF8002D187E /* InfoVC.swift in Sources */,
 				8112D24029D55BA900ACABB0 /* TableViewDataSource.swift in Sources */,
 				811D53CB29D17562009BDCCD /* MenuCell.swift in Sources */,
+				81EDF5B929DAF034008E852A /* EpisodeDetailsVM.swift in Sources */,
 				81B3536329CC4B5400D3ECBC /* NotificationCell.swift in Sources */,
 				A2756C8429C1A61000479779 /* HomeVC.swift in Sources */,
 				81A02E6B29CB1861002D187E /* UIViewControllerExtension.swift in Sources */,
 				A20EA5B929BF398900D1FC9F /* UserDefaultExtension.swift in Sources */,
+				81EDF5B729DAEF90008E852A /* EpisodeDetailsVC.swift in Sources */,
 				A2592AEC29D2E06F004F0BB0 /* LocalizableManager.swift in Sources */,
 				81EE8E0B29D17F6500C2AD7A /* ToolsVC.swift in Sources */,
 				A2E3EF9229D6F36E00E81F76 /* Observable.swift in Sources */,
@@ -661,6 +693,7 @@
 				A2E3EF8829D6B79400E81F76 /* UICollectionViewExtension.swift in Sources */,
 				A2756C7B29C1931600479779 /* Validator.swift in Sources */,
 				A2E3EF8E29D6D79C00E81F76 /* EpisodesVM.swift in Sources */,
+				81BCAE6229DA9A83006AD513 /* EpisodeModel.swift in Sources */,
 				A26DB0D529C092A700E52C70 /* CustomTextField.swift in Sources */,
 				8112D24529D5605C00ACABB0 /* WeekCell.swift in Sources */,
 				81B3536729CC669000D3ECBC /* NoDataView.swift in Sources */,
@@ -675,11 +708,14 @@
 				84A0846129C88975003DDACA /* AlertView.swift in Sources */,
 				81EE8E0D29D17F8F00C2AD7A /* TestsVC.swift in Sources */,
 				A20EA59529BF25BF00D1FC9F /* SplashVC.swift in Sources */,
+				81BCAE6029DA99E4006AD513 /* WeeksVM.swift in Sources */,
 				84A0845C29C87AC4003DDACA /* ForgotPasswordVC.swift in Sources */,
+				81EDF5B429DAAD9A008E852A /* EpisodeCell.swift in Sources */,
+				81BCAE5E29DA99AD006AD513 /* EpisodesVC.swift in Sources */,
 				A2E3EF9529D705A300E81F76 /* NotificationsVM.swift in Sources */,
 				81EE8E0F29D17F9F00C2AD7A /* ProfileVC.swift in Sources */,
 				81B3535B29CC40D500D3ECBC /* NotificationsVC.swift in Sources */,
-				81EE8DFD29D17D0000C2AD7A /* EpisodesVC.swift in Sources */,
+				81EE8DFD29D17D0000C2AD7A /* WeeksVC.swift in Sources */,
 				81B3535E29CC45B100D3ECBC /* NotificationModel.swift in Sources */,
 				846F9A2929C9AF8200547E8B /* SignUpVC.swift in Sources */,
 				81733D3E29CDB249005B0462 /* SideMenuVC.swift in Sources */,

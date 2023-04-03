@@ -72,7 +72,7 @@ class NotificationsVC: UIViewController {
     /// Register table view cells
     fileprivate func registerCell() {
         /* Registering Xib (view/cell) to table view */
-        tblNotifications.register(UINib(nibName:"NotificationCell" , bundle: nil), forCellReuseIdentifier: "NotificationCell")
+        tblNotifications.register(UINib(nibName:"NotificationCell", bundle: nil), forCellReuseIdentifier: "NotificationCell")
 
         /* Reload table view */
         tblNotifications.reloadData()

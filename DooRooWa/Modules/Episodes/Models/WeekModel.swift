@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK: - NotificationModel
+// MARK: - WeekModel
 struct WeekModel: Decodable {
     var id: Int?
     var week, color, image: String?
