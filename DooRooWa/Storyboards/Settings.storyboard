@@ -18,34 +18,57 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QyO-aC-JLO" customClass="LocalizableButton" customModule="DooRooWa" customModuleProvider="target">
-                                <rect key="frame" x="20" y="742" width="353" height="56"/>
-                                <color key="backgroundColor" name="AppLightYellow"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="oTm-cq-HG1"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="20"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Logout">
-                                    <color key="titleColor" name="AppTitleGray"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="localizableKey" value="logout"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="btnLogoutPressed:" destination="tTX-BV-0pw" eventType="touchUpInside" id="bg3-Fu-RR5"/>
-                                </connections>
-                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="H44-MA-lnJ">
+                                <rect key="frame" x="0.0" y="103" width="393" height="749"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="wfk-di-XRn">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="20"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                </view>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="eUo-Yv-cQx">
+                                    <rect key="frame" x="0.0" y="20" width="393" height="96"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QyO-aC-JLO" customClass="LocalizableButton" customModule="DooRooWa" customModuleProvider="target">
+                                            <rect key="frame" x="20" y="20" width="353" height="56"/>
+                                            <color key="backgroundColor" name="AppLightYellow"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="56" id="oTm-cq-HG1"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="20"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title="Logout">
+                                                <color key="titleColor" name="AppTitleGray"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <integer key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="localizableKey" value="logout"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="btnLogoutPressed:" destination="tTX-BV-0pw" eventType="touchUpInside" id="bg3-Fu-RR5"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstItem="QyO-aC-JLO" firstAttribute="top" secondItem="eUo-Yv-cQx" secondAttribute="top" constant="20" id="0vP-fE-fOO"/>
+                                        <constraint firstItem="QyO-aC-JLO" firstAttribute="leading" secondItem="eUo-Yv-cQx" secondAttribute="leading" constant="20" id="DAh-rc-Pdj"/>
+                                        <constraint firstAttribute="trailing" secondItem="QyO-aC-JLO" secondAttribute="trailing" constant="20" id="Wib-sZ-Pez"/>
+                                        <constraint firstAttribute="bottom" secondItem="QyO-aC-JLO" secondAttribute="bottom" constant="20" id="tTK-Bl-s0Q"/>
+                                    </constraints>
+                                </view>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="93g-As-xsj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="QyO-aC-JLO" firstAttribute="leading" secondItem="93g-As-xsj" secondAttribute="leading" constant="20" id="AYZ-5A-tbs"/>
-                            <constraint firstItem="93g-As-xsj" firstAttribute="bottom" secondItem="QyO-aC-JLO" secondAttribute="bottom" constant="20" id="Apm-jd-8aH"/>
-                            <constraint firstItem="93g-As-xsj" firstAttribute="trailing" secondItem="QyO-aC-JLO" secondAttribute="trailing" constant="20" id="PR7-qU-ute"/>
+                            <constraint firstItem="H44-MA-lnJ" firstAttribute="top" secondItem="93g-As-xsj" secondAttribute="top" id="Efm-4D-eV9"/>
+                            <constraint firstItem="93g-As-xsj" firstAttribute="trailing" secondItem="H44-MA-lnJ" secondAttribute="trailing" id="iDV-h1-wkB"/>
+                            <constraint firstItem="H44-MA-lnJ" firstAttribute="leading" secondItem="93g-As-xsj" secondAttribute="leading" id="kOg-pa-sbc"/>
+                            <constraint firstAttribute="bottom" secondItem="H44-MA-lnJ" secondAttribute="bottom" id="sAO-Lr-ATy"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" largeTitleDisplayMode="always" id="fTC-SZ-rIa">
@@ -56,10 +79,14 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tblSettings" destination="H44-MA-lnJ" id="mkd-u4-IQR"/>
+                        <outlet property="viewLogout" destination="eUo-Yv-cQx" id="K9A-6Q-eLN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qia-ix-FO2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="-34"/>
+            <point key="canvasLocation" x="130.53435114503816" y="-34.507042253521128"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5uC-Jj-eJI">

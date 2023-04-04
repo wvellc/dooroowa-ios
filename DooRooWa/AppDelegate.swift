@@ -32,7 +32,11 @@ class AppDelegate: UIResponder {
 //        navigateToAuthenticationOrDashboardView()
 #else
 #endif
+
+        /* Navigation Appearance */
         setupNavigationAppearance()
+
+        //navigateToAuthenticationOrDashboardView()
 
         /* Check any new update for force update app */
         checkUpdate()
@@ -45,15 +49,12 @@ class AppDelegate: UIResponder {
         
     }
     
-    func setupNavigationAppearance(backgroundColor: UIColor? = ColorsConst.AppWhite) {
-        //navigateToAuthenticationOrDashboardView()
-        
-        /* Navigation Appearance */
-        
+    fileprivate func setupNavigationAppearance() {
+
         /* Navigation bar large title offset from left */
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().prefersLargeTitles = true
-        UINavigationBar.appearance().tintColor = backgroundColor
+        UINavigationBar.appearance().tintColor = ColorsConst.AppWhite
         
         /// Attributed center align small title
         let attributedSmallProperties  = [
@@ -72,7 +73,7 @@ class AppDelegate: UIResponder {
         appearanceBG.titleTextAttributes = attributedSmallProperties
         appearanceBG.largeTitleTextAttributes = attributedLargeProperties
         appearanceBG.shadowColor = .clear
-        appearanceBG.backgroundColor = backgroundColor //App Bg Color
+        appearanceBG.backgroundColor = .clear //App Bg Color
         appearanceBG.setBackIndicatorImage(#imageLiteral(resourceName: "svgBack"), transitionMaskImage: #imageLiteral(resourceName: "svgBack"))
         UINavigationBar.appearance().standardAppearance = appearanceBG
         UINavigationBar.appearance().scrollEdgeAppearance = appearanceBG

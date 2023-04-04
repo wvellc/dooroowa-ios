@@ -136,7 +136,7 @@
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" image="svgPlayBlue"/>
                                             </button>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.29999999999999999" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="37Y-RA-eAr">
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="37Y-RA-eAr">
                                                 <rect key="frame" x="72" y="212.66666666666669" width="290" height="31"/>
                                                 <color key="tintColor" name="AppBlue"/>
                                                 <color key="maximumTrackTintColor" name="AppBlue30"/>
@@ -229,6 +229,14 @@
                             <constraint firstItem="xWM-Oq-7VG" firstAttribute="trailing" secondItem="rq5-s2-1Zd" secondAttribute="trailing" id="rLg-89-ruo"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btnPlay" destination="mtT-II-vv0" id="Pna-5D-foK"/>
+                        <outlet property="imgViewBg" destination="pZe-Yn-Jch" id="Qcr-5L-YuO"/>
+                        <outlet property="imgViewEpisode" destination="Q22-Fu-VnQ" id="DZJ-ZQ-r8p"/>
+                        <outlet property="lblDescription" destination="DA3-9i-zI8" id="Ytj-g7-Rg9"/>
+                        <outlet property="lblTitle" destination="UKw-uq-7qU" id="hP5-XN-VGx"/>
+                        <outlet property="slideerSeekbar" destination="37Y-RA-eAr" id="LA3-Yz-Lg9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CXw-Jo-S9h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -237,7 +245,6 @@
         <!--Navigation Controller-->
         <scene sceneID="TFX-Lf-1eW">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aZe-j0-NCL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Wbj-it-fOR" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" backIndicatorImage="svgBack" largeTitles="YES" backIndicatorTransitionMaskImage="svgBack" id="tCI-rm-zT2">
@@ -259,6 +266,7 @@
                         <segue destination="ECb-du-zk9" kind="relationship" relationship="rootViewController" id="0dt-cx-vNO"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aZe-j0-NCL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-802" y="-35"/>
         </scene>

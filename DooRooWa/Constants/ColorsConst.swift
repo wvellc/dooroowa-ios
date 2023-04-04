@@ -18,6 +18,7 @@ struct ColorsConst {
     static let AppBlack50               = UIColor(named: "AppBlack50")
     static let AppShadow                = UIColor(named: "AppShadow")
     static let AppWhite                 = UIColor(named: "AppWhite")
+    static let AppWhite60               = UIColor(named: "AppWhite60")
     static let Placeholder              = UIColor(named: "Placeholder")
     static let PlaceholderError         = UIColor(named: "PlaceholderError")
     static let Text                     = UIColor(named: "Text")

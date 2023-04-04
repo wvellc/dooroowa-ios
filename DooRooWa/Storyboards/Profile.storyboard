@@ -17,8 +17,66 @@
                     <view key="view" contentMode="scaleToFill" id="CjE-T4-z6P">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tsR-Te-UnE">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="o0h-fi-8Zz">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="15"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                </view>
+                            </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gHK-Uy-yK9">
+                                <rect key="frame" x="0.0" y="818" width="393" height="0.0"/>
+                                <subviews>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wbB-od-SKA">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="96"/>
+                                        <subviews>
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ibM-Uj-o6j" customClass="LocalizableButton" customModule="DooRooWa" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="20" width="353" height="56"/>
+                                                <color key="backgroundColor" name="AppLightYellow"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="56" id="qAb-BJ-xru"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="20"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Update">
+                                                    <color key="titleColor" name="AppTitleGray"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizableKey" value="update"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="btnUpdateProfile:" destination="iPz-pv-sOF" eventType="touchUpInside" id="0WC-rh-CzV"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="ibM-Uj-o6j" secondAttribute="trailing" constant="20" id="PbE-vt-H19"/>
+                                            <constraint firstItem="ibM-Uj-o6j" firstAttribute="leading" secondItem="wbB-od-SKA" secondAttribute="leading" constant="20" id="p8r-MH-OLg"/>
+                                            <constraint firstItem="ibM-Uj-o6j" firstAttribute="top" secondItem="wbB-od-SKA" secondAttribute="top" constant="20" id="r5i-YD-Bjd"/>
+                                            <constraint firstAttribute="bottom" secondItem="ibM-Uj-o6j" secondAttribute="bottom" constant="20" id="tOZ-vb-o3j"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="WFx-tH-A0k"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tsR-Te-UnE" firstAttribute="leading" secondItem="WFx-tH-A0k" secondAttribute="leading" id="0Ht-mt-ykL"/>
+                            <constraint firstItem="WFx-tH-A0k" firstAttribute="trailing" secondItem="gHK-Uy-yK9" secondAttribute="trailing" id="96h-10-qxU"/>
+                            <constraint firstItem="WFx-tH-A0k" firstAttribute="bottom" secondItem="gHK-Uy-yK9" secondAttribute="bottom" id="J8r-cw-pmL"/>
+                            <constraint firstItem="gHK-Uy-yK9" firstAttribute="leading" secondItem="WFx-tH-A0k" secondAttribute="leading" id="X8H-GT-WBV"/>
+                            <constraint firstItem="gHK-Uy-yK9" firstAttribute="top" secondItem="tsR-Te-UnE" secondAttribute="bottom" id="iHy-55-iTP"/>
+                            <constraint firstItem="tsR-Te-UnE" firstAttribute="top" secondItem="WFx-tH-A0k" secondAttribute="top" id="u4C-B8-Gwz"/>
+                            <constraint firstItem="WFx-tH-A0k" firstAttribute="trailing" secondItem="tsR-Te-UnE" secondAttribute="trailing" id="zoE-RY-tph"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" largeTitleDisplayMode="always" id="ypu-jM-KtT">
                         <barButtonItem key="backBarButtonItem" title=" " id="jsW-OF-RwV"/>
@@ -27,11 +85,21 @@
                                 <action selector="btnMenuPressed:" destination="iPz-pv-sOF" id="Icu-Hh-KXj"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="svgEdit" id="ThV-QH-Rax">
+                            <connections>
+                                <action selector="btnEditProfile:" destination="iPz-pv-sOF" id="cbX-eA-EOv"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="barBtnEdit" destination="ThV-QH-Rax" id="cjb-f8-k3K"/>
+                        <outlet property="tblProfile" destination="tsR-Te-UnE" id="9jx-T7-kg7"/>
+                        <outlet property="viewBtnUpdate" destination="wbB-od-SKA" id="Lm1-nz-kn3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HrX-YQ-CH9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="-34"/>
+            <point key="canvasLocation" x="130.53435114503816" y="-34.507042253521128"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pzu-i4-fPu">
@@ -64,7 +132,14 @@
     </scenes>
     <resources>
         <image name="svgBack" width="20" height="20"/>
+        <image name="svgEdit" width="20" height="20"/>
         <image name="svgMenu" width="20" height="20"/>
+        <namedColor name="AppLightYellow">
+            <color red="1" green="0.98039215803146362" blue="0.87450981140136719" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="AppTitleGray">
+            <color red="0.031372550874948502" green="0.058823525905609131" blue="0.10196079313755035" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="AppWhite">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

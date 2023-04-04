@@ -10,6 +10,7 @@
 "email_id_placeholder" = "E-mail Id";
 "password" = "Password";
 "no_data_found" = "No Data Found";
+"update" = "Update";
 
 //Alerts
 "password_reset_successfully" = "Password Reset Successfully";
@@ -69,7 +70,16 @@
 
 
 //"Profile"
-
+"edit_profile" = "Edit Profile";
 
 //"Settings"
-
+"change_password" = "Change Password";
+"old_password" = "Old Password";
+"new_password" = "New Password";
+"confirm_password" = "Confirm Password";
+"subscriptions" = "Subscriptions";
+"subscribe" = "Subscribe";
+"notification_settings" = "Notification Settings";
+"terms_and_conditions" = "Terms & Conditions";
+"privacy_policy" = "Privacy Policy";
+"delete_account" = "Delete Account";

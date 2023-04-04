@@ -15,10 +15,17 @@ class EpisodeDetailsVC: UIViewController {
     
     //MARK: - IBOutlets
     
-    var episodeDetailsVM: EpisodeDetailsVM?
+    @IBOutlet weak var imgViewBg: UIImageView!
+    @IBOutlet weak var imgViewEpisode: UIImageView!
+    @IBOutlet weak var btnPlay: UIButton!
+    @IBOutlet weak var slideerSeekbar: UISlider!
+    @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var lblDescription: UILabel!
     
     //MARK: - Variables
     
+    var episodeDetailsVM: EpisodeDetailsVM?
+
     //MARK: - View Life Cycle
     
     override func viewDidLoad() {
@@ -48,7 +55,6 @@ class EpisodeDetailsVC: UIViewController {
     
     /// Initial settings when view loads
     fileprivate func doInitialSettings() {
-        AppConst.APPDELEGATE.setupNavigationAppearance(backgroundColor: .red)
         bindViewModel()
     }
     
@@ -58,7 +64,9 @@ class EpisodeDetailsVC: UIViewController {
         })
         
         episodeDetailsVM?.objEpisode.bind({ [weak self] (episode) in
-            print("episode --> ", episode)
+            self?.lblTitle.text = episode?.title ?? ""
+            self?.lblDescription.text = episode?.description ?? ""
+            self?.imgViewEpisode.image = (episode?.id ?? 0) % 2 == 0 ? #imageLiteral(resourceName: "svgWeek2") : #imageLiteral(resourceName: "svgWeek1") 
         })
     }
     

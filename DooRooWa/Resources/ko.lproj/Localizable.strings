@@ -10,6 +10,7 @@
 "email_id_placeholder" = "이메일 아이디";
 "password" = "비밀번호";
 "no_data_found" = "데이터가 없습니다";
+"update" = "업데이트";
 
 //Alerts
 "password_reset_successfully" = "비밀번호 재설정 성공";
@@ -69,6 +70,16 @@
 
 
 //"Profile"
+"edit_profile" = "프로필 수정";
 
 
 //"Settings"
+"change_password" = "비밀번호 변경";
+"old_password" = "기존 비밀번호";
+"new_password" = "새 비밀번호";
+"confirm_password" = "암호를 확인";
+"subscriptions" = "구독";
+"subscribe" = "구독하다";
+"notification_settings" = "알림 설정";
+"privacy_policy" = "개인 정보 정책";
+"delete_account" = "계정 삭제";
