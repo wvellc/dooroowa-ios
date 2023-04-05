@@ -37,7 +37,7 @@ final class WeeksVM: NSObject, WeeksProtocol {
     func fetchWeeks() {
         var arrTempWeeks = [WeekModel]()
         for indx in 1...10 {
-            let week = WeekModel(id: indx, week: "Week \(indx)")
+            let week = WeekModel(id: indx, week: "\("week".localized) \(indx)")
             arrTempWeeks.append(week)
         }
         arrWeeks = Observable(arrTempWeeks)

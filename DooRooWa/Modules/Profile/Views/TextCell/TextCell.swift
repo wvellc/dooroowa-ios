@@ -46,10 +46,13 @@ class TextCell: UITableViewCell {
         txtField.placeholder = model?.placeholder ?? ""
         txtField.isEnabled = isEditingOn
         txtField.tag = indx.row
+        
+        txtField.keyboardType = .default
+        txtField.autocapitalizationType = .none
         switch model?.key {
         case "name":
-            txtField.keyboardType = .default
             txtField.textContentType = .name
+            txtField.autocapitalizationType = .words
             txtField.text = userInfo?.name ?? ""
             break
         case "email":
@@ -63,8 +66,19 @@ class TextCell: UITableViewCell {
             txtField.textContentType = .telephoneNumber
             txtField.text = userInfo?.phone ?? ""
             break
+        case "old_password":
+            txtField.textContentType = .password
+            txtField.text = userInfo?.oldPassword ?? ""
+            break
+        case "new_password":
+            txtField.textContentType = .newPassword
+            txtField.text = userInfo?.password ?? ""
+            break
+        case "confirm_password":
+            txtField.textContentType = .newPassword
+            txtField.text = userInfo?.confrimPassword ?? ""
+            break
         default:
-            txtField.keyboardType = .default
             txtField.textContentType = .none
             txtField.text = ""
             break

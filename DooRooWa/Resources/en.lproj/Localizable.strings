@@ -24,6 +24,8 @@
 "logout" = "Logout";
 "cancel" = "Cancel";
 "confrimation_message_delete_account" = "Are you sure you want to delete your account?";
+"password_update_successfully" = "Password changed successfully!";
+"remember_password" = "Don't forget to use your new password to access your account in the future";
 
 //Side Menu
 "home" = "Home";
@@ -56,6 +58,9 @@
 "weekly_progress" = "Weekly progress";
 "skip" = "Skip";
 "watch_video" = "Watch video";
+"video" = "Video";
+"audio" = "Audio";
+"tool" = "Tool";
 
 //"Notifications"
 
@@ -78,7 +83,7 @@
 "new_password" = "New Password";
 "confirm_password" = "Confirm Password";
 "subscriptions" = "Subscriptions";
-"subscribe" = "Subscribe";
+"subscribe" = "Subscribe for";
 "notification_settings" = "Notification Settings";
 "terms_and_conditions" = "Terms & Conditions";
 "privacy_policy" = "Privacy Policy";

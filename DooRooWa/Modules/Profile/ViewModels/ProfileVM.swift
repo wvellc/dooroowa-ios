@@ -6,10 +6,11 @@
 //
 
 import Foundation
+
 protocol ProfileProtocol {
     var arrCells: Observable<[ProfileModel]> { get set }
-
 }
+
 class ProfileVM: NSObject, ProfileProtocol {
 
     //MARK: - Variables

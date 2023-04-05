@@ -77,7 +77,7 @@ class HomeVC: UIViewController {
     
     @IBAction func btnStartWeekPressed(_ sender: UIButton) {
         let aVC = EpisodesVC.instance()
-        let aWeek = WeekModel(id: 1, week: "Week \(1)")
+        let aWeek = WeekModel(id: 1, week: "\("week".localized) \(1)")
         aVC.episodesVM = EpisodesVM(week: aWeek)
         self.navigationController?.pushViewController(aVC, animated: true)
     }

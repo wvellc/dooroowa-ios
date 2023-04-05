@@ -27,6 +27,9 @@
 		81705EF129DC555C0099ED31 /* SettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81705EEF29DC555C0099ED31 /* SettingCell.xib */; };
 		81733D3E29CDB249005B0462 /* SideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81733D3D29CDB249005B0462 /* SideMenuVC.swift */; };
 		81733D4329CDB76B005B0462 /* LGSideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81733D4229CDB76B005B0462 /* LGSideMenuVC.swift */; };
+		818408D029DD3C1D00B00B8F /* ChangePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818408CF29DD3C1D00B00B8F /* ChangePasswordVC.swift */; };
+		818408D329DD3EFC00B00B8F /* ChangePasswordVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818408D229DD3EFC00B00B8F /* ChangePasswordVM.swift */; };
+		818408D529DD572800B00B8F /* SubscriptionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818408D429DD572800B00B8F /* SubscriptionsVC.swift */; };
 		81A02E6B29CB1861002D187E /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A02E6A29CB1861002D187E /* UIViewControllerExtension.swift */; };
 		81A02E6F29CB1EF8002D187E /* InfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A02E6E29CB1EF8002D187E /* InfoVC.swift */; };
 		81A02E7129CB3369002D187E /* IntroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A02E7029CB3369002D187E /* IntroVC.swift */; };
@@ -110,6 +113,9 @@
 		81705EEF29DC555C0099ED31 /* SettingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingCell.xib; sourceTree = "<group>"; };
 		81733D3D29CDB249005B0462 /* SideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuVC.swift; sourceTree = "<group>"; };
 		81733D4229CDB76B005B0462 /* LGSideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGSideMenuVC.swift; sourceTree = "<group>"; };
+		818408CF29DD3C1D00B00B8F /* ChangePasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordVC.swift; sourceTree = "<group>"; };
+		818408D229DD3EFC00B00B8F /* ChangePasswordVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordVM.swift; sourceTree = "<group>"; };
+		818408D429DD572800B00B8F /* SubscriptionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsVC.swift; sourceTree = "<group>"; };
 		81A02E6A29CB1861002D187E /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		81A02E6E29CB1EF8002D187E /* InfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVC.swift; sourceTree = "<group>"; };
 		81A02E7029CB3369002D187E /* IntroVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroVC.swift; sourceTree = "<group>"; };
@@ -311,6 +317,14 @@
 			path = SideMenu;
 			sourceTree = "<group>";
 		};
+		818408D129DD3EEB00B00B8F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				818408D229DD3EFC00B00B8F /* ChangePasswordVM.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		81B3535929CC40C100D3ECBC /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
@@ -408,8 +422,11 @@
 		81EE8E0929D17F3300C2AD7A /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				818408D129DD3EEB00B00B8F /* ViewModels */,
 				81705EEC29DC538D0099ED31 /* Views */,
 				81EE8E1029D17FB000C2AD7A /* SettingsVC.swift */,
+				818408CF29DD3C1D00B00B8F /* ChangePasswordVC.swift */,
+				818408D429DD572800B00B8F /* SubscriptionsVC.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -788,6 +805,7 @@
 				A2E3EF9229D6F36E00E81F76 /* Observable.swift in Sources */,
 				81A02E7129CB3369002D187E /* IntroVC.swift in Sources */,
 				A2756C7829C191C900479779 /* JsonObjectManager.swift in Sources */,
+				818408D329DD3EFC00B00B8F /* ChangePasswordVM.swift in Sources */,
 				A20EA5B529BF325200D1FC9F /* AppConst.swift in Sources */,
 				A20EA5B729BF32DD00D1FC9F /* ColorsConst.swift in Sources */,
 				A2756C7F29C1960D00479779 /* DateExtension.swift in Sources */,
@@ -813,6 +831,7 @@
 				81EE8E0D29D17F8F00C2AD7A /* TestsVC.swift in Sources */,
 				A20EA59529BF25BF00D1FC9F /* SplashVC.swift in Sources */,
 				81705EDD29DC17D20099ED31 /* QuestionModel.swift in Sources */,
+				818408D029DD3C1D00B00B8F /* ChangePasswordVC.swift in Sources */,
 				81BCAE6029DA99E4006AD513 /* WeeksVM.swift in Sources */,
 				84A0845C29C87AC4003DDACA /* ForgotPasswordVC.swift in Sources */,
 				81EDF5B429DAAD9A008E852A /* EpisodeCell.swift in Sources */,
@@ -825,6 +844,7 @@
 				81EE8DFD29D17D0000C2AD7A /* WeeksVC.swift in Sources */,
 				81B3535E29CC45B100D3ECBC /* NotificationModel.swift in Sources */,
 				846F9A2929C9AF8200547E8B /* SignUpVC.swift in Sources */,
+				818408D529DD572800B00B8F /* SubscriptionsVC.swift in Sources */,
 				81705ED629DBEFF20099ED31 /* QuestionsView.swift in Sources */,
 				81733D3E29CDB249005B0462 /* SideMenuVC.swift in Sources */,
 			);

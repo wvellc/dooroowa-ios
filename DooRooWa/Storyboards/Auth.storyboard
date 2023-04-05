@@ -971,6 +971,9 @@ Sign In To DoorooWa</string>
         <designable name="DQw-P4-zGs">
             <size key="intrinsicContentSize" width="69" height="22"/>
         </designable>
+        <designable name="fU8-9C-KKa">
+            <size key="intrinsicContentSize" width="90.333333333333329" height="23"/>
+        </designable>
         <designable name="iga-Im-cYi">
             <size key="intrinsicContentSize" width="90.333333333333329" height="23"/>
         </designable>

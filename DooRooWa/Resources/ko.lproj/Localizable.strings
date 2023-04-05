@@ -24,6 +24,8 @@
 "logout" = "로그 아웃";
 "cancel" = "취소";
 "confrimation_message_delete_account" = "계정을 삭제하시겠습니까?";
+"password_update_successfully" = "비밀번호가 성공적으로 변경되었습니다!";
+"remember_password" = "앞으로 계정에 액세스하려면 새 비밀번호를 사용하는 것을 잊지 마세요.";
 
 //Side Menu
 "home" = "홈";
@@ -56,6 +58,9 @@
 "weekly_progress" = "주간 진행 상황";
 "skip" = "건너뛰다";
 "watch_video" = "동영상 보기";
+"video" = "동영상";
+"audio" = "오디오";
+"tool" = "용구";
 
 //"Notifications"
 

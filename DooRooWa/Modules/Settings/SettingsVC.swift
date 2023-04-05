@@ -25,7 +25,6 @@ class SettingsVC: UIViewController {
     
     private var tblDataSource: TableViewDataSource<SettingCell,String>?
     private var tblDelegate: TableViewDelegate?
-    private var arrEpisodes = [EpisodeModel]()
     private var arrCells = [String]()
     
     //MARK: - View Life Cycle
@@ -90,8 +89,6 @@ class SettingsVC: UIViewController {
             if let row = self?.arrCells[indexPath.row] {
                 self?.navigate(to: row)
             }
-//            let aVC = EpisodeDetailsVC.instance()
-//            self?.navigationController?.pushViewController(aVC, animated: true)
         }
         
         //Reloading table view with animation after assigning delegate and data source
@@ -106,8 +103,12 @@ class SettingsVC: UIViewController {
     fileprivate func navigate(to: String) {
         switch to {
         case "change_password":
+            let aVC = ChangePasswordVC.instance()
+            self.navigationController?.pushViewController(aVC, animated: true)
             break
         case "subscriptions":
+            let aVC = SubscriptionsVC.instance()
+            self.navigationController?.pushViewController(aVC, animated: true)
             break
         case "notification_settings":
             if let appSettings = URL(string: UIApplication.openSettingsURLString), UIApplication.shared.canOpenURL(appSettings) {

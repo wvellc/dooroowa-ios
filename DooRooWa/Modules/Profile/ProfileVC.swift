@@ -48,13 +48,13 @@ class ProfileVC: UIViewController {
         sideMenuController?.showLeftView()
     }
     
-    @IBAction func btnEditProfile(_ sender: UIBarButtonItem) {
+    @IBAction func btnEditProfilePressed(_ sender: UIBarButtonItem) {
         if !isEditingOn {
             toggleEditMode()
         }
     }
 
-    @IBAction func btnUpdateProfile(_ sender: UIButton) {
+    @IBAction func btnUpdateProfilePressed(_ sender: UIButton) {
         if isEditingOn && isValid() {
             toggleEditMode()
             if let aData = JsonObjectManager().modelToJson(model: userInfo) {

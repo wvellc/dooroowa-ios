@@ -51,7 +51,7 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="localizableKey" value="update"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="btnUpdateProfile:" destination="iPz-pv-sOF" eventType="touchUpInside" id="0WC-rh-CzV"/>
+                                                    <action selector="btnUpdateProfilePressed:" destination="iPz-pv-sOF" eventType="touchUpInside" id="nn5-2p-1pR"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -87,7 +87,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="svgEdit" id="ThV-QH-Rax">
                             <connections>
-                                <action selector="btnEditProfile:" destination="iPz-pv-sOF" id="cbX-eA-EOv"/>
+                                <action selector="btnEditProfilePressed:" destination="iPz-pv-sOF" id="LOO-85-bxS"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

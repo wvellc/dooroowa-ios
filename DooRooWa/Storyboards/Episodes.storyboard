@@ -135,6 +135,9 @@
                                                 <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" image="svgPlayBlue"/>
+                                                <connections>
+                                                    <action selector="btnPlayPausePressed:" destination="81W-bA-vPn" eventType="touchUpInside" id="mCU-dU-est"/>
+                                                </connections>
                                             </button>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="37Y-RA-eAr">
                                                 <rect key="frame" x="72" y="212.66666666666669" width="290" height="31"/>
@@ -142,6 +145,10 @@
                                                 <color key="maximumTrackTintColor" name="AppBlue30"/>
                                                 <color key="thumbTintColor" name="AppBlue"/>
                                             </slider>
+                                            <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="bCh-xg-lwU">
+                                                <rect key="frame" x="23" y="217.66666666666669" width="20" height="20"/>
+                                                <color key="color" name="AppYellow"/>
+                                            </activityIndicatorView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -151,7 +158,9 @@
                                             <constraint firstItem="37Y-RA-eAr" firstAttribute="centerY" secondItem="mtT-II-vv0" secondAttribute="centerY" id="QeE-zL-AyN"/>
                                             <constraint firstAttribute="bottom" secondItem="mtT-II-vv0" secondAttribute="bottom" id="RxI-mh-JCk"/>
                                             <constraint firstItem="pZe-Yn-Jch" firstAttribute="leading" secondItem="igV-cy-Z8V" secondAttribute="leading" id="S8H-pI-DHW"/>
+                                            <constraint firstItem="bCh-xg-lwU" firstAttribute="centerY" secondItem="mtT-II-vv0" secondAttribute="centerY" id="TVj-ZS-Nnl"/>
                                             <constraint firstItem="Q22-Fu-VnQ" firstAttribute="leading" secondItem="igV-cy-Z8V" secondAttribute="leading" id="YIU-gm-odJ"/>
+                                            <constraint firstItem="bCh-xg-lwU" firstAttribute="centerX" secondItem="mtT-II-vv0" secondAttribute="centerX" id="Zfy-xK-oIJ"/>
                                             <constraint firstItem="37Y-RA-eAr" firstAttribute="leading" secondItem="mtT-II-vv0" secondAttribute="trailing" constant="18" id="av3-mF-r5w"/>
                                             <constraint firstAttribute="trailing" secondItem="37Y-RA-eAr" secondAttribute="trailing" constant="33" id="fFk-BH-JnK"/>
                                             <constraint firstItem="pZe-Yn-Jch" firstAttribute="top" secondItem="igV-cy-Z8V" secondAttribute="top" id="rVg-uv-abS"/>
@@ -160,13 +169,21 @@
                                             <constraint firstAttribute="trailing" secondItem="Q22-Fu-VnQ" secondAttribute="trailing" id="yZ9-z1-35b"/>
                                         </constraints>
                                     </view>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KsD-5m-elZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="294.66666666666669"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" name="AppLightYellow"/>
                                 <constraints>
                                     <constraint firstItem="igV-cy-Z8V" firstAttribute="top" secondItem="xWM-Oq-7VG" secondAttribute="top" constant="44" id="48m-dv-9eB"/>
                                     <constraint firstAttribute="trailing" secondItem="igV-cy-Z8V" secondAttribute="trailing" id="8Ky-ws-epR"/>
                                     <constraint firstAttribute="bottom" secondItem="igV-cy-Z8V" secondAttribute="bottom" id="ITG-VX-I9B"/>
+                                    <constraint firstAttribute="bottom" secondItem="KsD-5m-elZ" secondAttribute="bottom" id="Lhp-NG-gyY"/>
+                                    <constraint firstItem="KsD-5m-elZ" firstAttribute="top" secondItem="xWM-Oq-7VG" secondAttribute="top" id="TeO-1I-7Xg"/>
+                                    <constraint firstItem="KsD-5m-elZ" firstAttribute="leading" secondItem="xWM-Oq-7VG" secondAttribute="leading" id="dv5-3H-wWg"/>
                                     <constraint firstItem="igV-cy-Z8V" firstAttribute="leading" secondItem="xWM-Oq-7VG" secondAttribute="leading" id="jZL-lG-5bZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="KsD-5m-elZ" secondAttribute="trailing" id="qOa-wc-Kkl"/>
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y7F-v3-bln">
@@ -230,12 +247,14 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="btnPlay" destination="mtT-II-vv0" id="Pna-5D-foK"/>
+                        <outlet property="activityBuffer" destination="bCh-xg-lwU" id="90J-ip-zK1"/>
+                        <outlet property="btnPlayPause" destination="mtT-II-vv0" id="eoF-7R-LZP"/>
                         <outlet property="imgViewBg" destination="pZe-Yn-Jch" id="Qcr-5L-YuO"/>
                         <outlet property="imgViewEpisode" destination="Q22-Fu-VnQ" id="DZJ-ZQ-r8p"/>
                         <outlet property="lblDescription" destination="DA3-9i-zI8" id="Ytj-g7-Rg9"/>
                         <outlet property="lblTitle" destination="UKw-uq-7qU" id="hP5-XN-VGx"/>
                         <outlet property="slideerSeekbar" destination="37Y-RA-eAr" id="LA3-Yz-Lg9"/>
+                        <outlet property="viewVideo" destination="KsD-5m-elZ" id="9jq-E8-5w9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CXw-Jo-S9h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -294,6 +313,9 @@
         </namedColor>
         <namedColor name="AppWhite">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="AppYellow">
+            <color red="1" green="0.89803922176361084" blue="0.41568624973297119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Text">
             <color red="0.031372550874948502" green="0.058823525905609131" blue="0.10196079313755035" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
