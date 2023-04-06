@@ -8,6 +8,7 @@
 import UIKit
 import LGSideMenuController
 import ViewAnimator
+import Combine
 
 class SideMenuVC: UIViewController {
 
@@ -23,7 +24,8 @@ class SideMenuVC: UIViewController {
     private var arrMenu = [String]()
     private var selectedScreen = "home"
     private var sideMenuVM = SideMenuVM()
-    
+    private var cancellables = Set<AnyCancellable>()
+
     //MARK: - View Life Cycle
     
     override func viewDidLoad() {
@@ -49,11 +51,11 @@ class SideMenuVC: UIViewController {
     }
     
     fileprivate func bindViewModel() {
-        sideMenuVM.arrMenu.bind { [weak self] (menu) in
+        sideMenuVM.arrMenu.sink { [weak self] (menu) in
             self?.arrMenu = menu
             self?.tblDataSource?.arrItems = self?.arrMenu
             self?.tblSideMenu.reloadData()
-        }
+        }.store(in: &cancellables)
     }
     
     /// Register table view cells

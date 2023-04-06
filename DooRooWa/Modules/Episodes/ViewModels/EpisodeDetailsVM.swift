@@ -7,36 +7,30 @@
 
 import UIKit
 import AVFoundation
+import Combine
 
-protocol EpisodeDetailsProtocol {
-    var objWeek: Observable<WeekModel?> { get set }
-    var objEpisode: Observable<EpisodeModel?> { get set }
-    var updateSeekbar: Observable<Float> { get set }
-    var showBuffering: Observable<Bool> { get set }
-    var audioPlayingStatus: Observable<Bool> { get set }
-    var setupSeekbar: Observable<(start: Float, current: Float, total: Float)> { get set }
-}
-final class EpisodeDetailsVM: NSObject, EpisodeDetailsProtocol {
+final class EpisodeDetailsVM: NSObject {
     
     //MARK: - Variables
     
-    var objWeek: Observable<WeekModel?>
-    var objEpisode: Observable<EpisodeModel?>
-    var updateSeekbar: Observable<Float> = Observable(0)
-    var showBuffering: Observable<Bool> = Observable(false)
-    var audioPlayingStatus: Observable<Bool> = Observable(false)
-    var setupSeekbar: Observable<(start: Float, current: Float, total: Float)> = Observable((0,0,1))
+    var objWeek = CurrentValueSubject<WeekModel?, Never>(nil)
+    var objEpisode = CurrentValueSubject<EpisodeModel?, Never>(nil)
+    
+    var updateSeekbar = CurrentValueSubject<Float, Never>(0)
+    var showBuffering = CurrentValueSubject<Bool, Never>(false)
+    var audioPlayingStatus = CurrentValueSubject<Bool, Never>(false)
+    var setupSeekbar = CurrentValueSubject<(start: Float, current: Float, total: Float), Never>((start: 0, current: 0, total: 1))
     
     private var dragingSlider = false
     private var player: AVPlayer?
     private var timeObserver: Any?
     
     init(week: WeekModel?, episode: EpisodeModel?) {
-        objWeek = Observable(week)
-        objEpisode = Observable(episode)
-        
         /* Initial setup when view load */
         super.init()
+        
+        objWeek.send(week)
+        objEpisode.send(episode)
         doInitialSettings()
     }
     
@@ -78,21 +72,21 @@ final class EpisodeDetailsVM: NSObject, EpisodeDetailsProtocol {
         self.player?.pause()
         self.player = nil
         
-        guard let url = URL(string: "https://file-examples.com/storage/fef89aabc36429826928b9c/2017/11/file_example_MP3_2MG.mp3") else { return }
+        guard let url = URL(string: "https://file-examples.com/storage/fe9278ad7f642dbd39ac5c9/2017/11/file_example_MP3_2MG.mp3") else { return }
         let playerItem:AVPlayerItem = AVPlayerItem(url: url)
         self.player = AVPlayer(playerItem: playerItem)
         
         let duration : CMTime = player?.currentItem?.asset.duration ?? CMTime.zero
         let totalSeconds =  Float(CMTimeGetSeconds(duration))
-        setupSeekbar = Observable((start: 0, current: 0, total: totalSeconds))
+        setupSeekbar.send((start: 0, current: 0, total: totalSeconds))
         
         //          self.lblTotalTime.text = "\(self.getFormatedTime(FromTime: Int(totalSeconds)))"
         if player?.isPlaying ?? false {
             let seconds =  Float(CMTimeGetSeconds(player?.currentTime() ?? CMTime.zero))
-            updateSeekbar = Observable(seconds)
+            updateSeekbar.send(seconds)
         } else {
             let seconds =  Float(CMTimeGetSeconds(player?.currentTime() ?? CMTime.zero))
-            updateSeekbar = Observable(seconds)
+            updateSeekbar.send(seconds)
             //             self.lblCurrentTime.text = self.getFormatedTime(FromTime: Int(seconds))
         }
     }
@@ -101,15 +95,15 @@ final class EpisodeDetailsVM: NSObject, EpisodeDetailsProtocol {
         timeObserver = player?.addPeriodicTimeObserver(forInterval: CMTime(value: 1, timescale: 600), queue: DispatchQueue.main, using: { [weak self] time in
             let seconds =  Float(CMTimeGetSeconds(self?.player?.currentTime() ?? CMTime.zero))
             if !(self?.dragingSlider ?? false) {
-                self?.updateSeekbar = Observable(seconds)
+                self?.updateSeekbar.send(seconds)
             }
             //             self.lblCurrentTime.text = self.getFormatedTime(FromTime: Int(seconds))
             
             if self?.player?.currentItem?.status == AVPlayerItem.Status.readyToPlay {
                 if let isPlaybackLikelyToKeepUp = self?.player?.currentItem?.isPlaybackLikelyToKeepUp {
                     UIApplication.shared.isNetworkActivityIndicatorVisible = !isPlaybackLikelyToKeepUp
-                    self?.showBuffering = Observable(isPlaybackLikelyToKeepUp)
-                    self?.audioPlayingStatus = Observable(self?.player?.isPlaying ?? false)
+                    self?.showBuffering.send(!isPlaybackLikelyToKeepUp)
+                    self?.audioPlayingStatus.send(self?.player?.isPlaying ?? false)
                 }
             }
         })
@@ -118,28 +112,28 @@ final class EpisodeDetailsVM: NSObject, EpisodeDetailsProtocol {
     func playAudio() {
         preriodicTimeObsever()
         player?.play()
-        audioPlayingStatus = Observable(true)
-        showBuffering = Observable(true)
+        audioPlayingStatus.send(true)
+        showBuffering.send(true)
     }
     
     func pauseAudio() {
         player?.pause()
-        audioPlayingStatus = Observable(false)
-        showBuffering = Observable(false)
+        audioPlayingStatus.send(false)
+        showBuffering.send(false)
     }
     
     @objc func finishPlaying() {
         player?.seek(to: .zero)
         pauseAudio()
-        updateSeekbar = Observable(0)
+        updateSeekbar.send(0)
     }
     
     @objc func applicationDidEnterForeground() {
         if (player?.isPlaying ?? false) {
-            showBuffering = Observable(true)
-            audioPlayingStatus = Observable(true)
+            showBuffering.send(true)
+            audioPlayingStatus.send(true)
         } else {
-            audioPlayingStatus = Observable(false)
+            audioPlayingStatus.send(false)
         }
         preriodicTimeObsever()
     }

@@ -6,23 +6,20 @@
 //
 
 import Foundation
+import Combine
 
-protocol EpisodesProtocol {
-    var objWeek: Observable<WeekModel?> { get set }
-    var arrEpisodes: Observable<[EpisodeModel]> { get set }
-}
-final class EpisodesVM: NSObject, EpisodesProtocol {
+final class EpisodesVM: NSObject {
     
     //MARK: - Variables
     
-    var objWeek: Observable<WeekModel?>
-    var arrEpisodes: Observable<[EpisodeModel]> = Observable([])
+    var objWeek = CurrentValueSubject<WeekModel?, Never>(nil)
+    var arrEpisodes = CurrentValueSubject<[EpisodeModel], Never>([])
     
     init(week: WeekModel?) {
-        objWeek = Observable(week)
-
         /* Initial setup when view load */
         super.init()
+        
+        objWeek.send(week)
         doInitialSettings()
     }
     
@@ -47,6 +44,6 @@ final class EpisodesVM: NSObject, EpisodesProtocol {
             week = EpisodeModel(id: indx, title: "Guided Imagery", description: "Sed sit amet velit fermentum, dictum eros non, efficitur mauris. Cras ut tempor orci. Sed sit amet velit fermentum, dictum eros non, efficitur mauris. Cras ut tempor orci. Sed sit amet velit fermentum, dictum eros non, efficitur mauris. Cras ut tempor orci. Sed sit amet velit fermentum, dictum eros non, efficitur mauris. Cras ut tempor orci. Sed sit amet velit fermentum, dictum eros non, efficitur mauris. Cras ut tempor orci. Sed sit amet velit fermentum, dictum eros non, efficitur mauris. Cras ut tempor orci. Sed sit amet velit fermentum, dictum eros non, efficitur mauris. Cras ut tempor orci. Sed sit amet velit fermentum, dictum eros non, efficitur mauris. Cras ut tempor orci. Sed sit amet velit fermentum, dictum eros non, efficitur mauris. Cras ut tempor orci. Sed sit amet velit fermentum, dictum eros non, efficitur mauris. Cras ut tempor orci. Sed sit amet velit fermentum, dictum eros non, efficitur mauris. Cras ut tempor orci.Sed sit amet velit fermentum, dictum eros non, efficitur mauris. Cras ut tempor orci. Sed sit amet velit fermentum, dictum eros non, efficitur mauris. Cras ut tempor orci. Sed sit amet velit fermentum, dictum eros non, efficitur mauris. Cras ut tempor orci. Sed sit amet velit fermentum, dictum eros non, efficitur mauris. Cras ut tempor orci. Sed sit amet velit fermentum, dictum eros non, efficitur mauris. Cras ut tempor orci. Sed sit amet velit fermentum, dictum eros non, efficitur mauris. Cras ut tempor orci. Sed sit amet velit fermentum, dictum eros non, efficitur mauris. Cras ut tempor orci. Sed sit amet velit fermentum, dictum eros non, efficitur mauris. Cras ut tempor orci. Sed sit amet velit fermentum, dictum eros non, efficitur mauris. Cras ut tempor orci. Sed sit amet velit fermentum, dictum eros non, efficitur mauris. Cras ut tempor orci.", type: "tool".localized, week: "\(objWeek.value?.week ?? "\("week".localized) 1")")
             arrTempWeeks.append(week)
         }
-        arrEpisodes = Observable(arrTempWeeks)
+        arrEpisodes.send(arrTempWeeks)
     }
 }

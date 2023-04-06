@@ -7,6 +7,7 @@
 
 import UIKit
 import ViewAnimator
+import Combine
 
 class ProfileVC: UIViewController {
 
@@ -29,7 +30,8 @@ class ProfileVC: UIViewController {
     private var userInfo: UserModel?
     private var arrCell = [ProfileModel]()
     private var isEditingOn: Bool = false
-    
+    private var cancellables = Set<AnyCancellable>()
+
     //MARK: - View Life Cycle
     
     override func viewDidLoad() {
@@ -110,11 +112,11 @@ class ProfileVC: UIViewController {
     }
     
     fileprivate func bindViewModel() {
-        profileVM?.arrCells.bind { [weak self] (cell) in
+        profileVM?.arrCells.sink { [weak self] (cell) in
             self?.arrCell = cell
             self?.tblDataSource?.arrItems = self?.arrCell
             self?.tblProfile.reloadData(delegate: self?.tblDelegate)
-        }
+        }.store(in: &cancellables)
     }
 
     fileprivate func configureTableView() {

@@ -6,16 +6,13 @@
 //
 
 import Foundation
+import Combine
 
-protocol ProfileProtocol {
-    var arrCells: Observable<[ProfileModel]> { get set }
-}
-
-class ProfileVM: NSObject, ProfileProtocol {
+class ProfileVM: NSObject {
 
     //MARK: - Variables
     
-    var arrCells: Observable<[ProfileModel]> = Observable([])
+    var arrCells = CurrentValueSubject<[ProfileModel], Never>([])
     
     override init() {
         /* Initial setup when view load */
@@ -39,6 +36,6 @@ class ProfileVM: NSObject, ProfileProtocol {
         arrTemp.append(ProfileModel(title: "name".localized, placeholder: "John Doe", key: "name"))
         arrTemp.append(ProfileModel(title: "email_id_placeholder".localized, placeholder: "abc@xyz.com", key: "email"))
         arrTemp.append(ProfileModel(title: "phone_number".localized, placeholder: "+1234567890", key: "phone"))
-        arrCells = Observable(arrTemp)
+        arrCells.send(arrTemp)
     }
 }

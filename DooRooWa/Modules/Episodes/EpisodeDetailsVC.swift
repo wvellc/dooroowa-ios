@@ -8,6 +8,7 @@
 import UIKit
 import AVFoundation
 import AVKit
+import Combine
 
 class EpisodeDetailsVC: UIViewController {
     
@@ -30,7 +31,8 @@ class EpisodeDetailsVC: UIViewController {
     
     var episodeDetailsVM: EpisodeDetailsVM?
     private var playerViewController: AVPlayerViewController?
-    
+    private var cancellables = Set<AnyCancellable>()
+
     //MARK: - View Life Cycle
     
     override func viewDidLoad() {
@@ -72,7 +74,7 @@ class EpisodeDetailsVC: UIViewController {
     
     fileprivate func bindViewModel() {
 
-        episodeDetailsVM?.objEpisode.bind({ [weak self] (episode) in
+        episodeDetailsVM?.objEpisode.sink { [weak self] (episode) in
             self?.lblTitle.text = episode?.title ?? ""
             self?.lblDescription.text = episode?.description ?? ""
             self?.imgViewEpisode.image = (episode?.id ?? 0) % 2 == 0 ? #imageLiteral(resourceName: "svgWeek2") : #imageLiteral(resourceName: "svgWeek1")
@@ -81,37 +83,37 @@ class EpisodeDetailsVC: UIViewController {
             } else {
                 self?.episodeDetailsVM?.setAudio()
             }
-        })
-        
+        }.store(in: &cancellables)
+    
         bindAuidPlayer()
     }
     
     fileprivate func bindAuidPlayer() {
-        episodeDetailsVM?.updateSeekbar.bind({ [weak self] (value) in
+        episodeDetailsVM?.updateSeekbar.sink { [weak self] (value) in
             self?.slideerSeekbar.value = value
-        })
+        }.store(in: &cancellables)
         
-        episodeDetailsVM?.audioPlayingStatus.bind({ [weak self] (isPlaying) in
+        episodeDetailsVM?.audioPlayingStatus.sink { [weak self] (isPlaying) in
             if isPlaying {
                 self?.btnPlayPause.setImage(#imageLiteral(resourceName: "svgPauseBig"), for: .normal)
             } else {
                 self?.btnPlayPause.setImage(#imageLiteral(resourceName: "svgPlayBlue"), for: .normal)
             }
-        })
+        }.store(in: &cancellables)
         
-        episodeDetailsVM?.showBuffering.bind({ [weak self] (isShow) in
+        episodeDetailsVM?.showBuffering.sink { [weak self] (isShow) in
             if isShow {
                 self?.activityBuffer.startAnimating()
             } else {
                 self?.activityBuffer.stopAnimating()
             }
-        })
+        }.store(in: &cancellables)
         
-        episodeDetailsVM?.setupSeekbar.bind({ [weak self] (start: Float, current: Float, total: Float) in
+        episodeDetailsVM?.setupSeekbar.sink { [weak self] (start: Float, current: Float, total: Float) in
             self?.slideerSeekbar.minimumValue = start
             self?.slideerSeekbar.value = current
             self?.slideerSeekbar.maximumValue = total
-        })
+        }.store(in: &cancellables)
     }
     
     fileprivate func showVideo() {

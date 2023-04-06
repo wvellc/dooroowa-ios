@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class WeeksVC: UIViewController {
 
@@ -23,7 +24,8 @@ class WeeksVC: UIViewController {
     private var tblDelegate: TableViewDelegate?
     private var weeksVM  = WeeksVM()
     private var arrWeeks = [WeekModel]()
-    
+    private var cancellables = Set<AnyCancellable>()
+
     //MARK: - View Life Cycle
     
     override func viewDidLoad() {
@@ -64,11 +66,11 @@ class WeeksVC: UIViewController {
     }
     
     fileprivate func bindViewModel() {
-        weeksVM.arrWeeks.bind { [weak self] (weeks) in
+        weeksVM.arrWeeks.sink { [weak self] (weeks) in
             self?.arrWeeks = weeks
             self?.tblDataSource?.arrItems = self?.arrWeeks
             self?.tblEpisodes.reloadData(delegate: self?.tblDelegate)
-        }
+        }.store(in: &cancellables)
     }
 
     fileprivate func configureTableView() {

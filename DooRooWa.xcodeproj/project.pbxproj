@@ -85,7 +85,6 @@
 		A2E3EF8629D6B6E000E81F76 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E3EF8529D6B6E000E81F76 /* UITableViewExtension.swift */; };
 		A2E3EF8829D6B79400E81F76 /* UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E3EF8729D6B79400E81F76 /* UICollectionViewExtension.swift */; };
 		A2E3EF8E29D6D79C00E81F76 /* EpisodesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E3EF8D29D6D79C00E81F76 /* EpisodesVM.swift */; };
-		A2E3EF9229D6F36E00E81F76 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E3EF9129D6F36E00E81F76 /* Observable.swift */; };
 		A2E3EF9529D705A300E81F76 /* NotificationsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E3EF9429D705A300E81F76 /* NotificationsVM.swift */; };
 		A2E3EF9829D7238900E81F76 /* SideMenuVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E3EF9729D7238900E81F76 /* SideMenuVM.swift */; };
 		B11EB544BC4DEA85D4A0E339 /* Pods_DooRooWa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD05A9E2B59A1F344E987090 /* Pods_DooRooWa.framework */; };
@@ -174,7 +173,6 @@
 		A2E3EF8529D6B6E000E81F76 /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		A2E3EF8729D6B79400E81F76 /* UICollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtension.swift; sourceTree = "<group>"; };
 		A2E3EF8D29D6D79C00E81F76 /* EpisodesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesVM.swift; sourceTree = "<group>"; };
-		A2E3EF9129D6F36E00E81F76 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		A2E3EF9429D705A300E81F76 /* NotificationsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsVM.swift; sourceTree = "<group>"; };
 		A2E3EF9729D7238900E81F76 /* SideMenuVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuVM.swift; sourceTree = "<group>"; };
 		CD05A9E2B59A1F344E987090 /* Pods_DooRooWa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DooRooWa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -514,7 +512,6 @@
 				A20EA5CD29BF45A300D1FC9F /* StoryboardManager.swift */,
 				A2756C7A29C1931600479779 /* Validator.swift */,
 				A2592AEB29D2E06F004F0BB0 /* LocalizableManager.swift */,
-				A2E3EF9129D6F36E00E81F76 /* Observable.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -802,7 +799,6 @@
 				81EDF5B729DAEF90008E852A /* EpisodeDetailsVC.swift in Sources */,
 				A2592AEC29D2E06F004F0BB0 /* LocalizableManager.swift in Sources */,
 				81EE8E0B29D17F6500C2AD7A /* ToolsVC.swift in Sources */,
-				A2E3EF9229D6F36E00E81F76 /* Observable.swift in Sources */,
 				81A02E7129CB3369002D187E /* IntroVC.swift in Sources */,
 				A2756C7829C191C900479779 /* JsonObjectManager.swift in Sources */,
 				818408D329DD3EFC00B00B8F /* ChangePasswordVM.swift in Sources */,

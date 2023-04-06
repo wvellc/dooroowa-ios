@@ -6,15 +6,12 @@
 //
 
 import Foundation
+import Combine
 
-protocol ChangePasswordProtocal {
-    var arrCells: Observable<[ProfileModel]> { get set }
-}
-
-class ChangePasswordVM: NSObject, ChangePasswordProtocal {
+class ChangePasswordVM: NSObject {
     //MARK: - Variables
     
-    var arrCells: Observable<[ProfileModel]> = Observable([])
+    var arrCells = CurrentValueSubject<[ProfileModel], Never>([])
     
     override init() {
         /* Initial setup when view load */
@@ -38,6 +35,6 @@ class ChangePasswordVM: NSObject, ChangePasswordProtocal {
         arrTemp.append(ProfileModel(title: "old_password".localized, placeholder: "• • • • • •", key: "old_password"))
         arrTemp.append(ProfileModel(title: "new_password".localized, placeholder: "• • • • • •", key: "new_password"))
         arrTemp.append(ProfileModel(title: "confirm_password".localized, placeholder: "• • • • • •", key: "confirm_password"))
-        arrCells = Observable(arrTemp)
+        arrCells.send(arrTemp)
     }
 }

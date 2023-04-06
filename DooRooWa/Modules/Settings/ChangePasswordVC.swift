@@ -7,6 +7,7 @@
 
 import UIKit
 import ViewAnimator
+import Combine
 
 class ChangePasswordVC: UIViewController {
 
@@ -26,7 +27,8 @@ class ChangePasswordVC: UIViewController {
     private var userInfo: UserModel?
     private var arrCell = [ProfileModel]()
     private var changePasswordVM: ChangePasswordVM?
-    
+    private var cancellables = Set<AnyCancellable>()
+
     //MARK: - View Life Cycle
     
     override func viewDidLoad() {
@@ -96,11 +98,11 @@ class ChangePasswordVC: UIViewController {
     }
     
     fileprivate func bindViewModel() {
-        changePasswordVM?.arrCells.bind { [weak self] (cell) in
+        changePasswordVM?.arrCells.sink { [weak self] (cell) in
             self?.arrCell = cell
             self?.tblDataSource?.arrItems = self?.arrCell
             self?.tblChangePassword.reloadData(delegate: self?.tblDelegate)
-        }
+        }.store(in: &cancellables)
     }
 
     fileprivate func configureTableView() {

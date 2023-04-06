@@ -6,17 +6,15 @@
 //
 
 import Foundation
+import Combine
 
-protocol QuestionsProtocol {
-    var currentQuestion: Observable<QuestionModel?> { get set }
-    var arrQuestions: Observable<[QuestionModel]> { get set }
-}
-class QuestionsViewVM: NSObject, QuestionsProtocol {
+class QuestionsViewVM: NSObject {
     //MARK: - Variables
      
-    var currentQuestion: Observable<QuestionModel?> = Observable(nil)
-    var arrQuestions: Observable<[QuestionModel]> = Observable([])
-    var currentIndex = 0
+    var currentQuestion = CurrentValueSubject<QuestionModel?, Never>(nil)
+    var arrQuestions = CurrentValueSubject<[QuestionModel], Never>([])
+    
+    private var currentIndex = 0
     
     override init() {
         /* Initial setup when view load */
@@ -41,9 +39,9 @@ class QuestionsViewVM: NSObject, QuestionsProtocol {
             let obj = QuestionModel(id: indx, question: "", description: "")
             arrTemp.append(obj)
         }
-        arrQuestions = Observable(arrTemp)
+        arrQuestions.send(arrTemp)
         if arrQuestions.value.count > 0 {
-            currentQuestion = Observable(arrQuestions.value.first)
+            currentQuestion.send(arrQuestions.value.first)
         }
     }
     
@@ -51,7 +49,7 @@ class QuestionsViewVM: NSObject, QuestionsProtocol {
         if currentIndex + 1
             > arrQuestions.value.count {
             currentIndex += 1
-            currentQuestion = Observable(arrQuestions.value[currentIndex])
+            currentQuestion.send(arrQuestions.value[currentIndex])
         } else {
             print("Finish")
         }
@@ -61,7 +59,7 @@ class QuestionsViewVM: NSObject, QuestionsProtocol {
         if currentIndex - 1
             >= 0 {
             currentIndex -= 1
-            currentQuestion = Observable(arrQuestions.value[currentIndex])
+            currentQuestion.send(arrQuestions.value[currentIndex])
         } else {
             print("Start")
         }

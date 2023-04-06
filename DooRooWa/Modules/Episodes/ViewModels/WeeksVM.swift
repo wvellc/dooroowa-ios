@@ -6,16 +6,13 @@
 //
 
 import Foundation
+import Combine
 
-protocol WeeksProtocol {
-    var arrWeeks: Observable<[WeekModel]> { get set }
-}
-
-final class WeeksVM: NSObject, WeeksProtocol {
+final class WeeksVM: NSObject {
 
     //MARK: - Variables
     
-    var arrWeeks: Observable<[WeekModel]> = Observable([])
+    var arrWeeks = CurrentValueSubject<[WeekModel], Never>([])
     
     override init() {
         super.init()
@@ -40,6 +37,6 @@ final class WeeksVM: NSObject, WeeksProtocol {
             let week = WeekModel(id: indx, week: "\("week".localized) \(indx)")
             arrTempWeeks.append(week)
         }
-        arrWeeks = Observable(arrTempWeeks)
+        arrWeeks.send(arrTempWeeks)
     }
 }

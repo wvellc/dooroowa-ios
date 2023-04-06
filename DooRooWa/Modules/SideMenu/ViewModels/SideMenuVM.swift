@@ -6,14 +6,13 @@
 //
 
 import Foundation
+import Combine
 
-protocol SideMenuProtocol {
-    var arrMenu: Observable<[String]> { get set }
-}
-class SideMenuVM: NSObject, SideMenuProtocol {
+
+class SideMenuVM: NSObject {
     
     //MARK: - Variables
-    var arrMenu: Observable<[String]> = Observable([])
+    var arrMenu = CurrentValueSubject<[String], Never>([])
     
     override init() {
         super.init()
@@ -29,7 +28,7 @@ class SideMenuVM: NSObject, SideMenuProtocol {
     
     /// Initial settings when view loads
     fileprivate func doInitialSettings() {
-        arrMenu = Observable(["home", "episodes", "tools", "tests", "profile", "settings"])
+        arrMenu.send(["home", "episodes", "tools", "tests", "profile", "settings"])
     }
     
     func removeLast() {
